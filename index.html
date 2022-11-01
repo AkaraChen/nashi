@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            color: teal;
+        }
+
+        .foo {
+            background-color: aliceblue;
+        }
+
+        .bar {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <script type="module">
+        import { core } from './src/core.js'
+        core('p')
+            .class.add('test', 'foo')
+            .class.add('bar')
+            .text('hello')
+    </script>
+</body>
+
+</html>
