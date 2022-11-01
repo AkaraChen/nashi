@@ -1,0 +1,38 @@
+{
+    "name": "package-starter",
+    "version": "0.0.0",
+    "description": "",
+    "main": "./dist/esm.js",
+    "scripts": {
+        "prepare": "husky install",
+        "build": "node build.cjs",
+        "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
+        "test": "vitest run",
+        "prepublish": "npm run build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "5.42.0",
+        "@typescript-eslint/parser": "5.42.0",
+        "esbuild": "0.15.12",
+        "esbuild-plugin-d.ts": "1.1.0",
+        "eslint": "8.26.0",
+        "eslint-config-prettier": "8.5.0",
+        "eslint-plugin-prettier": "4.2.1",
+        "husky": "8.0.1",
+        "prettier": "2.7.1",
+        "rimraf": "3.0.2",
+        "typescript": "4.8.4",
+        "vitest": "0.24.4"
+    },
+    "exports": {
+        "import": "./dist/index.js",
+        "require": "./dist/cjs.js"
+    },
+    "types": "./dist/index.d.ts",
+    "files": [
+        "./dist"
+    ]
+}
