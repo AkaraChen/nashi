@@ -22,23 +22,11 @@
 </head>
 
 <body>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <p>test</p>
+    <p>hello</p>
     <script type="module">
-        import { core } from './src/core.js'
-        core('p')
-            .class.add('test', 'foo')
-            .class.add('bar')
-            .text('hello')
+        import nashi from './src/index.js'
+        console.log(nashi('p')[1].text())
     </script>
 </body>
 

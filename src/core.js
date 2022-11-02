@@ -1,61 +1,81 @@
+import { warn } from './log';
+
 export class QueryResult {
-    constructor(args) {
+    #setNode = function (args) {
+        this.node = [];
+        if (typeof args === 'undefined') {
+            warn('Invalid args');
+            return;
+        }
         if (typeof args === 'string') {
             this.node = Array.from(document.querySelectorAll(args));
             return;
         }
-        if (Array.isArray(args)) {
-            this.node = this.node;
+        // 判断是数组或者类数组（HTMLCollection 之流）
+        if (args[Symbol.iterator]) {
+            for (const item of args) {
+                if (item instanceof Node) {
+                    this.node.push(item);
+                }
+            }
             return;
         }
-        this.node = args;
+        if (args instanceof Node) {
+            this.node.push(args);
+            return;
+        }
+        warn('Invalid args');
+    };
+    #iterator = function () {
+        let index = 0;
+        return {
+            next: {
+                value: index++,
+                done: index > this.node.length,
+            },
+        };
+    };
+    constructor(args) {
+        this.#setNode(args);
+        this[Symbol.iterator] = this.#iterator;
     }
 }
 
-export const extend = (key, obj) => {
-    QueryResult.prototype[key] = obj;
+QueryResult.prototype.get = {};
+
+export const extend = (key, handler, get) => {
+    QueryResult.prototype[key] = handler;
+    if (get) QueryResult.prototype.get[key] = get;
 };
 
-extend('text', function text(string) {
-    this.innerText = string;
-});
-
-extend('class', {
-    add(...className) {
-        className.forEach((item) => {
-            this.classList.add(item);
-        });
-    },
-});
-
-export const core = (selector) => {
-    const queryResult = new QueryResult(selector);
-    return new Proxy(queryResult, {
+const proxy = (queryResult) =>
+    new Proxy(queryResult, {
         get: (target, prop, receiver) => {
+            // 最外层的 Proxy 对象，用于实现链式编程
             const globalReceiver = receiver;
-            if (typeof target[prop] === 'function') {
-                return (...argument) => {
-                    target.node.forEach((item) =>
-                        target[prop].apply(item, argument)
-                    );
-                    return globalReceiver;
-                };
+            if (!Number.isNaN(Number(prop))) {
+                return proxy(new QueryResult(queryResult.node[prop]));
             }
-            if (typeof target[prop] === 'object') {
+            if (typeof target[prop] === 'function') {
                 return new Proxy(target[prop], {
-                    get: (target, prop) => {
-                        if (typeof target[prop] === 'function') {
-                            return (...argument) => {
-                                queryResult.node.forEach((item) =>
-                                    target[prop].apply(item, argument)
-                                );
-                                return globalReceiver;
-                            };
+                    apply: (target, _thisArg, argumentsList) => {
+                        if (argumentsList.length === 0) {
+                            return queryResult.get[prop].apply(
+                                queryResult.node[0]
+                            );
                         }
+                        queryResult.node.forEach((item) => {
+                            target.call(item, argumentsList);
+                        });
+                        return globalReceiver;
                     },
                 });
             }
             return Reflect.get(target, prop);
         },
     });
+
+export const core = (selector) => {
+    const queryResult = new QueryResult(selector);
+    return proxy(queryResult);
 };

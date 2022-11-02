@@ -8,7 +8,8 @@
         "build": "node build.cjs",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
         "test": "vitest run",
-        "prepublish": "npm run build"
+        "prepublish": "npm run build",
+        "dev": "vite"
     },
     "keywords": [],
     "author": "",
@@ -25,6 +26,7 @@
         "prettier": "2.7.1",
         "rimraf": "3.0.2",
         "typescript": "4.8.4",
+        "vite": "^3.2.2",
         "vitest": "0.24.5"
     },
     "exports": {

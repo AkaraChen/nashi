@@ -1,32 +1,24 @@
-# package-starter
+# 🍐 Nashi
 
-Opinionated TypeScript + esbuild Starter Template
+<pre align="center">🚧 Work in progress</pre>
 
-## Features
+The modern jQuery alternative.
 
-Fast by default, easy to use, batteries included.
+## Motivation
 
-1. ESM/CJS bundler.
-2. pnpm, esbuild, born with fastness.
-3. unit test with Vitest.
-4. TypeScript of course.
+Write this:
 
-## Use
-
-### build
-
-```shell
-pnpm run build
+```ts
+nashi('p').text('hello').addClass('foo').toggleClass('bar');
 ```
 
-### lint
+Not that:
 
-```shell
-pnpm run lint
-```
-
-### test
-
-```shell
-pnpm test
+```ts
+const p = document.getElementByTagName('p');
+for (const item of p) {
+    p.innerText = 'hello';
+    p.classList.add('foo');
+    p.classList.toggle('bar');
+}
 ```
