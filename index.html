@@ -6,28 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .test {
-            color: teal;
-        }
-
-        .foo {
-            background-color: aliceblue;
-        }
-
-        .bar {
-            font-size: 20px;
-        }
-    </style>
 </head>
 
 <body>
-    <p>test</p>
-    <p>hello</p>
     <script type="module">
         import nashi from './src/index.js'
-        import { QueryResult } from './src/core.js'
-        nashi('p').text('114514').class('foo bar test')
+        const element = document.createElement('div');
+        element.style.width = '300px';
+        element.style.height = '300px';
+        element.style.boxSizing = 'border-box';
+        document.body.appendChild(element);
+        const ndiv = nashi(element);
+        console.log(ndiv.width())
+        console.log(ndiv.height())
     </script>
 </body>
 

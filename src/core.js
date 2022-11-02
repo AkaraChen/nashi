@@ -1,4 +1,4 @@
-import { warn } from './log';
+import { warn } from './util';
 
 export class QueryResult {
     node = [];

@@ -29,3 +29,33 @@ extend('removeClass', {
         this.classList.remove(className);
     },
 });
+
+extend('hasClass', {
+    get: function (className) {
+        return this.classList.contains(className);
+    },
+});
+
+extend('toggleClass', {
+    set: function (className) {
+        this.classList.toggle(className);
+    },
+});
+
+extend('prop', {
+    get(key) {
+        return this.getAttribute(key);
+    },
+    set(key, value) {
+        this.setAttribute(key, value);
+    },
+});
+
+extend('html', {
+    get() {
+        return this.innerHTML;
+    },
+    set(html) {
+        this.innerHTML = html;
+    },
+});
