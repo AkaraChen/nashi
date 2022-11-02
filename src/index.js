@@ -1,5 +1,4 @@
-import { core as nashi } from './core.js';
-import './class';
+import { core } from './core';
 import './attr';
 
-export default nashi;
+export default core;

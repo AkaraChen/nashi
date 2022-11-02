@@ -26,7 +26,8 @@
     <p>hello</p>
     <script type="module">
         import nashi from './src/index.js'
-        console.log(nashi('p')[1].text())
+        import { QueryResult } from './src/core.js'
+        nashi('p').text('114514').class('foo bar test')
     </script>
 </body>
 
