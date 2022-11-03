@@ -18,6 +18,15 @@ extend('class', {
     },
 });
 
+extend('id', {
+    get: function get() {
+        return this.id;
+    },
+    set: function set(id) {
+        this.id = id;
+    },
+});
+
 extend('addClass', {
     set: function set(className) {
         this.classList.add(className);

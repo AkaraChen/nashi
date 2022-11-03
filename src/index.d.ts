@@ -10,6 +10,8 @@ type QueryResult = {
     text(string: string): QueryResult;
     class(): string;
     class(className: string): QueryResult;
+    id(): string;
+    id(id: string): QueryResult;
     addClass(className: string): QueryResult;
     removeClass(className: string): QueryResult;
     toggleClass(className: string): QueryResult;

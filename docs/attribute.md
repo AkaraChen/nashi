@@ -26,6 +26,17 @@ class(className: string): QueryResult;
 
 Get or set element's `className`.
 
+## id()
+
+```ts
+// Getter
+id(): string;
+// Setter
+id(id: string): QueryResult;
+```
+
+Get or set element's `id`.
+
 ## addClass()
 
 ```ts

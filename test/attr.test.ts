@@ -21,4 +21,7 @@ test('attr', () => {
     expect(np.html()).toBe('noop');
     np.toggleClass('noop');
     expect(np.hasClass('noop')).toBe(false);
+    expect(np.id()).toBe('');
+    np.id('test');
+    expect(p.id).toBe('test');
 });
