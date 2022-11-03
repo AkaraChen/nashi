@@ -1,5 +1,5 @@
 {
-    "name": "package-starter",
+    "name": "@akrc/nashi",
     "version": "0.0.0",
     "description": "",
     "main": "./dist/esm.js",
@@ -33,9 +33,9 @@
         "vitest": "0.24.5"
     },
     "exports": {
-        "import": "./src/index.js"
+        "import": "./dist/index.js"
     },
-    "types": "./src/index.d.ts",
+    "types": "./dist/index.d.ts",
     "files": [
         "./dist"
     ]

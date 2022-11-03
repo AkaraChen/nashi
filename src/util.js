@@ -1,6 +1,4 @@
-export function warn(log) {
-    console.warn(log);
-}
+import { extend } from './core';
 
 export function formatCSSKey(key) {
     let indexs = [];
@@ -15,4 +13,15 @@ export function formatCSSKey(key) {
         arr[index + 1] = arr[index + 1].toUpperCase();
     });
     return arr.join('').replaceAll(' ', '');
+}
+
+export function event(event) {
+    extend(event, {
+        get: function get() {
+            this.dispatchEvent(event);
+        },
+        set: function set(handler) {
+            this.addEventListener(event, handler);
+        },
+    });
 }

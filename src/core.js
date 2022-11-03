@@ -1,11 +1,9 @@
-import { warn } from './util';
-
 export class QueryResult {
     node = [];
     constructor(args) {
         // 添加 Node
         if (typeof args === 'undefined') {
-            warn('Undefined args');
+            console.warn('Undefined args');
             return;
         }
         if (typeof args === 'string') {
@@ -28,7 +26,7 @@ export class QueryResult {
             return;
         }
 
-        warn('Invalid args');
+        consoel('Invalid args');
     }
 }
 
@@ -59,7 +57,7 @@ export const extend = (key, { get, set }) => {
     QueryResult.prototype.info[key] = info;
 };
 
-const proxy = (queryResult) =>
+export const proxy = (queryResult) =>
     new Proxy(queryResult, {
         get: (target, prop, receiver) => {
             const globalReceiver = receiver;
@@ -73,17 +71,13 @@ const proxy = (queryResult) =>
             }
 
             // 处理用数字索引访问代理的情况
-
-            if (Number.isInteger(Number(prop))) {
+            if (typeof prop !== 'symbol' && Number.isInteger(Number(prop))) {
                 // 数组越界处理
-
                 if (prop >= target.node.length) {
-                    warn('Array index out of bounds');
+                    console('Array index out of bounds');
                     return;
                 }
-
                 // 返回一个包含数字索引对应元素的新代理
-
                 return proxy(new QueryResult(queryResult.node[prop]));
             }
 
@@ -115,7 +109,7 @@ const proxy = (queryResult) =>
             if (Reflect.has(queryResult, prop)) {
                 return Reflect.get(queryResult, prop);
             } else {
-                warn('Unknown props');
+                console.warn('Unknown props');
                 return;
             }
         },
