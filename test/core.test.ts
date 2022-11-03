@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import nashi from '../src/index.js';
+import nashi from '../dist/index.js';
 
 test('core', () => {
     document.body.innerHTML = '<p></p>'.repeat(5);
