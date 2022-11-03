@@ -1,0 +1,18 @@
+:root {
+    --vp-font-family-mono: Jetbrains Mono,
+        Fira Code,
+        ui-monospace,
+        SFMono-Regular,
+        'SF Mono',
+        Menlo,
+        Monaco,
+        Consolas,
+        'Liberation Mono',
+        'Courier New',
+        monospace
+}
+
+.vp-doc th {
+    text-align: unset;
+    font-weight: unset;
+}

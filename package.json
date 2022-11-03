@@ -9,7 +9,10 @@
         "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
         "test": "vitest run",
         "prepublish": "npm run build",
-        "dev": "vite"
+        "dev": "vite",
+        "docs:dev": "vitepress dev docs",
+        "docs:build": "vitepress build docs",
+        "docs:serve": "vitepress serve docs"
     },
     "keywords": [],
     "author": "",
@@ -30,11 +33,20 @@
         "rollup-plugin-esbuild": "^4.10.1",
         "typescript": "4.8.4",
         "vite": "^3.2.2",
-        "vitest": "0.24.5"
+        "vitepress": "1.0.0-alpha.26",
+        "vitest": "0.24.5",
+        "vue": "^3.2.41"
     },
     "exports": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
         "./dist"
-    ]
+    ],
+    "pnpm": {
+        "peerDependencyRules": {
+            "ignoreMissing": [
+                "@algolia/client-search"
+            ]
+        }
+    }
 }
