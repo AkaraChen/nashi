@@ -15,6 +15,7 @@ export default defineConfig({
                     { text: 'Style', link: '/style' },
                     { text: 'Element', link: '/element' },
                     { text: 'Event', link: '/event' },
+                    { text: 'Util', link: '/util' },
                     { text: 'Type definition', link: '/type' },
                 ],
             },

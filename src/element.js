@@ -1,4 +1,4 @@
-import { extend, proxy, QueryResult } from './core';
+import { extend, proxy, QueryResult, util } from './core';
 
 extend('parent', {
     get: function get() {
@@ -40,4 +40,30 @@ extend('hasChild', {
     get: function get() {
         return this.hasChildNodes();
     },
+});
+
+extend('insertBefore', {
+    set: function set(queryResult) {
+        queryResult.node.forEach((node) => {
+            this.parentNode.insertBefore(node, this);
+        });
+    },
+});
+
+extend('insertAfter', {
+    set: function set(queryResult) {
+        queryResult.node.reverse().forEach((node) => {
+            this.parentNode.insertBefore(node, this.nextSibling);
+        });
+    },
+});
+
+extend('remove', {
+    set: function set() {
+        this.remove();
+    },
+});
+
+util(function create(tag) {
+    return proxy(new QueryResult(document.createElement(tag)));
 });

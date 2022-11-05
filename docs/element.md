@@ -31,7 +31,7 @@ firstChild(): QueryResult;
 firstChild(queryResult: QueryResult): QueryResult;
 ```
 
-Get the first child of the element, or insert an element to the element.
+Get the first child of the element, or insert an element before the element's first child.
 
 ## lastChild()
 
@@ -42,7 +42,7 @@ lastChild(): QueryResult;
 lastChild(queryResult: QueryResult): QueryResult;
 ```
 
-Get the last child of the element, or append an element to the element.
+Get the last child of the element, or append an element to the element's last child.
 
 ## hasChild()
 
@@ -52,3 +52,30 @@ hasChild(): boolean;
 ```
 
 Return if element has child.
+
+## insertBefore()
+
+```ts
+// Setter
+insertBefore(queryResult: QueryResult): QueryResult;
+```
+
+Insert a element before the element.
+
+## insertAfter()
+
+```ts
+// Setter
+insertAfter(queryResult: QueryResult): QueryResult;
+```
+
+Insert a element after the element.
+
+## remove()
+
+```ts
+// Setter
+remove(): QueryResult;
+```
+
+Remove element.

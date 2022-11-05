@@ -9,16 +9,11 @@
 </head>
 
 <body>
+    <div>1</div>
+    <div>2</div>
     <script type="module">
         import nashi from './src/index.js'
-        const element = document.createElement('div');
-        element.style.width = '300px';
-        element.style.height = '300px';
-        element.style.boxSizing = 'border-box';
-        document.body.appendChild(element);
-        const ndiv = nashi(element);
-        console.log(ndiv.width())
-        console.log(ndiv.height())
+        nashi.create('p').text('hello')
     </script>
 </body>
 

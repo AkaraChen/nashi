@@ -4,7 +4,7 @@ title: Core
 
 # Core
 
-Nashi have a powerful `QueryResult` object, all APIs provided by `nashi` are on the QueryResult's prototype.
+Nashi have a powerful `QueryResult` object, most APIs provided by `nashi` are on the QueryResult's prototype.
 
 ## Get QueryResult
 
@@ -31,7 +31,7 @@ nashi(notice);
 
 ## Getter and Setter
 
-All APIs provided by nashi can be divided into two categories: Getter and Setter.
+Most APIs provided by nashi can be divided into two categories: Getter and Setter.
 
 For example:
 
@@ -81,4 +81,15 @@ nashi('p')[1].text('Nashi');
 /* Before        After
 <p>Hello</p>     <p>Hello</p>
 <p>World<p>      <p>Nashi<p> */
+```
+
+## Utils
+
+There are some API not a part of a Getter or Setter, they are called util. You can call it by using `nashi.{name}`.
+
+Such as:
+
+```ts
+nashi.create('p');
+// Create a paragraph element, and return as QueryResult.
 ```

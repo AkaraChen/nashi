@@ -1,6 +1,9 @@
 type Input = Node | HTMLCollection | Array<Node> | String;
 
-declare function core(params: Input): QueryResult;
+type Core = {
+    (param: Input): QueryResult;
+    create(tag: string): QueryResult;
+};
 
 type QueryResult = {
     node: HTMLElement[];
@@ -84,6 +87,11 @@ type QueryResult = {
     lastChild(): QueryResult;
     lastChild(queryResult: QueryResult): QueryResult;
     hasChild(): boolean;
+    insertBefore(queryResult: QueryResult): QueryResult;
+    insertAfter(queryResult: QueryResult): QueryResult;
+    remove(): QueryResult;
 };
+
+declare const core: Core;
 
 export default core;

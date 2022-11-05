@@ -16,4 +16,17 @@ test('element', () => {
     expect(ndiv.firstChild().toString()).toBe(nspan.toString());
     expect(div.firstChild).toBe(span);
     expect(div.lastChild).toBe(p);
+    document.body.innerHTML = '<div>1</div><div>2</div>';
+    const div2 = nashi('div')[1];
+    const para = document.createElement('p');
+    para.appendChild(document.createTextNode('para'));
+    const para2 = document.createElement('p');
+    para2.appendChild(document.createTextNode('para2'));
+    div2.insertAfter(nashi([para, para2]));
+    expect(nashi('body').child()[2].node[0]).toBe(para);
+    expect(nashi('body').child()[3].node[0]).toBe(para2);
+    const div3 = nashi('div')[0];
+    div3.insertBefore(nashi([para, para2]));
+    expect(nashi('body').child()[0].node[0]).toBe(para);
+    expect(nashi('body').child()[1].node[0]).toBe(para2);
 });

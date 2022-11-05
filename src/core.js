@@ -26,7 +26,7 @@ export class QueryResult {
             return;
         }
 
-        consoel('Invalid args');
+        console.warn('Invalid args');
     }
 }
 
@@ -57,6 +57,11 @@ export const extend = (key, { get, set }) => {
     QueryResult.prototype.info[key] = info;
 };
 
+export const util = (func) => {
+    const name = func.name;
+    core[name] = func;
+};
+
 export const proxy = (queryResult) =>
     new Proxy(queryResult, {
         get: (target, prop, receiver) => {
@@ -74,7 +79,7 @@ export const proxy = (queryResult) =>
             if (typeof prop !== 'symbol' && Number.isInteger(Number(prop))) {
                 // 数组越界处理
                 if (prop >= target.node.length) {
-                    console('Array index out of bounds');
+                    console.warn('Array index out of bounds');
                     return;
                 }
                 // 返回一个包含数字索引对应元素的新代理
