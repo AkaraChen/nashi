@@ -18,7 +18,7 @@ export function formatCSSKey(key) {
 export function event(event) {
     extend(event, {
         get: function get() {
-            this.dispatchEvent(event);
+            this.dispatchEvent(new Event(event));
         },
         set: function set(handler) {
             this.addEventListener(event, handler);

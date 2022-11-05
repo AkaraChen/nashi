@@ -40,7 +40,7 @@ QueryResult.prototype[Symbol.iterator] = function* () {
     let keys = this.node;
     for (let i = 0; i < keys.length; i++) {
         let key = keys[i];
-        yield new QueryResult(key);
+        yield proxy(key);
     }
 };
 
@@ -62,8 +62,9 @@ export const util = (func) => {
     core[name] = func;
 };
 
-export const proxy = (queryResult) =>
-    new Proxy(queryResult, {
+export const proxy = (arg) => {
+    const queryResult = new QueryResult(arg);
+    return new Proxy(queryResult, {
         get: (target, prop, receiver) => {
             const globalReceiver = receiver;
 
@@ -83,7 +84,7 @@ export const proxy = (queryResult) =>
                     return;
                 }
                 // 返回一个包含数字索引对应元素的新代理
-                return proxy(new QueryResult(queryResult.node[prop]));
+                return proxy(queryResult.node[prop]);
             }
 
             // 重写函数
@@ -119,11 +120,7 @@ export const proxy = (queryResult) =>
             }
         },
     });
+};
 
-export function core(selector) {
-    // 创建代理
-    const queryResult = new QueryResult(selector);
-    return proxy(queryResult);
-}
-
+export const core = (selector) => proxy(selector);
 export default core;

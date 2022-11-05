@@ -9,16 +9,14 @@ extend('parent', {
 extend('child', {
     get: function get() {
         const arr = Array.from(this.childNodes);
-        const queryResult = new QueryResult(arr);
-        return proxy(queryResult);
+        return proxy(arr);
     },
 });
 
 extend('firstChild', {
     get: function get() {
         const element = this.firstChild;
-        const queryResult = new QueryResult(element);
-        return proxy(queryResult);
+        return proxy(element);
     },
     set: function set(queryResult) {
         this.insertBefore(queryResult.node[0], this.childNodes[0]);
@@ -28,8 +26,7 @@ extend('firstChild', {
 extend('lastChild', {
     get: function get() {
         const element = this.lastChild;
-        const queryResult = new QueryResult(element);
-        return proxy(queryResult);
+        return proxy(element);
     },
     set: function set(queryResult) {
         this.appendChild(queryResult.node[0]);
@@ -65,5 +62,5 @@ extend('remove', {
 });
 
 util(function create(tag) {
-    return proxy(new QueryResult(document.createElement(tag)));
+    return proxy(document.createElement(tag));
 });

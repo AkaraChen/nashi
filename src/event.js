@@ -9,6 +9,9 @@ extend('event', {
 
 extend('trigger', {
     set: function set(event) {
+        if (typeof event === 'string') {
+            event = new Event(event);
+        }
         this.dispatchEvent(event);
     },
 });
