@@ -3,6 +3,7 @@ type Input = Node | HTMLCollection | Array<Node> | String;
 type Core = {
     (param: Input): QueryResult;
     create(tag: string): QueryResult;
+    fromHTML(html: string): QueryResult;
 };
 
 type QueryResult = {

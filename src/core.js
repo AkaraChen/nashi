@@ -57,9 +57,8 @@ export const extend = (key, { get, set }) => {
     QueryResult.prototype.info[key] = info;
 };
 
-export const util = (func) => {
-    const name = func.name;
-    core[name] = func;
+export const util = (key, func) => {
+    core[key] = func;
 };
 
 export const proxy = (arg) => {

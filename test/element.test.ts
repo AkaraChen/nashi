@@ -29,4 +29,8 @@ test('element', () => {
     div3.insertBefore(nashi([para, para2]));
     expect(nashi('body').child()[0].node[0]).toBe(para);
     expect(nashi('body').child()[1].node[0]).toBe(para2);
+    nashi.create('p');
+    expect(
+        nashi.fromHTML(`<div>1</div>`).node[0].toString().includes('div')
+    ).toBeTruthy();
 });

@@ -61,6 +61,11 @@ extend('remove', {
     },
 });
 
-util(function create(tag) {
+util('create', function (tag) {
     return proxy(document.createElement(tag));
+});
+
+util('fromHTML', function (html) {
+    const document = new DOMParser().parseFromString(html, 'text/html');
+    return proxy(document.body.childNodes);
 });
