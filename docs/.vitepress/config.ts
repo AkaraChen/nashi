@@ -4,7 +4,7 @@ export default defineConfig({
     title: 'Nashi',
     description: '🍐 The modern jQuery alternative.',
     themeConfig: {
-        nav: [{ text: 'Github', link: 'https://github.com/akarachen/ringo' }],
+        nav: [{ text: 'Github', link: 'https://github.com/akarachen/nashi' }],
         sidebar: [
             {
                 text: 'Index',
