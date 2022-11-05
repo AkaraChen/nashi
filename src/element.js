@@ -39,7 +39,7 @@ extend('hasChild', {
     },
 });
 
-extend('insertBefore', {
+extend('before', {
     set: function set(queryResult) {
         queryResult.node.forEach((node) => {
             this.parentNode.insertBefore(node, this);
@@ -47,7 +47,7 @@ extend('insertBefore', {
     },
 });
 
-extend('insertAfter', {
+extend('after', {
     set: function set(queryResult) {
         queryResult.node.reverse().forEach((node) => {
             this.parentNode.insertBefore(node, this.nextSibling);

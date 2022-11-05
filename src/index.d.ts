@@ -88,8 +88,8 @@ type QueryResult = {
     lastChild(): QueryResult;
     lastChild(queryResult: QueryResult): QueryResult;
     hasChild(): boolean;
-    insertBefore(queryResult: QueryResult): QueryResult;
-    insertAfter(queryResult: QueryResult): QueryResult;
+    before(queryResult: QueryResult): QueryResult;
+    after(queryResult: QueryResult): QueryResult;
     remove(): QueryResult;
 };
 

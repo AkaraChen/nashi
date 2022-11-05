@@ -53,20 +53,20 @@ hasChild(): boolean;
 
 Return if element has child.
 
-## insertBefore()
+## before()
 
 ```ts
 // Setter
-insertBefore(queryResult: QueryResult): QueryResult;
+before(queryResult: QueryResult): QueryResult;
 ```
 
 Insert a element before the element.
 
-## insertAfter()
+## after()
 
 ```ts
 // Setter
-insertAfter(queryResult: QueryResult): QueryResult;
+after(queryResult: QueryResult): QueryResult;
 ```
 
 Insert a element after the element.

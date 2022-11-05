@@ -22,11 +22,11 @@ test('element', () => {
     para.appendChild(document.createTextNode('para'));
     const para2 = document.createElement('p');
     para2.appendChild(document.createTextNode('para2'));
-    div2.insertAfter(nashi([para, para2]));
+    div2.after(nashi([para, para2]));
     expect(nashi('body').child()[2].node[0]).toBe(para);
     expect(nashi('body').child()[3].node[0]).toBe(para2);
     const div3 = nashi('div')[0];
-    div3.insertBefore(nashi([para, para2]));
+    div3.before(nashi([para, para2]));
     expect(nashi('body').child()[0].node[0]).toBe(para);
     expect(nashi('body').child()[1].node[0]).toBe(para2);
     nashi.create('p');
