@@ -31,4 +31,17 @@ yarn add @akrc/nashi
 npm install @akrc/nashi
 ```
 
+```ts
+import nashi from '@akrc/nashi';
+
+const body = nashi('body');
+const p = nashi
+    .create('p')
+    .text('Hello, World')
+    .class('text-lg')
+    .id('greet')
+    .click(() => console.log('Hello'));
+body.firstChild(p);
+```
+
 And see [documention](https://nashi.akr.moe)
