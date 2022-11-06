@@ -34,3 +34,13 @@ test('element', () => {
         nashi.fromHTML(`<div>1</div>`).node[0].toString().includes('div')
     ).toBeTruthy();
 });
+
+test('sibling', () => {
+    document.body.innerHTML = '<p></p><div></div><span></span>';
+    const np = nashi('p');
+    const ndiv = nashi('div');
+    const nspan = nashi('span');
+    expect(np.next().node[0]).toBe(nspan.prev().node[0]);
+    expect(ndiv.siblings()[0].node[0]).toBe(np.node[0]);
+    expect(ndiv.siblings()[1].node[0]).toBe(nspan.node[0]);
+});

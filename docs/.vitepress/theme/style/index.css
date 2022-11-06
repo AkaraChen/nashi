@@ -11,4 +11,5 @@
 .vp-doc th {
     text-align: unset;
     font-weight: unset;
+    background-color: var(--vp-c-bg-soft) !important;
 }

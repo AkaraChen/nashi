@@ -79,3 +79,39 @@ remove(): QueryResult;
 ```
 
 Remove element.
+
+## index()
+
+```ts
+// Getter
+index(): number;
+```
+
+Get element's index of it's parentNode.
+
+## next()
+
+```ts
+// Getter
+next(): QueryResult
+```
+
+Get element's `nextSibling`.
+
+## prev()
+
+```ts
+// Getter
+prev(): QueryResult
+```
+
+Get element's previous sibling.
+
+## siblings()
+
+```ts
+// Getter
+siblings(): QueryResult
+```
+
+Get element's all siblings.

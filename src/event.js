@@ -1,4 +1,4 @@
-import { extend } from './core';
+import { extend, alias } from './core';
 import { event } from './util';
 
 extend('event', {
@@ -6,6 +6,8 @@ extend('event', {
         this.addEventListener(event, handler);
     },
 });
+
+alias('on', 'event');
 
 extend('trigger', {
     set: function set(event) {

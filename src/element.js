@@ -61,6 +61,35 @@ extend('remove', {
     },
 });
 
+extend('index', {
+    get: function get() {
+        const parent = Array.from(this.parentNode);
+        return parent.indexOf(this);
+    },
+});
+
+extend('next', {
+    get: function get() {
+        return proxy(this.nextSibling);
+    },
+});
+
+extend('prev', {
+    get: function get() {
+        return proxy(this.previousSibling);
+    },
+});
+
+extend('siblings', {
+    get: function get() {
+        return proxy(
+            Array.from(this.parentNode.childNodes).filter(
+                (item) => item != this
+            )
+        );
+    },
+});
+
 util('create', function (tag) {
     return proxy(document.createElement(tag));
 });

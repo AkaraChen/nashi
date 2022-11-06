@@ -26,7 +26,7 @@ Here are supported events:
 | mousemove | mouseout  | mouseover  | mouseup     |
 | resize    | scroll    | select     | submit      |
 
-Or you can call it using `event()`:
+Or you can call it using `event()` or `on()` (on is an alia of event):
 
 ```ts
 nashi('p').event('click', () => console.log('Nashi is great!'));

@@ -94,6 +94,10 @@ type QueryResult = {
     before(queryResult: QueryResult): QueryResult;
     after(queryResult: QueryResult): QueryResult;
     remove(): QueryResult;
+    index(): number;
+    next(): QueryResult;
+    prev(): QueryResult;
+    siblings(): QueryResult;
 };
 
 declare const core: Core;
