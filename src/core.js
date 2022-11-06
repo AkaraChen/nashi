@@ -61,6 +61,19 @@ export const util = (key, func) => {
     core[key] = func;
 };
 
+export const alias = (alias, name) => {
+    const info = { set: -1, get: -1 };
+    if (QueryResult.prototype.set[name]) {
+        QueryResult.prototype.set[alias] = QueryResult.prototype.set[name];
+        info.set = QueryResult.prototype.set[name].length;
+    }
+    if (QueryResult.prototype.get[name]) {
+        QueryResult.prototype.get[alias] = QueryResult.prototype.get[name];
+        info.get = QueryResult.prototype.get[name].length;
+    }
+    QueryResult.prototype.info[alias] = info;
+};
+
 export const proxy = (arg) => {
     const queryResult = new QueryResult(arg);
     return new Proxy(queryResult, {
@@ -73,6 +86,14 @@ export const proxy = (arg) => {
 
             if (prop.toString() === 'Symbol(Symbol.iterator)') {
                 return QueryResult.prototype[Symbol.iterator];
+            }
+
+            if (prop === 'forEach') {
+                return (handler) => {
+                    queryResult.node.forEach((item, index) => {
+                        handler(proxy(item), index, queryResult);
+                    });
+                };
             }
 
             // 处理用数字索引访问代理的情况

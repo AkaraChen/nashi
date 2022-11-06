@@ -13,4 +13,9 @@ test('core', () => {
     let count = 0;
     for (const _ of np) count++;
     expect(count).toBe(5);
+    count = 0;
+    np.forEach((item, index) => {
+        item.text(String(index));
+        expect(np[index].text()).toBe(String(index));
+    });
 });

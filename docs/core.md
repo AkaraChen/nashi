@@ -83,6 +83,16 @@ nashi('p')[1].text('Nashi');
 <p>World<p>      <p>Nashi<p> */
 ```
 
+```ts
+nashi('p').forEach((item, index) => {
+    item.text(index);
+});
+
+/* Before        After
+<p>Hello</p>     <p>0</p>
+<p>World<p>      <p>1<p> */
+```
+
 ## Utils
 
 There are some API not a part of a Getter or Setter, they are called util. You can call it by using `nashi.{name}`.

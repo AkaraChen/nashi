@@ -10,6 +10,9 @@ type QueryResult = {
     node: HTMLElement[];
     [Symbol.iterator](): IterableIterator<QueryResult>;
     [index: number]: QueryResult;
+    forEach(
+        handler: (item: QueryResult, index: number, array: QueryResult) => any
+    ): QueryResult;
     text(): string;
     text(string: string): QueryResult;
     class(): string;
