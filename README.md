@@ -1,7 +1,5 @@
 # 🍐 Nashi
 
-<pre align="center">🚧 Work in progress</pre>
-
 The modern jQuery alternative.
 
 ## Motivation
