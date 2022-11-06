@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap');
 
 :root {
     --vp-c-brand: #1890ff;
+    --vp-c-brand-dark: #177ddc;
     --vp-font-family-base: Inter;
     --vp-font-family-mono: Jetbrains Mono,
         Fira Code
