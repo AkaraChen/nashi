@@ -1,15 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=JetBrains+Mono&display=swap');
+
 :root {
+    --vp-font-family-base: Inter;
     --vp-font-family-mono: Jetbrains Mono,
-        Fira Code,
-        ui-monospace,
-        SFMono-Regular,
-        'SF Mono',
-        Menlo,
-        Monaco,
-        Consolas,
-        'Liberation Mono',
-        'Courier New',
-        monospace
+        Fira Code
 }
 
 .vp-doc th {
