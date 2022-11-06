@@ -4,6 +4,7 @@ type Core = {
     (param: Input): QueryResult;
     create(tag: string): QueryResult;
     fromHTML(html: string): QueryResult;
+    merge(...args: Array<QueryResult>): QueryResult;
 };
 
 type QueryResult = {

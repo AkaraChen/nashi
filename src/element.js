@@ -1,4 +1,4 @@
-import { extend, proxy, QueryResult, util } from './core';
+import { extend, proxy } from './core';
 
 extend('parent', {
     get: function get() {
@@ -88,13 +88,4 @@ extend('siblings', {
             )
         );
     },
-});
-
-util('create', function (tag) {
-    return proxy(document.createElement(tag));
-});
-
-util('fromHTML', function (html) {
-    const document = new DOMParser().parseFromString(html, 'text/html');
-    return proxy(document.body.childNodes);
 });

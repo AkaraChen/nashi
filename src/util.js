@@ -1,27 +1,18 @@
-import { extend } from './core';
+import { util, proxy } from './core';
 
-export function formatCSSKey(key) {
-    let indexs = [];
-    let position = key.indexOf('-');
-    while (position !== -1) {
-        indexs.push(position);
-        position = key.indexOf('-', position + 1);
+util('create', function (tag) {
+    return proxy(document.createElement(tag));
+});
+
+util('fromHTML', function (html) {
+    const document = new DOMParser().parseFromString(html, 'text/html');
+    return proxy(document.body.childNodes);
+});
+
+util('merge', function (...args) {
+    const nodes = [];
+    for (let arg of args) {
+        arg.node.forEach((item) => nodes.push(item));
     }
-    const arr = Array.from(key);
-    indexs.forEach((index) => {
-        arr[index] = ' ';
-        arr[index + 1] = arr[index + 1].toUpperCase();
-    });
-    return arr.join('').replaceAll(' ', '');
-}
-
-export function event(event) {
-    extend(event, {
-        get: function get() {
-            this.dispatchEvent(new Event(event));
-        },
-        set: function set(handler) {
-            this.addEventListener(event, handler);
-        },
-    });
-}
+    return proxy(nodes);
+});

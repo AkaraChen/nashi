@@ -1,5 +1,5 @@
 import { extend, alias } from './core';
-import { event } from './util';
+import { event } from './helper';
 
 extend('event', {
     set: function (event, handler) {

@@ -7,7 +7,7 @@
         "prepare": "husky install",
         "build": "rollup -c rollup.config.mjs",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
-        "test": "pnpm run build && vitest run",
+        "test": "vitest run",
         "prepublish": "npm run build",
         "dev": "vite",
         "docs:dev": "vitepress dev docs",

@@ -1,5 +1,5 @@
 import { extend } from './core';
-import { formatCSSKey } from './util';
+import { formatCSSKey } from './helper';
 
 extend('width', {
     get: function get() {
