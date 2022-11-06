@@ -25,4 +25,12 @@ nashi('body').firstChild(container);
 fromHTML(html: string): QueryResult;
 ```
 
-create a `QueryResult` from HTML string.
+Create a `QueryResult` from HTML string.
+
+## merge()
+
+```ts
+merge(...args: Array<QueryResult>): QueryResult;
+```
+
+Merge two `QueryResult`, return new `QueryResult`.
