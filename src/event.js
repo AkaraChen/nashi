@@ -24,11 +24,17 @@ extend('removeEvent', {
     },
 });
 
+extend('hover', {
+    set: function set(handler) {
+        this.addEventListener('mouseenter', handler);
+        this.addEventListener('mouseleave', handler);
+    },
+});
+
 event('blur');
 event('focus');
 event('focusin');
 event('focusout');
-event('hover');
 event('change');
 event('click');
 event('contextmenu');
