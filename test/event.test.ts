@@ -7,11 +7,17 @@ test('event', () => {
     p.click(() => count++);
     p.click();
     expect(count).toBe(1);
-    p.on('click', () => count++);
+    p.on('click', (event) => {
+        event?.target;
+        count++;
+    });
     p.click();
     expect(count).toBe(3);
     const handler = () => count++;
     p.event('click', handler);
+    p.click((event) => {
+        expect(event.target).toBe(p.node[0]);
+    });
     p.click();
     expect(count).toBe(6);
     p.removeEvent('click', handler);
