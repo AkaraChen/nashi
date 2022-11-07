@@ -11,6 +11,7 @@ type QueryResult = {
     node: HTMLElement[];
     [Symbol.iterator](): IterableIterator<QueryResult>;
     [index: number]: QueryResult;
+    length: number;
     forEach(
         handler: (item: QueryResult, index: number, array: QueryResult) => any
     ): QueryResult;

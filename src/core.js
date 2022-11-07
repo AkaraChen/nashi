@@ -96,6 +96,10 @@ export const proxy = (arg) => {
                 };
             }
 
+            if (prop === 'length') {
+                return queryResult.node.length;
+            }
+
             // 处理用数字索引访问代理的情况
             if (typeof prop !== 'symbol' && Number.isInteger(Number(prop))) {
                 // 数组越界处理
