@@ -14,9 +14,9 @@ test('attr', () => {
     np.removeClass('test');
     expect(p.className).toBe('');
     expect(np.class()).toBe('');
-    np.prop('class', 'noop');
+    np.attr('class', 'noop');
     expect(np.hasClass('noop')).toBe(true);
-    expect(np.prop('class')).toBe('noop');
+    expect(np.attr('class')).toBe('noop');
     expect(p.className).toBe('noop');
     expect(np.html()).toBe('noop');
     np.toggleClass('noop');

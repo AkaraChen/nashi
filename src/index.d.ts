@@ -1,13 +1,13 @@
-type Input = Node | HTMLCollection | Array<Node> | String;
+export type Input = Node | HTMLCollection | Array<Node> | String;
 
-type Core = {
+export type Core = {
     (param: Input): QueryResult;
     create(tag: string): QueryResult;
     fromHTML(html: string): QueryResult;
     merge(...args: Array<QueryResult>): QueryResult;
 };
 
-type QueryResult = {
+export type QueryResult = {
     node: HTMLElement[];
     [Symbol.iterator](): IterableIterator<QueryResult>;
     [index: number]: QueryResult;
@@ -27,6 +27,8 @@ type QueryResult = {
     hasClass(className: string): boolean;
     prop(key: string): string;
     prop(key: string, value: string): QueryResult;
+    attr(key: string): string;
+    attr(key: string, value: string): QueryResult;
     html(): string;
     html(html: string): QueryResult;
     width(): number;
@@ -102,6 +104,7 @@ type QueryResult = {
     next(): QueryResult;
     prev(): QueryResult;
     siblings(): QueryResult;
+    append(queryResult: QueryResult): QueryResult;
 };
 
 declare const core: Core;

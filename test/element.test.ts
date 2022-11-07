@@ -33,6 +33,10 @@ test('element', () => {
     expect(
         nashi.fromHTML(`<div>1</div>`).node[0].toString().includes('div')
     ).toBeTruthy();
+    const parentElement = nashi.create('div');
+    const childElement = nashi.create('p');
+    parentElement.append(childElement);
+    expect(parentElement.firstChild().node).toStrictEqual(childElement.node);
 });
 
 test('sibling', () => {

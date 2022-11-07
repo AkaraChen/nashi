@@ -33,6 +33,14 @@ extend('lastChild', {
     },
 });
 
+extend('append', {
+    set: function set(queryResult) {
+        queryResult.node.forEach((node) => {
+            this.appendChild(node);
+        });
+    },
+});
+
 extend('hasChild', {
     get: function get() {
         return this.hasChildNodes();
