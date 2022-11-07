@@ -73,6 +73,17 @@ toggleClass(className: string): QueryResult;
 
 If element have the className, remove it. Otherwise, add it.
 
+## attr()
+
+```ts
+// Getter
+attr(key: string): string;
+// Setter
+attr(key: string, value: string): QueryResult;
+```
+
+Get or set element's `attribute`.
+
 ## prop()
 
 ```ts
@@ -82,7 +93,7 @@ prop(key: string): string;
 prop(key: string, value: string): QueryResult;
 ```
 
-Get or set element's `prop`.
+Get or set element's `property`.
 
 ## html()
 
