@@ -38,3 +38,15 @@ Or you can trigger event by using `trigger()`:
 ```ts
 nashi('p').trigger('click');
 ```
+
+You can remove event listener by calling `removeEvent()`;
+
+```ts
+let count = 0;
+const handler = count++;
+const np = nashi('p');
+np.click(handler);
+np.click(); // count = 1
+np.removeEvent('click', handler);
+np.click(); // count = 1
+```

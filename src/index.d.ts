@@ -37,6 +37,8 @@ type QueryResult = {
     style(key: string): string;
     style(key: string, value: string): QueryResult;
     event(event: string, handler: () => any): QueryResult;
+    on(event: string, handler: () => any): QueryResult;
+    removeEvent(event: string, handler: () => any): QueryResult;
     blur(handler: () => any): QueryResult;
     focus(handler: () => any): QueryResult;
     focusin(handler: () => any): QueryResult;
