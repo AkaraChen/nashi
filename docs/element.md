@@ -115,3 +115,12 @@ siblings(): QueryResult
 ```
 
 Get element's all siblings.
+
+## append()
+
+```ts
+// Setter
+append(queryResult: QueryResult): QueryResult;
+```
+
+Append `QueryResult` to the element.
