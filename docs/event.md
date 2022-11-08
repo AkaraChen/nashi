@@ -25,6 +25,7 @@ Here are supported events:
 | keyup     | mousedown | mouseenter | mouseleave  |
 | mousemove | mouseout  | mouseover  | mouseup     |
 | resize    | scroll    | select     | submit      |
+| input     |
 
 Or you can call it using `event()` or `on()` (on is an alia of event):
 

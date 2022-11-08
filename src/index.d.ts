@@ -66,6 +66,7 @@ export type QueryResult = {
     scroll(handler: (event: Event) => any): QueryResult;
     select(handler: (event: Event) => any): QueryResult;
     submit(handler: (event: SubmitEvent) => any): QueryResult;
+    input(handler: (event: InputEvent) => any): QueryResult;
     focus(): void;
     focusin(): void;
     focusout(): void;
@@ -89,6 +90,7 @@ export type QueryResult = {
     scroll(): void;
     select(): void;
     submit(): void;
+    input(): void;
     parent(): QueryResult;
     child(): QueryResult;
     firstChild(): QueryResult;

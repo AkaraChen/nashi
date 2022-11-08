@@ -54,3 +54,4 @@ event('resize');
 event('scroll');
 event('select');
 event('submit');
+event('input');
