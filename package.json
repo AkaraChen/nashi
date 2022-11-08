@@ -31,7 +31,7 @@
         "prettier": "2.7.1",
         "rollup": "^3.2.5",
         "rollup-plugin-copy": "^3.4.0",
-        "rollup-plugin-esbuild": "^4.10.1",
+        "rollup-plugin-esbuild": "^5.0.0",
         "typescript": "4.8.4",
         "vite": "^3.2.2",
         "vitest": "0.25.1",
