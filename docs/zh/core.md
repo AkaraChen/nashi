@@ -6,7 +6,7 @@ title: 核心
 
 Nashi 有一个强大的 `QueryResult` 类, `nashi` 提供的大部分 API 都在它的原型上。
 
-## Get QueryResult
+## 获取 QueryResult
 
 `nashi(args)` 函数会返回一个 `QueryResult`, 它包含了选中的所有元素. 这个函数有三个重载：
 
