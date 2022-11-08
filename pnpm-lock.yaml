@@ -8,7 +8,7 @@ specifiers:
   eslint-config-prettier: 8.5.0
   eslint-plugin-prettier: 4.2.1
   happy-dom: ^7.6.6
-  husky: 8.0.1
+  husky: 8.0.2
   jsdom: ^20.0.2
   prettier: 2.7.1
   rollup: ^3.2.5
@@ -28,7 +28,7 @@ devDependencies:
   eslint-config-prettier: 8.5.0_eslint@8.27.0
   eslint-plugin-prettier: 4.2.1_v7o5sx5x3wbs57ifz6wc4f76we
   happy-dom: 7.6.6
-  husky: 8.0.1
+  husky: 8.0.2
   jsdom: 20.0.2
   prettier: 2.7.1
   rollup: 3.2.5
@@ -1597,8 +1597,8 @@ packages:
       - supports-color
     dev: true
 
-  /husky/8.0.1:
-    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+  /husky/8.0.2:
+    resolution: {integrity: sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
