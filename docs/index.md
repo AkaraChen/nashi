@@ -10,7 +10,7 @@ title: Introduction
 
 🪶 Lightweight: No dependency
 
-💪 TypeScript: Type is the best document
+💪 Type definition included: Type is the best document
 
 ⚙️ Modern: Use new JavaScript feature
 
