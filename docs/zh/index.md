@@ -1,20 +1,20 @@
 ---
-title: Introduction
+title: 简介
 ---
 
-# Introduction
+# 简介
 
-`Nashi`, The modern jQuery alternative.
+`Nashi`，现代的 jQuery 替代品。
 
-## Feature
+## 特性
 
-🪶 Lightweight: No dependency
+🪶 轻量: 没有依赖
 
-💪 TypeScript: Type is the best document
+💪 TypeScript: 类型是最好的文档
 
-⚙️ Modern: Use new JavaScript feature
+⚙️ 现代: 使用 javascript 的新特性
 
-## Install
+## 安装
 
 <CodeGroup>
   <CodeGroupItem title="PNPM">

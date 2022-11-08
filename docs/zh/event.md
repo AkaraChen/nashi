@@ -1,22 +1,22 @@
 ---
-title: Event
+title: 事件
 ---
 
-# Event
+# 事件
 
-You can set EventListner by calling `nashi('p').{eventName}`, just like:
+你可以使用 `nashi('p').{事件名}` 来设置监听事件，就像这样：
 
 ```ts
 nashi('p').click(() => console.log('Nashi is great!'));
 ```
 
-Or you can trigger element's event:
+或者你可以这样触发元素的事件：
 
 ```ts
 nashi('p').click(); // Nashi is great!
 ```
 
-Here are supported events:
+这是支持的所有事件：
 
 | blur      | focus     | focusin    | focusout    |
 | --------- | --------- | ---------- | ----------- |
@@ -26,20 +26,20 @@ Here are supported events:
 | mousemove | mouseout  | mouseover  | mouseup     |
 | resize    | scroll    | select     | submit      |
 
-Or you can call it using `event()` or `on()` (on is an alia of event):
+或者你可以调用 `event()` or `on()` (on 是 event 的别名):
 
 ```ts
 nashi('p').event('click', () => console.log('Nashi is great!'));
 nashi('p').event('click'); // Nashi is great!
 ```
 
-Or you can trigger event by using `trigger()`:
+或者你可以用 `trigger()` 来触发事件：
 
 ```ts
 nashi('p').trigger('click');
 ```
 
-You can remove event listener by calling `removeEvent()`;
+你可以使用 `removeEvent()` 来移除事件：
 
 ```ts
 let count = 0;

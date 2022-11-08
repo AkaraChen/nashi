@@ -1,8 +1,8 @@
 ---
-title: Util
+title: 工具
 ---
 
-# Util
+# 工具
 
 ## create()
 
@@ -10,9 +10,9 @@ title: Util
 create(tag: string): QueryResult;
 ```
 
-Create an element, return `QueryResult`.
+创建一个元素，返回 `QueryResult`.
 
-#### Example
+#### 示例
 
 ```ts
 const container = nashi.create('div').class('container');
@@ -25,7 +25,7 @@ nashi('body').firstChild(container);
 fromHTML(html: string): QueryResult;
 ```
 
-Create a `QueryResult` from HTML string.
+从 HTML 字符串创建 `QueryResult`。
 
 ## merge()
 
@@ -33,4 +33,4 @@ Create a `QueryResult` from HTML string.
 merge(...args: Array<QueryResult>): QueryResult;
 ```
 
-Merge any amount of `QueryResult`, return new `QueryResult`.
+合并任意数量的 `QueryResult`，返回新的 `QueryResult`。

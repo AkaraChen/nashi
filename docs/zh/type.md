@@ -1,8 +1,8 @@
 ---
-title: Type
+title: 类型
 ---
 
-# Type
+# 类型
 
 ```ts
 type Input = Node | HTMLCollection | Array<Node> | String;
