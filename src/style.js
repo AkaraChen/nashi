@@ -1,29 +1,10 @@
-import { extend } from './core';
+import { extend, get } from './core';
 import { formatCSSKey } from './helper';
 
-extend('width', {
-    get: function get() {
-        return this.offsetWidth;
-    },
-});
-
-extend('height', {
-    get: function get() {
-        return this.offsetHeight;
-    },
-});
-
-extend('innerWidth', {
-    get: function get() {
-        return this.clientWidth;
-    },
-});
-
-extend('innerHeight', {
-    get: function get() {
-        return this.clientHeight;
-    },
-});
+get('width', 'offsetWidth');
+get('height', 'offsetHeight');
+get('innerWidth', 'clientWidth');
+get('innerHeight', 'clientHeight');
 
 extend('css', {
     get: function get(key) {

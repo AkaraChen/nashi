@@ -2,7 +2,7 @@ import { extend, proxy } from './core';
 
 extend('parent', {
     get: function get() {
-        return this.parentNode;
+        return proxy(this.parentNode);
     },
 });
 

@@ -1,31 +1,9 @@
-import { extend } from './core';
+import { extend, bind } from './core';
 
-extend('text', {
-    get: function get() {
-        return this.innerText;
-    },
-    set: function set(string) {
-        this.innerText = string;
-    },
-});
-
-extend('class', {
-    get: function get() {
-        return this.className;
-    },
-    set: function set(className) {
-        this.className = className;
-    },
-});
-
-extend('id', {
-    get: function get() {
-        return this.id;
-    },
-    set: function set(id) {
-        this.id = id;
-    },
-});
+bind('text', 'innerText');
+bind('class', 'className');
+bind('id', 'id');
+bind('html', 'innerHTML');
 
 extend('addClass', {
     set: function set(className) {
@@ -66,14 +44,5 @@ extend('prop', {
     },
     set(key, value) {
         this[key] = value;
-    },
-});
-
-extend('html', {
-    get() {
-        return this.innerHTML;
-    },
-    set(html) {
-        this.innerHTML = html;
     },
 });

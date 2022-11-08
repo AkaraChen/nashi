@@ -62,16 +62,32 @@ export const util = (key, func) => {
 };
 
 export const alias = (alias, name) => {
-    const info = { set: -1, get: -1 };
     if (QueryResult.prototype.set[name]) {
         QueryResult.prototype.set[alias] = QueryResult.prototype.set[name];
-        info.set = QueryResult.prototype.set[name].length;
     }
     if (QueryResult.prototype.get[name]) {
         QueryResult.prototype.get[alias] = QueryResult.prototype.get[name];
-        info.get = QueryResult.prototype.get[name].length;
     }
-    QueryResult.prototype.info[alias] = info;
+    QueryResult.prototype.info[alias] = QueryResult.prototype.info[name];
+};
+
+export const get = (key, property) => {
+    extend(key, {
+        get: function get() {
+            return this[property];
+        },
+    });
+};
+
+export const bind = (key, property) => {
+    extend(key, {
+        get: function get() {
+            return this[property];
+        },
+        set: function set(value) {
+            this[property] = value;
+        },
+    });
 };
 
 export const proxy = (arg) => {
