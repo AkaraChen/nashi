@@ -17,7 +17,7 @@ width(): number;
 
 ```ts
 // Getter
-height(): number
+height(): number;
 ```
 
 返回元素的 `offsetHeight`
@@ -35,7 +35,7 @@ width(): number;
 
 ```ts
 // Getter
-height(): number
+height(): number;
 ```
 
 返回元素的 `clientHeight`

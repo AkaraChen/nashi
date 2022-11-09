@@ -17,7 +17,7 @@ Return element's `offsetWidth`
 
 ```ts
 // Getter
-height(): number
+height(): number;
 ```
 
 Return element's `offsetHeight`
@@ -35,7 +35,7 @@ Return element's `clientWidth`
 
 ```ts
 // Getter
-height(): number
+height(): number;
 ```
 
 Return element's `clientHeight`

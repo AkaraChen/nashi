@@ -93,7 +93,7 @@ index(): number;
 
 ```ts
 // Getter
-next(): QueryResult
+next(): QueryResult;
 ```
 
 获取元素的 `nextSibling`。
@@ -102,7 +102,7 @@ next(): QueryResult
 
 ```ts
 // Getter
-prev(): QueryResult
+prev(): QueryResult;
 ```
 
 获取元素的上一个兄弟元素。
@@ -111,7 +111,7 @@ prev(): QueryResult
 
 ```ts
 // Getter
-siblings(): QueryResult
+siblings(): QueryResult;
 ```
 
 获取元素的所有兄弟元素。
