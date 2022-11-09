@@ -34,3 +34,11 @@ merge(...args: Array<QueryResult>): QueryResult;
 ```
 
 Merge any amount of `QueryResult`, return new `QueryResult`.
+
+## equal()
+
+```ts
+equal(first: QueryResult, second: QueryResult): boolean;
+```
+
+Return whether two `QueryResult` are equal.

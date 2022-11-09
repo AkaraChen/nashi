@@ -26,7 +26,7 @@ nashi('p').click(); // Nashi is great!
 | mousemove | mouseout  | mouseover  | mouseup     |
 | resize    | scroll    | select     | submit      |
 
-或者你可以调用 `event()` or `on()` (on 是 event 的别名):
+或者你可以调用 `event()` 或者 `on()` (on 是 event 的别名)来触发任意事件（一般用于触发你定义的自定义事件）:
 
 ```ts
 nashi('p').event('click', () => console.log('Nashi is great!'));
@@ -38,6 +38,8 @@ nashi('p').event('click'); // Nashi is great!
 ```ts
 nashi('p').trigger('click');
 ```
+
+`trigger()` 还支持传入一个 `customEvent`，来触发自定义事件。
 
 你可以使用 `removeEvent()` 来移除事件：
 

@@ -34,3 +34,11 @@ merge(...args: Array<QueryResult>): QueryResult;
 ```
 
 合并任意数量的 `QueryResult`，返回新的 `QueryResult`。
+
+## equal()
+
+```ts
+equal(first: QueryResult, second: QueryResult): boolean;
+```
+
+判断两个 `QueryResult` 是否相等。

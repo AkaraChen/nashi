@@ -27,7 +27,7 @@ Here are supported events:
 | resize    | scroll    | select     | submit      |
 | input     |
 
-Or you can call it using `event()` or `on()` (on is an alia of event):
+Or you can using `event()` or `on()` (on is an alia of event)to listen to an `customEvent`:
 
 ```ts
 nashi('p').event('click', () => console.log('Nashi is great!'));
@@ -39,6 +39,8 @@ Or you can trigger event by using `trigger()`:
 ```ts
 nashi('p').trigger('click');
 ```
+
+You can also pass a `customEvent` to trigger a custom event.
 
 You can remove event listener by calling `removeEvent()`;
 
