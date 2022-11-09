@@ -93,7 +93,7 @@ Get element's index of it's parentNode.
 
 ```ts
 // Getter
-next(): QueryResult
+next(): QueryResult;
 ```
 
 Get element's `nextSibling`.
@@ -102,7 +102,7 @@ Get element's `nextSibling`.
 
 ```ts
 // Getter
-prev(): QueryResult
+prev(): QueryResult;
 ```
 
 Get element's previous sibling.
@@ -111,7 +111,7 @@ Get element's previous sibling.
 
 ```ts
 // Getter
-siblings(): QueryResult
+siblings(): QueryResult;
 ```
 
 Get element's all siblings.
