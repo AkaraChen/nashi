@@ -13,7 +13,7 @@ text(): string;
 text(string: string): QueryResult;
 ```
 
-获取或者设置元素的 `innerText`.
+获取或者设置元素的 `innerText`。
 
 ## class()
 
@@ -24,7 +24,7 @@ class(): string;
 class(className: string): QueryResult;
 ```
 
-Get or set element's `className`.
+获取或者设置元素的 `className`。
 
 ## id()
 
@@ -35,7 +35,7 @@ id(): string;
 id(id: string): QueryResult;
 ```
 
-Get or set element's `id`.
+获取或者设置元素的 `id`。
 
 ## addClass()
 
@@ -44,7 +44,7 @@ Get or set element's `id`.
 addClass(className: string): QueryResult;
 ```
 
-Add a className.
+添加 className。
 
 ## removeClass()
 
@@ -53,7 +53,7 @@ Add a className.
 removeClass(className: string): QueryResult;
 ```
 
-Remove a className.
+移除 className。
 
 ## hasClass()
 
@@ -62,7 +62,7 @@ Remove a className.
 hasClass(className: string): boolean;
 ```
 
-Return if element has the className.
+返回元素是否拥有指定的 className。
 
 ## toggleClass()
 
@@ -71,7 +71,7 @@ Return if element has the className.
 toggleClass(className: string): QueryResult;
 ```
 
-If element have the className, remove it. Otherwise, add it.
+如果元素有这个 className，则移除它，否则添加它。
 
 ## prop()
 
@@ -82,7 +82,7 @@ prop(key: string): string;
 prop(key: string, value: string): QueryResult;
 ```
 
-Get or set element's `prop`.
+获取或者设置元素的 `prop`。
 
 ## html()
 
@@ -91,4 +91,4 @@ html(): string;
 html(html: string): QueryResult;
 ```
 
-Get or set element's `innerHTML`.
+获取或者设置元素的 `innerHTML`。
