@@ -1,14 +1,14 @@
-import { test, expect } from 'vitest';
-import nashi from '../dist/index.js';
+import nashi from '../dist/index';
+
+const ncontainer = nashi.create('div');
+const container = ncontainer.node[0];
+nashi('body').firstChild(ncontainer);
 
 test('style', () => {
-    document.body.innerHTML = '<div></div>';
-    const div = document.getElementsByTagName('div')[0];
-    const ndiv = nashi('div');
-    ndiv.style('width', '200px');
-    expect(ndiv.style('width')).toBe('200px');
-    expect(div.style.width).toBe('200px');
-    ndiv.css('border-width', '2px');
-    expect(ndiv.css('border-width')).toBe('2px');
-    expect(div.style.borderWidth).toBe('2px');
+    ncontainer.style('width', '500px');
+    expect(ncontainer.style('width')).toBe('500px');
+    expect(container.style.width).toBe('500px');
+    ncontainer.css('border-width', '2px');
+    expect(ncontainer.css('border-width')).toBe('2px');
+    expect(container.style.borderWidth).toBe('2px');
 });

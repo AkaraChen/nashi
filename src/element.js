@@ -19,7 +19,7 @@ extend('firstChild', {
         return proxy(element);
     },
     set: function set(queryResult) {
-        this.insertBefore(queryResult.node[0], this.childNodes[0]);
+        this.insertBefore(queryResult.node[0], this.childNodes[0] || null);
     },
 });
 
@@ -71,8 +71,7 @@ extend('remove', {
 
 extend('index', {
     get: function get() {
-        const parent = Array.from(this.parentNode);
-        return parent.indexOf(this);
+        return Array.from(this.parentNode.childNodes).indexOf(this);
     },
 });
 

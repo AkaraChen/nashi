@@ -5,6 +5,7 @@ export type Core = {
     create(tag: string): QueryResult;
     fromHTML(html: string): QueryResult;
     merge(...args: Array<QueryResult>): QueryResult;
+    equal(first: QueryResult, second: QueryResult): boolean;
 };
 
 export type QueryResult = {
@@ -39,8 +40,9 @@ export type QueryResult = {
     css(key: string, value: string): QueryResult;
     style(key: string): string;
     style(key: string, value: string): QueryResult;
-    event(event: string, handler: (event: Event) => any): QueryResult;
-    on(event: string, handler: (event: Event) => any): QueryResult;
+    event(event: string, handler: (event: CustomEvent) => any): QueryResult;
+    on(event: string, handler: (event: CustomEvent) => any): QueryResult;
+    trigger(event: string | CustomEvent): QueryResult;
     removeEvent(event: string, handler: (event?: Event) => any): QueryResult;
     blur(handler: (event: FocusEvent) => any): QueryResult;
     focus(handler: (event: FocusEvent) => any): QueryResult;

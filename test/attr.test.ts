@@ -1,27 +1,49 @@
-import { test, expect } from 'vitest';
-import nashi from '../dist/index.js';
+import nashi from '../dist/index';
+
+const bindList = {
+    text: 'innerText',
+    class: 'className',
+    id: 'id',
+    html: 'innerHTML',
+};
+
+Object.keys(bindList).forEach((key) => {
+    test(`attr ${key}`, () => {
+        const np = nashi.create('p');
+        const p = np.node[0];
+        np[key]('test');
+        expect(np[key]()).toBe('test');
+        expect(p[bindList[key]]).toBe('test');
+    });
+});
+
+test('classList', () => {
+    const np = nashi.create('p');
+    np.addClass('add');
+    expect(np.class()).toBe('add');
+    np.removeClass('add');
+    expect(np.class()).toBe('');
+    np.toggleClass('toggle');
+    expect(np.hasClass('toggle')).toBe(true);
+    expect(np.class()).toBe('toggle');
+    np.toggleClass('toggle');
+    expect(np.class()).toBe('');
+    expect(np.hasClass('toggle')).toBe(false);
+});
 
 test('attr', () => {
-    document.body.innerHTML = '<p>test</p>';
-    const p = document.querySelector('p')!;
-    const np = nashi('p');
-    np.text('noop');
-    expect(p.innerText).toBe('noop');
-    expect(np.text()).toBe('noop');
-    np.addClass('test');
-    expect(p.className).toBe('test');
-    expect(np.class()).toBe('test');
-    np.removeClass('test');
-    expect(p.className).toBe('');
-    expect(np.class()).toBe('');
-    np.attr('class', 'noop');
-    expect(np.hasClass('noop')).toBe(true);
-    expect(np.attr('class')).toBe('noop');
-    expect(p.className).toBe('noop');
-    expect(np.html()).toBe('noop');
-    np.toggleClass('noop');
-    expect(np.hasClass('noop')).toBe(false);
-    expect(np.id()).toBe('');
-    np.id('test');
-    expect(p.id).toBe('test');
+    const ninput = nashi.create('input');
+    ninput.attr('type', 'button');
+    expect(ninput.attr('type')).toBe('button');
+    expect(ninput.node[0].getAttribute('type')).toBe('button');
+});
+
+test('prop', () => {
+    const ndiv = nashi.create('div');
+    const div = ndiv.node[0];
+    ndiv.id('div');
+    expect(ndiv.prop('id')).toBe('div');
+    ndiv.prop('id', 'foo');
+    expect(ndiv.prop('id')).toBe(div.id);
+    expect(ndiv.prop('id')).toBe('foo');
 });

@@ -1,50 +1,64 @@
-import { test, expect } from 'vitest';
-import nashi from '../dist/index.js';
+import nashi from '../dist/index';
 
-test('element', () => {
-    document.body.innerHTML = '<div></div>';
-    const div = document.querySelector('div')!;
-    const ndiv = nashi('div');
-    expect(ndiv.hasChild()).toBe(false);
-    const p = document.createElement('p');
-    const np = nashi(p);
-    ndiv.lastChild(np);
-    expect(ndiv.hasChild()).toBe(true);
-    const span = document.createElement('span');
-    const nspan = nashi(span);
-    ndiv.firstChild(nspan);
-    expect(ndiv.firstChild().toString()).toBe(nspan.toString());
-    expect(div.firstChild).toBe(span);
-    expect(div.lastChild).toBe(p);
-    document.body.innerHTML = '<div>1</div><div>2</div>';
-    const div2 = nashi('div')[1];
-    const para = document.createElement('p');
-    para.appendChild(document.createTextNode('para'));
-    const para2 = document.createElement('p');
-    para2.appendChild(document.createTextNode('para2'));
-    div2.after(nashi([para, para2]));
-    expect(nashi('body').child()[2].node[0]).toBe(para);
-    expect(nashi('body').child()[3].node[0]).toBe(para2);
-    const div3 = nashi('div')[0];
-    div3.before(nashi([para, para2]));
-    expect(nashi('body').child()[0].node[0]).toBe(para);
-    expect(nashi('body').child()[1].node[0]).toBe(para2);
-    nashi.create('p');
-    expect(
-        nashi.fromHTML(`<div>1</div>`).node[0].toString().includes('div')
-    ).toBeTruthy();
-    const parentElement = nashi.create('div');
-    const childElement = nashi.create('p');
-    parentElement.append(childElement);
-    expect(parentElement.firstChild().node).toStrictEqual(childElement.node);
+const $ = (arg: string) => document.querySelector(arg);
+const container = nashi.create('div');
+const body = nashi('body');
+body.append(container);
+
+test('has child', () => {
+    expect(container.hasChild()).toBe(false);
 });
 
-test('sibling', () => {
-    document.body.innerHTML = '<p></p><div></div><span></span>';
-    const np = nashi('p');
-    const ndiv = nashi('div');
-    const nspan = nashi('span');
-    expect(np.next().node[0]).toBe(nspan.prev().node[0]);
-    expect(ndiv.siblings()[0].node[0]).toBe(np.node[0]);
-    expect(ndiv.siblings()[1].node[0]).toBe(nspan.node[0]);
+test('insert child', () => {
+    const np = nashi.create('p');
+    container.lastChild(np);
+    const nspan = nashi.create('span');
+    container.firstChild(nspan);
+    expect(nashi.equal(container.firstChild(), nspan)).toBe(true);
+    expect(container.firstChild().node[0]).toStrictEqual($('span'));
+    expect(nashi.equal(container.lastChild(), np)).toBe(true);
+    expect(container.lastChild().node[0]).toStrictEqual($('p'));
+});
+
+test('parent', () => {
+    expect(container.parent().node).toStrictEqual(body.node);
+});
+
+test('child', () => {
+    expect(container.child().node).toStrictEqual(container.node[0].childNodes);
+});
+
+test('insert sibling', () => {
+    const para1 = nashi.create('p');
+    const para2 = nashi.create('p');
+    container.before(para1);
+    container.after(para2);
+    expect(nashi.equal(body.firstChild(), para1)).toBe(true);
+    expect(nashi.equal(body.lastChild(), para2)).toBe(true);
+});
+
+test('siblings', () => {
+    const para1 = body.firstChild();
+    const para2 = body.lastChild();
+    const merged = nashi.merge(para1, para2);
+    const siblings = container.siblings();
+    expect(nashi.equal(siblings[0], para1)).toBe(true);
+    expect(nashi.equal(siblings[1], para2)).toBe(true);
+    expect(nashi.equal(siblings, merged)).toBe(true);
+});
+
+test('get siblings', () => {
+    const para1 = body.firstChild();
+    const para2 = body.lastChild();
+    expect(nashi.equal(para1, container.prev()));
+    expect(nashi.equal(para2, container.next()));
+});
+
+test('element index', () => {
+    expect(container.index()).toBe(1);
+});
+
+test('remove', () => {
+    container.remove();
+    expect(body.child().length).toBe(2);
 });

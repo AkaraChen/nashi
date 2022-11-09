@@ -1,26 +1,66 @@
-import { expect, test } from 'vitest';
-import nashi from '../dist/index.js';
+import nashi from '../dist/index';
+
+const eventList = [
+    'blur',
+    'focus',
+    'focusin',
+    'focusout',
+    'change',
+    'click',
+    'contextmenu',
+    'dblclick',
+    'error',
+    'keydown',
+    'keypress',
+    'keyup',
+    'mousedown',
+    'mouseenter',
+    'mouseleave',
+    'mousemove',
+    'mouseout',
+    'mouseover',
+    'mouseup',
+    'resize',
+    'scroll',
+    'select',
+    'submit',
+    'input',
+];
+
+eventList.forEach((event) => {
+    test(`event ${event}`, () => {
+        let count = 0;
+        const n = nashi.create('div');
+        n[event](() => count++);
+        n[event]();
+        expect(count).toBe(1);
+    });
+});
 
 test('event', () => {
     let count = 0;
-    const p = nashi.fromHTML('<p></p>');
-    p.click(() => count++);
-    p.click();
-    expect(count).toBe(1);
-    p.on('click', (event) => {
-        event?.target;
-        count++;
-    });
-    p.click();
-    expect(count).toBe(3);
+    const n = nashi.create('div');
     const handler = () => count++;
-    p.event('click', handler);
-    p.click((event) => {
-        expect(event.target).toBe(p.node[0]);
+    n.event('click', handler);
+    expect(count).toBe(0);
+    n.trigger('click');
+    expect(count).toBe(1);
+    n.on('click', handler);
+    n.trigger('click');
+    expect(count).toBe(3);
+    n.removeEvent('click', handler);
+    n.trigger('click');
+    expect(count).toBe(4);
+    n.removeEvent('click', handler);
+    expect(count).toBe(4);
+});
+
+test('custom event', () => {
+    let count = 0;
+    const n = nashi.create('div');
+    n.event('test', (event) => {
+        count = event.detail.value;
     });
-    p.click();
-    expect(count).toBe(6);
-    p.removeEvent('click', handler);
-    p.click();
-    expect(count).toBe(8);
+    n.trigger(new CustomEvent('test', { detail: { value: count + 1 } }));
+    expect(count).toBe(1);
 });

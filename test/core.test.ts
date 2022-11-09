@@ -1,21 +1,25 @@
-import { test, expect } from 'vitest';
-import nashi from '../dist/index.js';
+import nashi from '../dist/index';
 
-test('core', () => {
-    document.body.innerHTML = '<p></p>'.repeat(5);
+const content = nashi.fromHTML('<p></p>'.repeat(5));
+nashi('body').append(content);
+
+test('length', () => {
+    expect(nashi('p').length).toBe(5);
+    expect(nashi('p').node.length).toBe(nashi('p').length);
+});
+
+test('number index', () => {
+    const p = document.getElementsByTagName('p')[3];
+    expect(nashi('p')[3].node[0]).toBe(p);
+});
+
+test('iterator', () => {
     const np = nashi('p');
-    const [first, second] = document.querySelectorAll('p')!;
-    expect(np.node.length).toBe(5);
-    expect(np[0].node.length).toBe(1);
-    np[0].text('noop');
-    expect(first.innerText).toBe('noop');
-    expect(second.innerText).toBe('');
     let count = 0;
-    for (const _ of np) count++;
-    expect(count).toBe(5);
-    count = 0;
-    np.forEach((item, index) => {
-        item.text(String(index));
-        expect(np[index].text()).toBe(String(index));
+    for (const item of np) {
+        item.text(String(count++));
+    }
+    Array.from(document.getElementsByTagName('p')).forEach((item, index) => {
+        expect(item.innerText).toBe(String(index));
     });
 });

@@ -1,6 +1,4 @@
-import { test, expect } from 'vitest';
-// @ts-ignore
-import { formatCSSKey } from '../src/helper';
+import { formatCSSKey } from '../src/helper.js';
 
 test('util', () => {
     expect(formatCSSKey('border-left')).toBe('borderLeft');

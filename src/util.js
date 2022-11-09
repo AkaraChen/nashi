@@ -14,5 +14,13 @@ util('merge', function (...args) {
     for (let arg of args) {
         arg.node.forEach((item) => nodes.push(item));
     }
-    return proxy(nodes);
+    return proxy([...new Set(nodes)]);
+});
+
+util('equal', function (first, second) {
+    return (
+        [first.node, second.node].reduce((a, b) =>
+            a.filter((c) => !b.includes(c))
+        ).length === 0
+    );
 });
