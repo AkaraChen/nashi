@@ -7,20 +7,21 @@ export function formatCSSKey(key) {
         indexs.push(position);
         position = key.indexOf('-', position + 1);
     }
-    const arr = Array.from(key);
-    indexs.forEach((index) => {
-        arr[index] = ' ';
-        arr[index + 1] = arr[index + 1].toUpperCase();
-    });
-    return arr.join('').replaceAll(' ', '');
+
+    const array = [...key];
+    for (const index of indexs) {
+        array[index] = ' ';
+        array[index + 1] = array[index + 1].toUpperCase();
+    }
+    return array.join('').replaceAll(' ', '');
 }
 
 export function event(event) {
     extend(event, {
-        get: function get() {
+        get() {
             this.dispatchEvent(new Event(event));
         },
-        set: function set(handler) {
+        set(handler) {
             this.addEventListener(event, handler);
         },
     });

@@ -1,98 +1,97 @@
 import { extend, proxy } from './core';
 
 extend('parent', {
-    get: function get() {
+    get() {
         return proxy(this.parentNode);
     },
 });
 
 extend('child', {
-    get: function get() {
-        const arr = Array.from(this.childNodes);
-        return proxy(arr);
+    get() {
+        const array = [...this.childNodes];
+        return proxy(array);
     },
 });
 
 extend('firstChild', {
-    get: function get() {
+    get() {
         const element = this.firstChild;
         return proxy(element);
     },
-    set: function set(queryResult) {
+    set(queryResult) {
+        // eslint-disable-next-line unicorn/no-null
         this.insertBefore(queryResult.node[0], this.childNodes[0] || null);
     },
 });
 
 extend('lastChild', {
-    get: function get() {
+    get() {
         const element = this.lastChild;
         return proxy(element);
     },
-    set: function set(queryResult) {
-        this.appendChild(queryResult.node[0]);
+    set(queryResult) {
+        this.append(queryResult.node[0]);
     },
 });
 
 extend('append', {
-    set: function set(queryResult) {
-        queryResult.node.forEach((node) => {
-            this.appendChild(node);
-        });
+    set(queryResult) {
+        for (const node of queryResult.node) {
+            this.append(node);
+        }
     },
 });
 
 extend('hasChild', {
-    get: function get() {
+    get() {
         return this.hasChildNodes();
     },
 });
 
 extend('before', {
-    set: function set(queryResult) {
-        queryResult.node.forEach((node) => {
+    set(queryResult) {
+        for (const node of queryResult.node) {
             this.parentNode.insertBefore(node, this);
-        });
+        }
     },
 });
 
 extend('after', {
-    set: function set(queryResult) {
-        queryResult.node.reverse().forEach((node) => {
+    set(queryResult) {
+        for (const node of queryResult.node.reverse()) {
             this.parentNode.insertBefore(node, this.nextSibling);
-        });
+        }
     },
 });
 
 extend('remove', {
-    set: function set() {
+    set() {
         this.remove();
     },
 });
 
 extend('index', {
-    get: function get() {
-        return Array.from(this.parentNode.childNodes).indexOf(this);
+    get() {
+        return [...this.parentNode.childNodes].indexOf(this);
     },
 });
 
 extend('next', {
-    get: function get() {
+    get() {
         return proxy(this.nextSibling);
     },
 });
 
 extend('prev', {
-    get: function get() {
+    get() {
         return proxy(this.previousSibling);
     },
 });
 
 extend('siblings', {
-    get: function get() {
+    get() {
         return proxy(
-            Array.from(this.parentNode.childNodes).filter(
-                (item) => item != this
-            )
+            [...this.parentNode.childNodes].filter((item) => item != this)
         );
     },
 });

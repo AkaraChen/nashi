@@ -6,25 +6,25 @@ bind('id', 'id');
 bind('html', 'innerHTML');
 
 extend('addClass', {
-    set: function set(className) {
+    set(className) {
         this.classList.add(className);
     },
 });
 
 extend('removeClass', {
-    set: function set(className) {
+    set(className) {
         this.classList.remove(className);
     },
 });
 
 extend('hasClass', {
-    get: function (className) {
+    get(className) {
         return this.classList.contains(className);
     },
 });
 
 extend('toggleClass', {
-    set: function (className) {
+    set(className) {
         this.classList.toggle(className);
     },
 });

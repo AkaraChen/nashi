@@ -1,6 +1,6 @@
 import nashi from '../dist/index';
 
-const $ = (arg: string) => document.querySelector(arg);
+const $ = (argument: string) => document.querySelector(argument);
 const container = nashi.create('div');
 const body = nashi('body');
 body.append(container);

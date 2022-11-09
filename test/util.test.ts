@@ -5,8 +5,9 @@ test('util create', () => {
 });
 
 test('util fromHTML', () => {
-    const template = (src: string) => `<img src=${src}></img>`;
-    const img = nashi.fromHTML(template('test'));
+    // eslint-disable-next-line unicorn/consistent-function-scoping
+    const image = (source: string) => `<img src=${source}></img>`;
+    const img = nashi.fromHTML(image('test'));
     expect(img.prop('src')).toBe('test');
 });
 

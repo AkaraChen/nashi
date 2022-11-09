@@ -27,7 +27,7 @@ const eventList = [
     'input',
 ];
 
-eventList.forEach((event) => {
+for (const event of eventList) {
     test(`event ${event}`, () => {
         let count = 0;
         const n = nashi.create('div');
@@ -35,7 +35,7 @@ eventList.forEach((event) => {
         n[event]();
         expect(count).toBe(1);
     });
-});
+}
 
 test('event', () => {
     let count = 0;

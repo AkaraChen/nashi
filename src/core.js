@@ -1,28 +1,30 @@
 export class QueryResult {
     node = [];
-    constructor(args) {
+    constructor(arguments_) {
         // 添加 Node
-        if (typeof args === 'undefined') {
+        if (typeof arguments_ === 'undefined') {
             console.warn('Undefined args');
             return;
         }
-        if (typeof args === 'string') {
-            this.node = Array.from(document.querySelectorAll(args));
+
+        if (typeof arguments_ === 'string') {
+            this.node = [...document.querySelectorAll(arguments_)];
             return;
         }
         // 判断是数组或者类数组（HTMLCollection 之流）
 
-        if (args[Symbol.iterator]) {
-            for (const item of args) {
+        if (arguments_[Symbol.iterator]) {
+            for (const item of arguments_) {
                 if (item instanceof Node) {
                     this.node.push(item);
                 }
             }
+
             return;
         }
 
-        if (args instanceof Node) {
-            this.node.push(args);
+        if (arguments_ instanceof Node) {
+            this.node.push(arguments_);
             return;
         }
 
@@ -38,8 +40,7 @@ QueryResult.prototype.info = {};
 
 QueryResult.prototype[Symbol.iterator] = function* () {
     let keys = this.node;
-    for (let i = 0; i < keys.length; i++) {
-        let key = keys[i];
+    for (let key of keys) {
         yield proxy(key);
     }
 };
@@ -50,30 +51,34 @@ export const extend = (key, { get, set }) => {
         QueryResult.prototype.set[key] = set;
         info.set = set.length;
     }
+
     if (get) {
         QueryResult.prototype.get[key] = get;
         info.get = get.length;
     }
+
     QueryResult.prototype.info[key] = info;
 };
 
-export const util = (key, func) => {
-    core[key] = func;
+export const util = (key, function_) => {
+    core[key] = function_;
 };
 
 export const alias = (alias, name) => {
     if (QueryResult.prototype.set[name]) {
         QueryResult.prototype.set[alias] = QueryResult.prototype.set[name];
     }
+
     if (QueryResult.prototype.get[name]) {
         QueryResult.prototype.get[alias] = QueryResult.prototype.get[name];
     }
+
     QueryResult.prototype.info[alias] = QueryResult.prototype.info[name];
 };
 
 export const get = (key, property) => {
     extend(key, {
-        get: function get() {
+        get() {
             return this[property];
         },
     });
@@ -81,83 +86,88 @@ export const get = (key, property) => {
 
 export const bind = (key, property) => {
     extend(key, {
-        get: function get() {
+        get() {
             return this[property];
         },
-        set: function set(value) {
+        set(value) {
             this[property] = value;
         },
     });
 };
 
-export const proxy = (arg) => {
-    const queryResult = new QueryResult(arg);
+export const proxy = (argument) => {
+    const queryResult = new QueryResult(argument);
     return new Proxy(queryResult, {
-        get: (target, prop, receiver) => {
+        get: (target, property, receiver) => {
             const globalReceiver = receiver;
 
             // 模拟数组
 
             // 将代理的迭代器直接映射到 QueryResult 上
 
-            if (prop.toString() === 'Symbol(Symbol.iterator)') {
+            if (property.toString() === 'Symbol(Symbol.iterator)') {
                 return QueryResult.prototype[Symbol.iterator];
             }
 
-            if (prop === 'forEach') {
+            if (property === 'forEach') {
                 return (handler) => {
-                    queryResult.node.forEach((item, index) => {
+                    for (const [index, item] of queryResult.node.entries()) {
                         handler(proxy(item), index, queryResult);
-                    });
+                    }
                 };
             }
 
-            if (prop === 'length') {
+            if (property === 'length') {
                 return queryResult.node.length;
             }
 
             // 处理用数字索引访问代理的情况
-            if (typeof prop !== 'symbol' && Number.isInteger(Number(prop))) {
+            if (
+                typeof property !== 'symbol' &&
+                Number.isInteger(Number(property))
+            ) {
                 // 数组越界处理
-                if (prop >= target.node.length) {
+                if (property >= target.node.length) {
                     console.warn('Array index out of bounds');
                     return;
                 }
+
                 // 返回一个包含数字索引对应元素的新代理
-                return proxy(queryResult.node[prop]);
+                return proxy(queryResult.node[property]);
             }
 
             // 重写函数
 
-            if (QueryResult.prototype.info[prop]) {
-                const info = QueryResult.prototype.info[prop];
+            if (QueryResult.prototype.info[property]) {
+                const info = QueryResult.prototype.info[property];
                 return new Proxy(new Function(), {
-                    apply(_target, _thisArg, argumentsList) {
+                    apply(_target, _thisArgument, argumentsList) {
                         const { length } = argumentsList;
                         if (length === info.get) {
-                            return QueryResult.prototype.get[prop].apply(
+                            return QueryResult.prototype.get[property].apply(
                                 queryResult.node[0],
                                 argumentsList
                             );
-                        } else if (length === info.set) {
-                            queryResult.node.forEach((item) => {
-                                QueryResult.prototype.set[prop].apply(
+                        }
+
+                        if (length === info.set) {
+                            for (const item of queryResult.node) {
+                                QueryResult.prototype.set[property].apply(
                                     item,
                                     argumentsList
                                 );
-                            });
+                            }
                             return globalReceiver;
                         }
                     },
                 });
             }
 
-            if (Reflect.has(queryResult, prop)) {
-                return Reflect.get(queryResult, prop);
-            } else {
-                console.warn('Unknown props');
-                return;
+            if (Reflect.has(queryResult, property)) {
+                return Reflect.get(queryResult, property);
             }
+
+            console.warn('Unknown props');
         },
     });
 };

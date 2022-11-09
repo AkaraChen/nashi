@@ -2,7 +2,7 @@ import { extend, alias } from './core';
 import { event } from './helper';
 
 extend('event', {
-    set: function (event, handler) {
+    set(event, handler) {
         this.addEventListener(event, handler);
     },
 });
@@ -10,22 +10,23 @@ extend('event', {
 alias('on', 'event');
 
 extend('trigger', {
-    set: function set(event) {
+    set(event) {
         if (typeof event === 'string') {
             event = new Event(event);
         }
+
         this.dispatchEvent(event);
     },
 });
 
 extend('removeEvent', {
-    set: function set(event, handler) {
+    set(event, handler) {
         this.removeEventListener(event, handler);
     },
 });
 
 extend('hover', {
-    set: function set(handler) {
+    set(handler) {
         this.addEventListener('mouseenter', handler);
         this.addEventListener('mouseleave', handler);
     },

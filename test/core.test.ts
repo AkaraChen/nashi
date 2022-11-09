@@ -9,7 +9,7 @@ test('length', () => {
 });
 
 test('number index', () => {
-    const p = document.getElementsByTagName('p')[3];
+    const p = document.querySelectorAll('p')[3];
     expect(nashi('p')[3].node[0]).toBe(p);
 });
 
@@ -19,7 +19,8 @@ test('iterator', () => {
     for (const item of np) {
         item.text(String(count++));
     }
-    Array.from(document.getElementsByTagName('p')).forEach((item, index) => {
+    for (const [index, item] of [...document.querySelectorAll('p')].entries()) {
+        // eslint-disable-next-line unicorn/prefer-dom-node-text-content
         expect(item.innerText).toBe(String(index));
-    });
+    }
 });

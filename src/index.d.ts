@@ -1,10 +1,10 @@
 export type Input = Node | HTMLCollection | Array<Node> | String;
 
 export type Core = {
-    (param: Input): QueryResult;
+    (parameter: Input): QueryResult;
     create(tag: string): QueryResult;
     fromHTML(html: string): QueryResult;
-    merge(...args: Array<QueryResult>): QueryResult;
+    merge(...arguments_: Array<QueryResult>): QueryResult;
     equal(first: QueryResult, second: QueryResult): boolean;
 };
 

@@ -1,8 +1,7 @@
-import { core } from './core';
-import './attr';
+import './attribute';
 import './style';
 import './element';
 import './event';
 import './util';
 
-export default core;
+export { core as default } from './core';

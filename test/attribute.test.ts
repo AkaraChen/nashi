@@ -7,7 +7,7 @@ const bindList = {
     html: 'innerHTML',
 };
 
-Object.keys(bindList).forEach((key) => {
+for (const key of Object.keys(bindList)) {
     test(`attr ${key}`, () => {
         const np = nashi.create('p');
         const p = np.node[0];
@@ -15,7 +15,7 @@ Object.keys(bindList).forEach((key) => {
         expect(np[key]()).toBe('test');
         expect(p[bindList[key]]).toBe('test');
     });
-});
+}
 
 test('classList', () => {
     const np = nashi.create('p');
