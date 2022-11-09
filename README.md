@@ -2,6 +2,10 @@
 
 The modern jQuery alternative.
 
+## Playground
+
+[StackBlitz](https://stackblitz.com/edit/vitejs-vite-kfbsf7?embed=1&file=README.md)
+
 ## Motivation
 
 Write this:
