@@ -108,6 +108,8 @@ export type QueryResult = {
     prev(): QueryResult;
     siblings(): QueryResult;
     append(queryResult: QueryResult): QueryResult;
+    value(): string;
+    value(key: string): QueryResult;
 };
 
 declare const core: Core;

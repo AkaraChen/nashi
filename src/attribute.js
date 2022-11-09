@@ -2,8 +2,9 @@ import { extend, bind } from './core';
 
 bind('text', 'innerText');
 bind('class', 'className');
-bind('id', 'id');
 bind('html', 'innerHTML');
+bind('id');
+bind('value');
 
 extend('addClass', {
     set(className) {

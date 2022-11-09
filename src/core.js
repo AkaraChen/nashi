@@ -84,7 +84,7 @@ export const get = (key, property) => {
     });
 };
 
-export const bind = (key, property) => {
+export const bind = (key, property = key) => {
     extend(key, {
         get() {
             return this[property];
