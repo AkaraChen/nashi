@@ -42,3 +42,11 @@ equal(first: QueryResult, second: QueryResult): boolean;
 ```
 
 判断两个 `QueryResult` 是否相等。
+
+## clone()
+
+```ts
+clone(queryResult: QueryResult): QueryResult;
+```
+
+深克隆一个 `QueryResult`。

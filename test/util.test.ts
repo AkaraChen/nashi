@@ -31,3 +31,14 @@ test('util merge', () => {
     const merge2 = nashi.merge(para1, para1);
     expect(merge2.length).toBe(1);
 });
+
+test('util clone', () => {
+    const para1 = nashi.create('p');
+    const para2 = nashi.create('p');
+    const first = nashi.merge(para1, para2);
+    expect(first.length).toBe(2);
+    const second = nashi.clone(first);
+    first.node.shift();
+    expect(first.length).toBe(1);
+    expect(second.length).toBe(2);
+});

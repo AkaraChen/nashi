@@ -24,3 +24,8 @@ util(
             a.filter((c) => !b.includes(c))
         ).length === 0
 );
+
+util('clone', (queryResult) => {
+    const newNode = [...queryResult.node];
+    return proxy(newNode);
+});

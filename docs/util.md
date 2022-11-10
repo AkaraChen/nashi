@@ -42,3 +42,11 @@ equal(first: QueryResult, second: QueryResult): boolean;
 ```
 
 Return whether two `QueryResult` are equal.
+
+## clone()
+
+```ts
+clone(queryResult: QueryResult): QueryResult;
+```
+
+Deep clone and `QueryResult`.

@@ -15,6 +15,8 @@ parent(): QueryResult;
 
 ## child()
 
+alias: `children()`
+
 ```ts
 // Getter
 child(): QueryResult;

@@ -15,6 +15,8 @@ Return element's `parentNode`.
 
 ## child()
 
+alias: `children()`
+
 ```ts
 // Getter
 child(): QueryResult;

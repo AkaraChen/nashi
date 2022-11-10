@@ -6,6 +6,7 @@ export type Core = {
     fromHTML(html: string): QueryResult;
     merge(...arguments_: Array<QueryResult>): QueryResult;
     equal(first: QueryResult, second: QueryResult): boolean;
+    clone(queryResult: QueryResult): QueryResult;
 };
 
 export type QueryResult = {
@@ -95,6 +96,7 @@ export type QueryResult = {
     input(): void;
     parent(): QueryResult;
     child(): QueryResult;
+    children(): QueryResult;
     firstChild(): QueryResult;
     firstChild(queryResult: QueryResult): QueryResult;
     lastChild(): QueryResult;

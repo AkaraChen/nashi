@@ -1,4 +1,4 @@
-import { extend, proxy } from './core';
+import { extend, proxy, alias } from './core';
 
 extend('parent', {
     get() {
@@ -12,6 +12,8 @@ extend('child', {
         return proxy(array);
     },
 });
+
+alias('children', 'child');
 
 extend('firstChild', {
     get() {
