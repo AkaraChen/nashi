@@ -126,3 +126,36 @@ append(queryResult: QueryResult): QueryResult;
 ```
 
 Append `QueryResult` to the element.
+
+## empty()
+
+```ts
+// Setter
+empty(): QueryResult;
+```
+
+Remove all childNodes.
+
+## show()
+
+```ts
+show(): QueryResult;
+```
+
+Set `element.style.display` to `''`.
+
+## hide()
+
+```ts
+hide(): QueryResult;
+```
+
+Set `element.style.display` to `'none'`.
+
+## toggle()
+
+```ts
+toggle(): QueryResult;
+```
+
+Set `element.style.display` is `'none'`, set `element.style.display` to `''`, otherwise set it to `'none'`.

@@ -17,6 +17,9 @@ export type QueryResult = {
     forEach(
         handler: (item: QueryResult, index: number, array: QueryResult) => any
     ): QueryResult;
+    each(
+        handler: (item: QueryResult, index: number, array: QueryResult) => any
+    ): QueryResult;
     text(): string;
     text(string: string): QueryResult;
     class(): string;
@@ -112,6 +115,10 @@ export type QueryResult = {
     append(queryResult: QueryResult): QueryResult;
     value(): string;
     value(key: string): QueryResult;
+    empty(): QueryResult;
+    show(): QueryResult;
+    hide(): QueryResult;
+    toggle(): QueryResult;
 };
 
 declare const core: Core;

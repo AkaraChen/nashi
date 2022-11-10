@@ -62,3 +62,17 @@ test('remove', () => {
     container.remove();
     expect(body.child().length).toBe(2);
 });
+
+test('empty', () => {
+    const div = nashi.create('div');
+    div.append(nashi.create('p')).empty();
+    expect(div.child().length).toBe(0);
+});
+
+test('toggle', () => {
+    const div = nashi.create('div');
+    div.toggle();
+    expect(div.style('display')).toBe('none');
+    div.toggle();
+    expect(div.style('display')).toBe('');
+});

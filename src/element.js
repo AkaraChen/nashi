@@ -97,3 +97,27 @@ extend('siblings', {
         );
     },
 });
+
+extend('empty', {
+    set() {
+        for (const item of this.childNodes) item.remove();
+    },
+});
+
+extend('show', {
+    set() {
+        this.style.display = '';
+    },
+});
+
+extend('hide', {
+    set() {
+        this.style.display = 'none';
+    },
+});
+
+extend('toggle', {
+    set() {
+        this.style.display = this.style.display === 'none' ? '' : 'none';
+    },
+});

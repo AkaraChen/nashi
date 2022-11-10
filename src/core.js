@@ -109,7 +109,7 @@ export const proxy = (argument) => {
                 return QueryResult.prototype[Symbol.iterator];
             }
 
-            if (property === 'forEach') {
+            if (property === 'forEach' || property === 'each') {
                 return (handler) => {
                     for (const [index, item] of queryResult.node.entries()) {
                         handler(proxy(item), index, queryResult);

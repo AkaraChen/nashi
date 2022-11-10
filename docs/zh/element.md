@@ -117,3 +117,36 @@ siblings(): QueryResult;
 ```
 
 获取元素的所有兄弟元素。
+
+## empty()
+
+```ts
+// Setter
+empty(): QueryResult;
+```
+
+移除所有的子元素。
+
+## show()
+
+```ts
+show(): QueryResult;
+```
+
+将 `element.style.display` 设置为 `''`.
+
+## hide()
+
+```ts
+hide(): QueryResult;
+```
+
+将 `element.style.display` 设置为 `'none'`.
+
+## toggle()
+
+```ts
+toggle(): QueryResult;
+```
+
+如果 `element.style.display` 为 `'none'`，将 `element.style.display` 设置为 `''`, 否则设置为 `'none'`.
