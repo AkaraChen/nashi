@@ -14,6 +14,8 @@ Nashi 有一个强大的 `QueryResult` 类, `nashi` 提供的大部分 API 都�
 /* 参数可以是字符串 */
 /* 所有段落元素都会被选中 */
 nashi('p');
+/* Or you can use CSS selector */
+nashi('#navbar.show');
 ```
 
 ```ts

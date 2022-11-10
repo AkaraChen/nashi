@@ -14,6 +14,8 @@ The `nashi(args)` function will return a `QueryResult`, which contains all the e
 /* Args can be a string */
 /* All paragraph element will be selected. */
 nashi('p');
+/* Or you can use CSS selector */
+nashi('#navbar.show');
 ```
 
 ```ts
