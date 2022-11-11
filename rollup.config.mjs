@@ -18,6 +18,26 @@ export default [
     {
         input: './src/index.js',
         output: {
+            format: 'cjs',
+            file: 'dist/common.js',
+        },
+        plugins: [
+            esbuild({ minify: true }),
+            copy({
+                targets: [
+                    {
+                        src: './src/index.d.ts',
+                        dest: './dist/',
+                        rename: 'common.d.ts',
+                    },
+                ],
+            }),
+            filesize(),
+        ],
+    },
+    {
+        input: './src/index.js',
+        output: {
             file: 'dist/legacy.js',
             format: 'iife',
             name: 'nashi',

@@ -28,6 +28,7 @@ export default defineUserConfig({
                 selectLanguageName: 'English',
                 sidebar: [
                     '/',
+                    'import',
                     '/core',
                     '/attribute',
                     '/style',
@@ -49,6 +50,7 @@ export default defineUserConfig({
                 selectLanguageAriaLabel: '选择语言',
                 sidebar: [
                     '/zh/',
+                    'import',
                     'core',
                     'attribute',
                     'style',
