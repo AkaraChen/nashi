@@ -1,4 +1,10 @@
-export type Input = Node | HTMLCollection | Array<Node> | String;
+export type Input =
+    | NodeList
+    | NodeListOf<any>
+    | Node
+    | HTMLCollection
+    | Array<Node>
+    | String;
 
 export type Core = {
     (parameter: Input): QueryResult;

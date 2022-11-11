@@ -19,6 +19,7 @@ export default [
         input: './src/index.js',
         output: {
             file: 'dist/legacy.js',
+            format: 'iife',
         },
         plugins: [
             esbuild({ minify: true }),
