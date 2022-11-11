@@ -49,25 +49,39 @@ css(key: string): string;
 css(key: string, value: string): QueryResult;
 ```
 
-获取或者设置元素样式。当设置元素的css时，它支持像`JQuery`这样的链式调用。
+获取或者设置元素样式。
 
 #### 示例
 
 ```ts
-nashi('p').css('border-width', '2px');
+const para = nashi('p');
+para.text('nashi is perfect!')
+    .css('backgroundColor', 'skyblue')
+    .css('font-size', '25px');
+
+console.log(para.css('background-color')); // skyblue
+console.log(para.css('fontSize')); // 25px
 ```
 
 ## style()
 
 ```ts
+// Getter
 style(key: string): string;
+// Setter
 style(key: string, value: string): QueryResult;
 ```
 
-获取或设置元素样式。它同样也支持链式调用。
+获取或设置元素样式。
 
 #### 示例
 
 ```ts
-nashi('p').style('borderWidth', '2px');
+const para = nashi('p');
+para.text('nashi is perfect!')
+    .style('backgroundColor', 'skyblue')
+    .style('font-size', '25px');
+
+console.log(para.style('background-color')); // skyblue
+console.log(para.style('fontSize')); // 25px
 ```
