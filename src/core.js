@@ -8,7 +8,7 @@ export class QueryResult {
         }
 
         if (typeof arguments_ === 'string') {
-            this.node = [...document.querySelectorAll(arguments_)];
+            this.node = Array.from(document.querySelectorAll(arguments_));
             return;
         }
         // 判断是数组或者类数组（HTMLCollection 之流）

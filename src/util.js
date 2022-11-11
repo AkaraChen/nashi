@@ -13,7 +13,7 @@ util('merge', (...arguments_) => {
         for (const item of argument.node) nodes.push(item);
     }
 
-    return proxy([...new Set(nodes)]);
+    return proxy(Array.from(new Set(nodes)));
 });
 
 util(
@@ -26,6 +26,6 @@ util(
 );
 
 util('clone', (queryResult) => {
-    const newNode = [...queryResult.node];
+    const newNode = queryResult.node.slice();
     return proxy(newNode);
 });

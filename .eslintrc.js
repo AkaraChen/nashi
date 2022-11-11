@@ -14,6 +14,7 @@ module.exports = {
     rules: {
         'prettier/prettier': 'error',
         'unicorn/no-keyword-prefix': 0,
+        'unicorn/prefer-spread': 0
     },
     extends: ['plugin:prettier/recommended', 'plugin:unicorn/all'],
 };

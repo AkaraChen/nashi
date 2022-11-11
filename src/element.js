@@ -8,7 +8,7 @@ extend('parent', {
 
 extend('child', {
     get() {
-        const array = [...this.childNodes];
+        const array = Array.from(this.childNodes);
         return proxy(array);
     },
 });
@@ -74,7 +74,7 @@ extend('remove', {
 
 extend('index', {
     get() {
-        return [...this.parentNode.childNodes].indexOf(this);
+        return Array.from(this.parentNode.childNodes).indexOf(this);
     },
 });
 
@@ -93,7 +93,9 @@ extend('prev', {
 extend('siblings', {
     get() {
         return proxy(
-            [...this.parentNode.childNodes].filter((item) => item != this)
+            Array.from(this.parentNode.childNodes).filter(
+                (item) => item != this
+            )
         );
     },
 });
