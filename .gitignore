@@ -128,3 +128,7 @@ dist
 
 # macOS
 .DS_Store
+
+# Other package lock
+package-lock.json
+yarn.lock
