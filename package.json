@@ -1,6 +1,6 @@
 {
     "name": "@akrc/nashi",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "",
     "main": "./dist/index.js",
     "scripts": {
@@ -43,8 +43,7 @@
         "vuepress": "2.0.0-beta.53"
     },
     "exports": {
-        ".": "./dist/index.js",
-        "./legacy": "./dist/legacy.js"
+        ".": "./dist/index.js"
     },
     "types": "./dist/index.d.ts",
     "files": [
