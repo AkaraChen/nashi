@@ -25,6 +25,8 @@ const eventList = [
     'select',
     'submit',
     'input',
+    'invalid',
+    'reset',
 ];
 
 for (const event of eventList) {

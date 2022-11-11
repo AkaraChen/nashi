@@ -25,6 +25,7 @@ nashi('p').click(); // Nashi is great!
 | keyup     | mousedown | mouseenter | mouseleave  |
 | mousemove | mouseout  | mouseover  | mouseup     |
 | resize    | scroll    | select     | submit      |
+| input     | invalid   | reset      |
 
 或者你可以调用 `event()` 或者 `on()` (on 是 event 的别名)来触发任意事件（一般用于触发你定义的自定义事件）:
 

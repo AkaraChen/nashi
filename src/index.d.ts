@@ -79,6 +79,9 @@ export type QueryResult = {
     select(handler: (event: Event) => any): QueryResult;
     submit(handler: (event: SubmitEvent) => any): QueryResult;
     input(handler: (event: InputEvent) => any): QueryResult;
+    reset(handler: (event: Event) => any): QueryResult;
+    invalid(handler: (event: Event) => any): QueryResult;
+
     focus(): void;
     focusin(): void;
     focusout(): void;
@@ -103,6 +106,9 @@ export type QueryResult = {
     select(): void;
     submit(): void;
     input(): void;
+    reset(): void;
+    invalid(): void;
+
     parent(): QueryResult;
     child(): QueryResult;
     children(): QueryResult;
