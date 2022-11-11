@@ -20,6 +20,7 @@ export default [
         output: {
             file: 'dist/legacy.js',
             format: 'iife',
+            name: 'nashi',
         },
         plugins: [
             esbuild({ minify: true }),
