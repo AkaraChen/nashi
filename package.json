@@ -18,6 +18,9 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@babel/core": "^7.20.2",
+        "@babel/preset-env": "^7.20.2",
+        "@rollup/plugin-babel": "^6.0.2",
         "@typescript-eslint/eslint-plugin": "5.42.1",
         "@typescript-eslint/parser": "5.42.1",
         "@vuepress/client": "2.0.0-beta.53",
@@ -39,7 +42,10 @@
         "vue": "^3.2.41",
         "vuepress": "2.0.0-beta.53"
     },
-    "exports": "./dist/index.js",
+    "exports": {
+        ".": "./dist/index.js",
+        "./legacy": "./dist/legacy.js"
+    },
     "types": "./dist/index.d.ts",
     "files": [
         "./dist"
