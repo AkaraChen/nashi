@@ -11,7 +11,7 @@ title: 样式
 width(): number;
 ```
 
-返回元素的 `offsetWidth`
+返回元素的 `offsetWidth` ，通常情况下，`offsetWidth = padding + content + border` 。
 
 ## height()
 
@@ -20,7 +20,7 @@ width(): number;
 height(): number;
 ```
 
-返回元素的 `offsetHeight`
+返回元素的 `offsetHeight` ，通常情况下，`offsetHeight = padding + content + border` 。
 
 ## innerWidth()
 
@@ -29,7 +29,7 @@ height(): number;
 width(): number;
 ```
 
-返回元素的 `clientWidth`
+返回元素的 `clientWidth` ，通常情况下，`clientWidth = padding + content` 。
 
 ## innerHeight()
 
@@ -38,7 +38,7 @@ width(): number;
 height(): number;
 ```
 
-返回元素的 `clientHeight`
+返回元素的 `clientHeight` ，通常情况下，`clientHeight = padding + content` 。
 
 ## css()
 
@@ -49,7 +49,7 @@ css(key: string): string;
 css(key: string, value: string): QueryResult;
 ```
 
-获取或者设置样式。
+获取或者设置元素样式。当设置元素的css时，它支持像`JQuery`这样的链式调用。
 
 #### 示例
 
@@ -64,7 +64,7 @@ style(key: string): string;
 style(key: string, value: string): QueryResult;
 ```
 
-获取或设置样式
+获取或设置元素样式。它同样也支持链式调用。
 
 #### 示例
 

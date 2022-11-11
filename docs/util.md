@@ -28,7 +28,7 @@ const error = nashi.create('123');
 fromHTML(html: string): QueryResult;
 ```
 
-Create a `QueryResult` from HTML string. Its usage is similar to `innerHTML()`.
+Create a `QueryResult` from HTML string. Its usage is similar to `element.innerHTML`.
 
 #### Example
 
