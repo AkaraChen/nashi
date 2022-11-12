@@ -33,6 +33,9 @@ class QueryResult {
                 console.warn('Invalid args');
             }
         }
+        if (this.node.length === 0) {
+            console.warn('No elements selected');
+        }
     }
 }
 
@@ -137,10 +140,11 @@ export const proxy = (argument) => {
                     apply(_target, _thisArgument, argumentsList) {
                         const { length } = argumentsList;
                         if (length === info.get) {
-                            return QueryResult.get[property].apply(
-                                queryResult.node[0],
-                                argumentsList
-                            );
+                            if (queryResult.node[0])
+                                return QueryResult.get[property].apply(
+                                    queryResult.node[0],
+                                    argumentsList
+                                );
                         } else if (length === info.set) {
                             for (const item of queryResult.node) {
                                 QueryResult.set[property].apply(
