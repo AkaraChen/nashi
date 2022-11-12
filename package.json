@@ -12,7 +12,8 @@
         "dev": "vite",
         "docs:dev": "vuepress dev docs",
         "docs:build": "vuepress build docs",
-        "docs:serve": "vuepress serve docs"
+        "docs:serve": "vuepress serve docs",
+        "changelog": "gitmoji-changelog"
     },
     "keywords": [],
     "author": "",
@@ -29,6 +30,7 @@
         "eslint-config-prettier": "8.5.0",
         "eslint-plugin-prettier": "4.2.1",
         "eslint-plugin-unicorn": "^44.0.2",
+        "gitmoji-changelog": "^2.3.0",
         "happy-dom": "^7.7.0",
         "husky": "8.0.2",
         "prettier": "2.7.1",

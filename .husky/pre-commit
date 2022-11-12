@@ -4,4 +4,4 @@
 npm run lint
 npm test
 npm run build
-git add .
+npm run changelog
