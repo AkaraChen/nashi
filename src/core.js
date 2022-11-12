@@ -33,9 +33,6 @@ class QueryResult {
                 console.warn('Invalid args');
             }
         }
-        if (this.node.length === 0) {
-            console.warn('No elements selected');
-        }
     }
 }
 
