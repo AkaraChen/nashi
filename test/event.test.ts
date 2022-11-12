@@ -27,6 +27,13 @@ const eventList = [
     'input',
     'invalid',
     'reset',
+    'wheel',
+    'drag',
+    'dragend',
+    'dragenter',
+    'dragleave',
+    'dragover',
+    'dragstart',
 ];
 
 for (const event of eventList) {
