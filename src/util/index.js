@@ -8,9 +8,9 @@ util('fromHTML', (html) => {
 });
 
 util('merge', (...arguments_) => {
-    const nodes = [];
+    let nodes = [];
     for (const argument of arguments_) {
-        for (const item of argument.node) nodes.push(item);
+        nodes = nodes.concat(argument.node);
     }
 
     return proxy(Array.from(new Set(nodes)));
