@@ -1,4 +1,4 @@
-import { extend, alias } from '../core';
+import {extend, alias} from '../core';
 
 extend('event', {
     set(event, handler) {

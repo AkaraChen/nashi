@@ -2,6 +2,6 @@
     "tabWidth": 4,
     "singleQuote": true,
     "jsxSingleQuote": true,
-    "bracketSpacing": true,
+    "bracketSpacing": false,
     "endOfLine": "auto"
 }

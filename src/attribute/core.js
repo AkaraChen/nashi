@@ -1,4 +1,4 @@
-import { extend } from '../core';
+import {extend} from '../core';
 
 extend('attr', {
     get(key) {

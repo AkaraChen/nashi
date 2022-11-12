@@ -1,4 +1,4 @@
-import { extend } from '../core';
+import {extend} from '../core';
 
 export function event(event) {
     extend(event, {

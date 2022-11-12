@@ -4,4 +4,4 @@ import './element';
 import './event';
 import './util';
 
-export { core as default } from './core';
+export {core as default} from './core';

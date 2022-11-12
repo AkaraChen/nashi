@@ -1,4 +1,4 @@
-import { extend, alias, proxy } from '../core';
+import {extend, alias, proxy} from '../core';
 
 extend('parent', {
     get() {

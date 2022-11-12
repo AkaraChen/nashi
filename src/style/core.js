@@ -1,5 +1,5 @@
-import { extend } from '../core';
-import { formatCSSKey } from './util';
+import {extend} from '../core';
+import {formatCSSKey} from './util';
 
 extend('css', {
     get(key) {
