@@ -81,6 +81,13 @@ export type QueryResult = {
     input(handler: (event: InputEvent) => any): QueryResult;
     reset(handler: (event: Event) => any): QueryResult;
     invalid(handler: (event: Event) => any): QueryResult;
+    wheel(handler: (event: WheelEvent) => any): QueryResult;
+    drag(handler: (event: DragEvent) => any): QueryResult;
+    dragend(handler: (event: DragEvent) => any): QueryResult;
+    dragenter(handler: (event: DragEvent) => any): QueryResult;
+    dragleave(handler: (event: DragEvent) => any): QueryResult;
+    dragover(handler: (event: DragEvent) => any): QueryResult;
+    dragstart(handler: (event: DragEvent) => any): QueryResult;
 
     focus(): void;
     focusin(): void;
@@ -108,6 +115,13 @@ export type QueryResult = {
     input(): void;
     reset(): void;
     invalid(): void;
+    wheel(): void;
+    drag(): void;
+    dragend(): void;
+    dragenter(): void;
+    dragleave(): void;
+    dragover(): void;
+    dragstart(): void;
 
     parent(): QueryResult;
     child(): QueryResult;
