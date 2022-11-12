@@ -39,57 +39,6 @@ class QueryResult {
     }
 }
 
-export const extend = (key, {get, set}) => {
-    const info = {get: -1, set: -1};
-
-    if (set) {
-        QueryResult.set[key] = set;
-        info.set = set.length;
-    }
-
-    if (get) {
-        QueryResult.get[key] = get;
-        info.get = get.length;
-    }
-
-    QueryResult.info[key] = info;
-};
-
-export const util = (key, function_) => {
-    core[key] = function_;
-};
-
-export const alias = (alia, name) => {
-    if (QueryResult.set[name]) {
-        QueryResult.set[alia] = QueryResult.set[name];
-    }
-
-    if (QueryResult.get[name]) {
-        QueryResult.get[alia] = QueryResult.get[name];
-    }
-
-    QueryResult.info[alia] = QueryResult.info[name];
-};
-
-export const get = (key, property) => {
-    extend(key, {
-        get() {
-            return this[property];
-        },
-    });
-};
-
-export const bind = (key, property = key) => {
-    extend(key, {
-        get() {
-            return this[property];
-        },
-        set(value) {
-            this[property] = value;
-        },
-    });
-};
-
 export const proxy = (argument) => {
     const queryResult = new QueryResult(argument);
     return new Proxy(queryResult, {
@@ -169,6 +118,57 @@ export const proxy = (argument) => {
     });
 };
 
+export const extend = (key, {get, set}) => {
+    const info = {get: -1, set: -1};
+
+    if (set) {
+        QueryResult.set[key] = set;
+        info.set = set.length;
+    }
+
+    if (get) {
+        QueryResult.get[key] = get;
+        info.get = get.length;
+    }
+
+    QueryResult.info[key] = info;
+};
+
+export const alias = (alia, name) => {
+    if (QueryResult.set[name]) {
+        QueryResult.set[alia] = QueryResult.set[name];
+    }
+
+    if (QueryResult.get[name]) {
+        QueryResult.get[alia] = QueryResult.get[name];
+    }
+
+    QueryResult.info[alia] = QueryResult.info[name];
+};
+
+export const get = (key, property) => {
+    extend(key, {
+        get() {
+            return this[property];
+        },
+    });
+};
+
+export const bind = (key, property = key) => {
+    extend(key, {
+        get() {
+            return this[property];
+        },
+        set(value) {
+            this[property] = value;
+        },
+    });
+};
+
 export const core = (selector) => proxy(selector);
+
+export const util = (key, function_) => {
+    core[key] = function_;
+};
 
 export default core;

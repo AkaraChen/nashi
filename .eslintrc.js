@@ -8,7 +8,9 @@ module.exports = {
         {
             files: '*.test.ts',
             rules: {
-                'no-loop-func': 0
+                'no-loop-func': 0,
+                'no-undef': 0,
+                'no-plusplus': 0,
             }
         }
     ],
@@ -22,11 +24,8 @@ module.exports = {
         'prettier/prettier': 'error',
         'unicorn/no-keyword-prefix': 0,
         'unicorn/prefer-spread': 0,
-        'no-undef': 0,
         'no-restricted-syntax': 0,
-        'no-plusplus': 0,
         'no-console': 0,
-        'no-use-before-define': 0,
         'consistent-return': 0,
         'default-case': 0,
         'func-names': 0,
