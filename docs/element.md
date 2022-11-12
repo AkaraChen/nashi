@@ -11,7 +11,25 @@ title: Element
 parent(): QueryResult;
 ```
 
-Return element's `parentNode`.
+Return element's `parentNode` .
+
+#### Example
+
+```html
+<body>
+  <div>
+    <h2>
+      <p>nashi is perfect!</p>
+      <em>nashi is perfect!</em>
+    </h2>
+  </div>
+</body>
+```
+
+```ts
+const dv = nashi("div")
+console.log(dv.parent().node); // [body]
+```
 
 ## child()
 
@@ -22,7 +40,14 @@ alias: `children()`
 child(): QueryResult;
 ```
 
-Return element's `childNode[]`.
+Return element's `childNode[]` .
+
+#### Example
+
+```ts
+const h2 = nashi("h2")
+console.log(h2.child().node); // [p, em]
+```
 
 ## firstChild()
 
@@ -33,7 +58,19 @@ firstChild(): QueryResult;
 firstChild(queryResult: QueryResult): QueryResult;
 ```
 
-Get the first child of the element, or insert an element before the element's first child.
+Get the first child of the element, or insert an element before the element's first child .
+
+#### Example
+
+```ts
+const h2 = nashi("h2")
+// Getter
+console.log(h2.firstChild().node); // [p]
+
+// Setter
+h2.firstChild(nashi.create("span").text("nashi"))
+console.log(h2.firstChild().node); // [span]
+```
 
 ## lastChild()
 
@@ -44,7 +81,19 @@ lastChild(): QueryResult;
 lastChild(queryResult: QueryResult): QueryResult;
 ```
 
-Get the last child of the element, or append an element to the element's last child.
+Get the last child of the element, or append an element to the element's last child .
+
+#### Example
+
+```ts
+const h2 = nashi("h2")
+// Getter
+console.log(h2.lastChild().node); // [em]
+
+// Setter
+h2.lastChild(nashi.create("span").text("nashi"))
+console.log(h2.lastChild().node); // [span]
+```
 
 ## hasChild()
 
@@ -53,7 +102,27 @@ Get the last child of the element, or append an element to the element's last ch
 hasChild(): boolean;
 ```
 
-Return if element has child.
+Return `true` if the element has child nodes or text nodes .
+
+#### Example
+
+```html
+<h2>
+  <span></span>
+  <p>nashi is perfect!</p>
+</h2>
+```
+
+```ts
+const h2 = nashi("h2")
+console.log(h2.hasChild()); // true
+
+const para = nashi("p")
+console.log(para.hasChild()); // true
+
+const span = nashi("span")
+console.log(span.hasChild()); // false
+```
 
 ## before()
 
@@ -62,7 +131,29 @@ Return if element has child.
 before(queryResult: QueryResult): QueryResult;
 ```
 
-Insert a element before the element.
+Insert a element before the element .
+
+#### Example
+
+```html
+<h2>
+  <em>nashi is perfect!</em>
+</h2>
+```
+
+```ts
+const span = nashi.create("span").text("nashi is perfect!")
+const em = nashi("em")
+em.before(span)
+```
+
+```html
+<!-- the result -->
+<h2>
+  <span>nashi is perfect!</span>
+  <em>nashi is perfect!</em>
+</h2>
+```
 
 ## after()
 
@@ -71,7 +162,29 @@ Insert a element before the element.
 after(queryResult: QueryResult): QueryResult;
 ```
 
-Insert a element after the element.
+Insert a element after the element .
+
+#### Example
+
+```html
+<h2>
+  <em>nashi is perfect!</em>
+</h2>
+```
+
+```ts
+const span = nashi.create("span").text("nashi is perfect!")
+const em = nashi("em")
+em.after(span)
+```
+
+```html
+<!-- the result -->
+<h2>
+  <em>nashi is perfect!</em>
+  <span>nashi is perfect!</span>
+</h2>
+```
 
 ## remove()
 
@@ -82,6 +195,23 @@ remove(): QueryResult;
 
 Remove element.
 
+#### Example
+
+```html
+<h2>
+  <em>nashi is perfect!</em>
+</h2>
+```
+
+```ts
+const em = nashi("em")
+em.remove()
+```
+```html
+<!-- the result -->
+<h2></h2>
+```
+
 ## index()
 
 ```ts
@@ -89,7 +219,21 @@ Remove element.
 index(): number;
 ```
 
-Get element's index of it's parentNode.
+Get the sorting of the current element in its parentNode .
+
+#### example
+
+```html
+<div>
+  <em>nashi is perfect!</em>
+  <p>nashi is perfect!</p>
+</div>
+```
+
+```ts
+console.log(nashi("em").index()); // 0
+console.log(nashi("p").index()); // 1
+```
 
 ## next()
 
@@ -98,7 +242,21 @@ Get element's index of it's parentNode.
 next(): QueryResult;
 ```
 
-Get element's `nextSibling`.
+Get element's `nextSibling` .
+
+#### example
+
+```html
+<div>
+  <em>nashi is perfect!</em>
+  <p>nashi is perfect!</p>
+</div>
+```
+
+```ts
+const em = nashi("em")
+console.log(em.next().node); // [p]
+```
 
 ## prev()
 
@@ -107,7 +265,14 @@ Get element's `nextSibling`.
 prev(): QueryResult;
 ```
 
-Get element's previous sibling.
+Get element's previous sibling .
+
+#### example
+
+```ts
+const p = nashi("p")
+console.log(p.prev().node); // [em]
+```
 
 ## siblings()
 
@@ -116,7 +281,22 @@ Get element's previous sibling.
 siblings(): QueryResult;
 ```
 
-Get element's all siblings.
+Get element's all siblings .
+
+#### example
+
+```html
+<div>
+  <span>nashi</span>
+  <p>nashi is perfect!</p>
+  <em>nashi</em>
+</div>
+```
+
+```ts
+const para = nashi("p")
+console.log(para.siblings().node) // [span, em]
+```
 
 ## append()
 
@@ -125,7 +305,28 @@ Get element's all siblings.
 append(queryResult: QueryResult): QueryResult;
 ```
 
-Append `QueryResult` to the element.
+Append `QueryResult` to the element . Its usege is similar to `lastChild()` .
+
+#### example
+
+```html
+<div>
+  <span>nashi is perfect!</span>
+</div>
+```
+```ts
+const para = nashi.create("p").text("nashi")
+const dv = nashi("div")
+dv.append(para)
+```
+
+```html
+<!-- the result -->
+<div>
+  <span>nashi is perfect!</span>
+  <p>nashi</p>
+</div>
+```
 
 ## empty()
 
@@ -134,7 +335,26 @@ Append `QueryResult` to the element.
 empty(): QueryResult;
 ```
 
-Remove all childNodes.
+Remove all childNodes .
+
+#### example
+
+```html
+<div>
+  <span>nashi is perfect!</span>
+  <p>nashi</p>
+  <em>nashi</em>
+</div>
+```
+```ts
+const dv = nashi("div")
+dv.empty()
+```
+
+```html
+<!-- the result -->
+<div></div>
+```
 
 ## show()
 
@@ -142,7 +362,25 @@ Remove all childNodes.
 show(): QueryResult;
 ```
 
-Set `element.style.display` to `''`.
+Set `element.style.display` to `''` .
+
+#### example
+
+```html
+<div>
+  <span>nashi is perfect!</span>
+</div>
+```
+```ts
+const p = nashi("p")
+p.hide()
+p.show()
+```
+
+```html
+<!-- the result -->
+<div></div>
+```
 
 ## hide()
 
@@ -150,7 +388,24 @@ Set `element.style.display` to `''`.
 hide(): QueryResult;
 ```
 
-Set `element.style.display` to `'none'`.
+Set `element.style.display` to `'none'` .
+
+#### example
+
+```html
+<div>
+  <span>nashi is perfect!</span>
+</div>
+```
+```ts
+const span = nashi("span")
+span.hide()
+```
+
+```html
+<!-- the result -->
+<div></div>
+```
 
 ## toggle()
 
@@ -158,7 +413,30 @@ Set `element.style.display` to `'none'`.
 toggle(): QueryResult;
 ```
 
-Set `element.style.display` is `'none'`, set `element.style.display` to `''`, otherwise set it to `'none'`.
+Set `element.style.display` is `'none'` , set `element.style.display` to `''` , otherwise set it to `'none'` .
+
+#### example
+
+```html
+<div>
+  <p style="display: none;">nashi is perfect!</p>
+  <h1>nashi is perfect!</h1>
+</div>
+```
+
+```ts
+const p = nashi("p")
+const h1 = nashi("h1")
+p.toggle()
+h1.toggle()
+```
+
+```html
+<div>
+  <p>nashi is perfect!</p>
+  <h1 style="display: none;">nashi is perfect!</h1>
+</div>
+```
 
 ## draggable()
 
@@ -169,4 +447,29 @@ draggable(): null | 'true' | 'false';
 draggable(value: boolean): QueryResult;
 ```
 
-Get or set element's attrbute draggable.
+Get or set element's attrbute draggable .
+
+#### example
+
+```html
+<div>
+  <p>nashi is perfect!</p>
+  <span draggable="true">nashi</span>
+</div>
+```
+
+```ts
+const p = nashi("p")
+const span = nashi("span")
+console.log(p.draggable()); // null
+console.log(span.draggable()); // true
+
+p.draggable(true)
+```
+
+```html
+<div>
+  <p draggable="true">nashi is perfect!</p>
+  <span draggable="true">nashi is perfect!</span>
+</div>
+```
