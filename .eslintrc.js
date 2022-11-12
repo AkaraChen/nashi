@@ -16,5 +16,15 @@ module.exports = {
         'unicorn/no-keyword-prefix': 0,
         'unicorn/prefer-spread': 0
     },
-    extends: ['plugin:prettier/recommended', 'plugin:unicorn/all'],
+    extends: [
+        'plugin:prettier/recommended',
+        'plugin:unicorn/all',
+        'plugin:import/recommended',
+        'plugin:import/typescript'
+    ],
+    settings: {
+        "import/resolver": {
+            typescript: true
+        }
+    }
 };
