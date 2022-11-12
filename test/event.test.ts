@@ -37,6 +37,7 @@ const eventList = [
 ];
 
 for (const event of eventList) {
+    // eslint-disable-next-line no-loop-func
     test(`event ${event}`, () => {
         let count = 0;
         const n = nashi.create('div');

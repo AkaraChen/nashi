@@ -4,7 +4,14 @@ module.exports = {
         es2021: true,
         node: true,
     },
-    overrides: [],
+    overrides: [
+        {
+            files: '*.test.ts',
+            rules: {
+                'no-loop-func': 0
+            }
+        }
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',
@@ -16,10 +23,8 @@ module.exports = {
         'unicorn/no-keyword-prefix': 0,
         'unicorn/prefer-spread': 0,
         'no-undef': 0,
-        'no-loop-func': 0,
         'no-restricted-syntax': 0,
         'no-plusplus': 0,
-        'import/namespace': 0,
         'no-console': 0,
         'no-use-before-define': 0,
         'consistent-return': 0,
@@ -27,8 +32,8 @@ module.exports = {
         'func-names': 0,
         'no-new-func': 0,
         'no-param-reassign': 0,
-        'sort-imports': 1,
-        'sort-keys': 1,
+        'sort-imports': 2,
+        'sort-keys': 2,
         'object-curly-spacing': ["error", "never"]
     },
     extends: [
