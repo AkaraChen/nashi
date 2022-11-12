@@ -1,4 +1,4 @@
-import { formatCSSKey } from '../src/helper.js';
+import { formatCSSKey } from '../src/style/util';
 
 test('util', () => {
     expect(formatCSSKey('border-left')).toBe('borderLeft');

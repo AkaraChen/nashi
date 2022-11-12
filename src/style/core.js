@@ -1,10 +1,5 @@
-import { extend, get } from './core';
-import { formatCSSKey } from './helper';
-
-get('width', 'offsetWidth');
-get('height', 'offsetHeight');
-get('innerWidth', 'clientWidth');
-get('innerHeight', 'clientHeight');
+import { extend } from '../core';
+import { formatCSSKey } from './util';
 
 extend('css', {
     get(key) {

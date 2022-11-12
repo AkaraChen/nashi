@@ -1,4 +1,4 @@
-import { event } from '../helper';
+import { event } from './util';
 
 event('blur');
 event('focus');
