@@ -145,7 +145,7 @@ export type QueryResult = {
     show(): QueryResult;
     hide(): QueryResult;
     toggle(): QueryResult;
-    draggable(): null | 'true' | 'false';
+    draggable(): null | true | false;
     draggable(value: boolean): QueryResult;
 };
 

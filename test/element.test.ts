@@ -81,7 +81,7 @@ test('draggable', () => {
     const label = nashi.create('label');
     expect(label.draggable()).toBeNull();
     label.draggable(true);
-    expect(label.draggable()).toBe('true');
+    expect(label.draggable()).toBe(true);
     label.draggable(false);
-    expect(label.draggable()).toBe('false');
+    expect(label.draggable()).toBe(false);
 });

@@ -1,4 +1,5 @@
 import { extend } from '../core';
+import { convertBoolean } from './util';
 
 extend('show', {
     set() {
@@ -20,9 +21,9 @@ extend('toggle', {
 
 extend('draggable', {
     get() {
-        return this.getAttribute('draggable');
+        return convertBoolean(this.getAttribute('draggable'));
     },
     set(value) {
-        return this.setAttribute('draggable', value.toString());
+        return this.setAttribute('draggable', convertBoolean(value));
     },
 });
