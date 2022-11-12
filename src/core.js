@@ -1,63 +1,55 @@
-export class QueryResult {
+class QueryResult {
+    static get = {};
+    static set = {};
+    static info = {};
     node = [];
+
     constructor(arguments_) {
-        // 添加 Node
-        if (typeof arguments_ === 'undefined') {
-            console.warn('Undefined args');
-            return;
-        }
-
-        if (typeof arguments_ === 'string') {
-            this.node = Array.from(document.querySelectorAll(arguments_));
-            return;
-        }
-        // 判断是数组或者类数组（HTMLCollection 之流）
-
-        if (arguments_[Symbol.iterator]) {
-            for (const item of arguments_) {
-                if (item instanceof Node) {
-                    this.node.push(item);
-                }
+        switch (typeof arguments_) {
+            case 'undefined': {
+                console.warn('Undefined args');
+                return;
             }
+            case 'string': {
+                this.node = Array.from(document.querySelectorAll(arguments_));
+                return;
+            }
+            default: {
+                if (arguments_[Symbol.iterator]) {
+                    for (const item of arguments_) {
+                        if (item instanceof Node) {
+                            this.node.push(item);
+                        }
+                    }
 
-            return;
+                    return;
+                }
+
+                if (arguments_ instanceof Node) {
+                    this.node.push(arguments_);
+                    return;
+                }
+
+                console.warn('Invalid args');
+            }
         }
-
-        if (arguments_ instanceof Node) {
-            this.node.push(arguments_);
-            return;
-        }
-
-        console.warn('Invalid args');
     }
 }
 
-QueryResult.prototype.set = {};
-QueryResult.prototype.get = {};
-QueryResult.prototype.info = {};
-
-// 增加迭代器
-
-QueryResult.prototype[Symbol.iterator] = function* () {
-    let keys = this.node;
-    for (let key of keys) {
-        yield proxy(key);
-    }
-};
-
 export const extend = (key, { get, set }) => {
     const info = { set: -1, get: -1 };
+
     if (set) {
-        QueryResult.prototype.set[key] = set;
+        QueryResult.set[key] = set;
         info.set = set.length;
     }
 
     if (get) {
-        QueryResult.prototype.get[key] = get;
+        QueryResult.get[key] = get;
         info.get = get.length;
     }
 
-    QueryResult.prototype.info[key] = info;
+    QueryResult.info[key] = info;
 };
 
 export const util = (key, function_) => {
@@ -65,15 +57,15 @@ export const util = (key, function_) => {
 };
 
 export const alias = (alias, name) => {
-    if (QueryResult.prototype.set[name]) {
-        QueryResult.prototype.set[alias] = QueryResult.prototype.set[name];
+    if (QueryResult.set[name]) {
+        QueryResult.set[alias] = QueryResult.set[name];
     }
 
-    if (QueryResult.prototype.get[name]) {
-        QueryResult.prototype.get[alias] = QueryResult.prototype.get[name];
+    if (QueryResult.get[name]) {
+        QueryResult.get[alias] = QueryResult.get[name];
     }
 
-    QueryResult.prototype.info[alias] = QueryResult.prototype.info[name];
+    QueryResult.info[alias] = QueryResult.info[name];
 };
 
 export const get = (key, property) => {
@@ -101,63 +93,64 @@ export const proxy = (argument) => {
         get: (target, property, receiver) => {
             const globalReceiver = receiver;
 
-            // 模拟数组
+            const forEach = (handler) => {
+                for (const [index, item] of queryResult.node.entries()) {
+                    handler(proxy(item), index, queryResult);
+                }
+            };
 
-            // 将代理的迭代器直接映射到 QueryResult 上
-
-            if (property.toString() === 'Symbol(Symbol.iterator)') {
-                return QueryResult.prototype[Symbol.iterator];
+            switch (property.toString()) {
+                case 'Symbol(Symbol.iterator)': {
+                    return function* () {
+                        for (let key of this.node) {
+                            yield proxy(key);
+                        }
+                    };
+                }
+                case 'forEach': {
+                    return forEach;
+                }
+                case 'each': {
+                    return forEach;
+                }
+                case 'length': {
+                    return queryResult.node.length;
+                }
             }
 
-            if (property === 'forEach' || property === 'each') {
-                return (handler) => {
-                    for (const [index, item] of queryResult.node.entries()) {
-                        handler(proxy(item), index, queryResult);
-                    }
-                };
-            }
+            if (typeof property === 'symbol') return;
 
-            if (property === 'length') {
-                return queryResult.node.length;
-            }
-
-            // 处理用数字索引访问代理的情况
-            if (
-                typeof property !== 'symbol' &&
-                Number.isInteger(Number(property))
-            ) {
-                // 数组越界处理
+            if (Number.isInteger(Number(property))) {
                 if (property >= target.node.length) {
                     console.warn('Array index out of bounds');
                     return;
                 }
 
-                // 返回一个包含数字索引对应元素的新代理
                 return proxy(queryResult.node[property]);
             }
 
             // 重写函数
 
-            if (QueryResult.prototype.info[property]) {
-                const info = QueryResult.prototype.info[property];
+            if (QueryResult.info[property]) {
+                const info = QueryResult.info[property];
                 return new Proxy(new Function(), {
                     apply(_target, _thisArgument, argumentsList) {
                         const { length } = argumentsList;
                         if (length === info.get) {
-                            return QueryResult.prototype.get[property].apply(
+                            return QueryResult.get[property].apply(
                                 queryResult.node[0],
                                 argumentsList
                             );
-                        }
-
-                        if (length === info.set) {
+                        } else if (length === info.set) {
                             for (const item of queryResult.node) {
-                                QueryResult.prototype.set[property].apply(
+                                QueryResult.set[property].apply(
                                     item,
                                     argumentsList
                                 );
                             }
                             return globalReceiver;
+                        } else {
+                            console.warn('Unexpected args length');
                         }
                     },
                 });
@@ -173,4 +166,5 @@ export const proxy = (argument) => {
 };
 
 export const core = (selector) => proxy(selector);
+
 export default core;
