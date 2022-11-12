@@ -16,7 +16,7 @@ extend('siblings', {
     get() {
         return proxy(
             Array.from(this.parentNode.childNodes).filter(
-                (item) => item != this
+                (item) => item !== this
             )
         );
     },

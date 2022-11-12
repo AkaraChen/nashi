@@ -6,7 +6,7 @@
     "scripts": {
         "prepare": "husky install",
         "build": "rollup -c rollup.config.mjs",
-        "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
+        "lint": "eslint --ext .js,.ts --fix .",
         "test": "vitest run",
         "prepublish": "npm run build",
         "dev": "vite",
@@ -26,6 +26,7 @@
         "@vuepress/client": "2.0.0-beta.53",
         "esbuild": "^0.15.13",
         "eslint": "^8.27.0",
+        "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "8.5.0",
         "eslint-import-resolver-typescript": "^3.5.2",
         "eslint-plugin-import": "^2.26.0",

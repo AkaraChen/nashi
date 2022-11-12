@@ -1,12 +1,12 @@
 import {extend} from '../core';
 
-export function event(event) {
-    extend(event, {
+export function event(name) {
+    extend(name, {
         get() {
-            this.dispatchEvent(new Event(event));
+            this.dispatchEvent(new Event(name));
         },
         set(handler) {
-            this.addEventListener(event, handler);
+            this.addEventListener(name, handler);
         },
     });
 }

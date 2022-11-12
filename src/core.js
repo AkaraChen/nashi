@@ -1,7 +1,10 @@
 class QueryResult {
     static get = {};
+
     static set = {};
+
     static info = {};
+
     node = [];
 
     constructor(arguments_) {
@@ -37,7 +40,7 @@ class QueryResult {
 }
 
 export const extend = (key, {get, set}) => {
-    const info = {set: -1, get: -1};
+    const info = {get: -1, set: -1};
 
     if (set) {
         QueryResult.set[key] = set;
@@ -56,16 +59,16 @@ export const util = (key, function_) => {
     core[key] = function_;
 };
 
-export const alias = (alias, name) => {
+export const alias = (alia, name) => {
     if (QueryResult.set[name]) {
-        QueryResult.set[alias] = QueryResult.set[name];
+        QueryResult.set[alia] = QueryResult.set[name];
     }
 
     if (QueryResult.get[name]) {
-        QueryResult.get[alias] = QueryResult.get[name];
+        QueryResult.get[alia] = QueryResult.get[name];
     }
 
-    QueryResult.info[alias] = QueryResult.info[name];
+    QueryResult.info[alia] = QueryResult.info[name];
 };
 
 export const get = (key, property) => {

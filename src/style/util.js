@@ -1,5 +1,5 @@
 export function formatCSSKey(key) {
-    let indexs = [];
+    const indexs = [];
     let position = key.indexOf('-');
     while (position !== -1) {
         indexs.push(position);

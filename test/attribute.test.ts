@@ -1,10 +1,10 @@
 import nashi from '../dist/index';
 
 const bindList = {
-    text: 'innerText',
     class: 'className',
-    id: 'id',
     html: 'innerHTML',
+    id: 'id',
+    text: 'innerText',
 };
 
 for (const key of Object.keys(bindList)) {
