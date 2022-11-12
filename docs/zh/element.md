@@ -150,3 +150,14 @@ toggle(): QueryResult;
 ```
 
 如果 `element.style.display` 为 `'none'`，将 `element.style.display` 设置为 `''`, 否则设置为 `'none'`.
+
+## draggable()
+
+```ts
+// Getter
+draggable(): null | 'true' | 'false';
+// Setter
+draggable(value: boolean): QueryResult;
+```
+
+获取或者设置元素的属性 draggable。

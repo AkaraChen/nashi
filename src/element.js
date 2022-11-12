@@ -123,3 +123,12 @@ extend('toggle', {
         this.style.display = this.style.display === 'none' ? '' : 'none';
     },
 });
+
+extend('draggable', {
+    get() {
+        return this.getAttribute('draggable');
+    },
+    set(value) {
+        return this.setAttribute('draggable', value.toString());
+    },
+});

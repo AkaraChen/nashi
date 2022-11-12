@@ -159,3 +159,14 @@ toggle(): QueryResult;
 ```
 
 Set `element.style.display` is `'none'`, set `element.style.display` to `''`, otherwise set it to `'none'`.
+
+## draggable()
+
+```ts
+// Getter
+draggable(): null | 'true' | 'false';
+// Setter
+draggable(value: boolean): QueryResult;
+```
+
+Get or set element's attrbute draggable.
