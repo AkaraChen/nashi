@@ -103,3 +103,23 @@ html(html: string): QueryResult;
 ```
 
 Get or set element's `innerHTML`.
+
+## accesskey()
+
+```ts
+// Getter
+accesskey(): string;
+// Setter
+accesskey(key: string): QueryResult;
+```
+
+Get or set element's `accesskey`.
+
+## removeAttr()
+
+```ts
+// Setter
+removeAttr(key: string): QueryResult
+```
+
+Remove element's attribute.

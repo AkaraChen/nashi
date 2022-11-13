@@ -92,3 +92,23 @@ html(html: string): QueryResult;
 ```
 
 获取或者设置元素的 `innerHTML`。
+
+## accesskey()
+
+```ts
+// Getter
+accesskey(): string;
+// Setter
+accesskey(key: string): QueryResult;
+```
+
+获取或者设置元素的 `accesskey`。
+
+## removeAttr()
+
+```ts
+// Setter
+removeAttr(key: string): QueryResult
+```
+
+删除元素的 `attribute`。
