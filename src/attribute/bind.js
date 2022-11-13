@@ -1,6 +1,6 @@
 import {bind} from '../core';
 
-bind('text', 'innerText');
+bind('text', 'textContent');
 bind('class', 'className');
 bind('html', 'innerHTML');
 bind('id');

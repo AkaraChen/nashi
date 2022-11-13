@@ -44,6 +44,6 @@ extend('hasChild', {
 
 extend('empty', {
     set() {
-        for (const item of this.childNodes) item.remove();
+        this.replaceChildren();
     },
 });

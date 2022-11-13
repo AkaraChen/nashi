@@ -2,13 +2,13 @@ import {extend, proxy} from '../core';
 
 extend('next', {
     get() {
-        return proxy(this.nextSibling);
+        return proxy(this.nextElementSibling);
     },
 });
 
 extend('prev', {
     get() {
-        return proxy(this.previousSibling);
+        return proxy(this.previousElementSibling);
     },
 });
 

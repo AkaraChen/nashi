@@ -9,8 +9,7 @@ module.exports = {
             files: '*.test.ts',
             rules: {
                 'no-loop-func': 0,
-                'no-undef': 0,
-                'no-plusplus': 0,
+                'no-undef': 0
             }
         }
     ],
@@ -33,7 +32,8 @@ module.exports = {
         'no-param-reassign': 0,
         'sort-imports': 2,
         'sort-keys': 2,
-        'object-curly-spacing': ["error", "never"]
+        'object-curly-spacing': ["error", "never"],
+        'no-plusplus': 0,
     },
     extends: [
         'airbnb-base/legacy',

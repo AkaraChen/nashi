@@ -5,6 +5,8 @@ class QueryResult {
 
     static info = {};
 
+    static mixin = {};
+
     node = [];
 
     constructor(arguments_) {
@@ -17,25 +19,24 @@ class QueryResult {
                 this.node = Array.from(document.querySelectorAll(arguments_));
                 return;
             }
-            default: {
-                if (arguments_[Symbol.iterator]) {
-                    for (const item of arguments_) {
-                        if (item instanceof Node) {
-                            this.node.push(item);
-                        }
-                    }
-
-                    return;
-                }
-
-                if (arguments_ instanceof Node) {
-                    this.node.push(arguments_);
-                    return;
-                }
-
-                console.warn('Invalid args');
-            }
         }
+
+        if (arguments_[Symbol.iterator]) {
+            for (const item of arguments_) {
+                if (item instanceof Node) {
+                    this.node.push(item);
+                }
+            }
+
+            return;
+        }
+
+        if (arguments_ instanceof Node) {
+            this.node.push(arguments_);
+            return;
+        }
+
+        console.warn('Invalid args');
     }
 }
 
@@ -45,29 +46,15 @@ export const proxy = (argument) => {
         get: (target, property, receiver) => {
             const globalReceiver = receiver;
 
-            const forEach = (handler) => {
-                for (const [index, item] of queryResult.node.entries()) {
-                    handler(proxy(item), index, queryResult);
-                }
-            };
-
-            switch (property.toString()) {
-                case 'Symbol(Symbol.iterator)': {
-                    return function* () {
-                        for (let key of this.node) {
-                            yield proxy(key);
-                        }
-                    };
-                }
-                case 'forEach': {
-                    return forEach;
-                }
-                case 'each': {
-                    return forEach;
-                }
-                case 'length': {
-                    return queryResult.node.length;
-                }
+            if (Object.keys(QueryResult.mixin).includes(property.toString())) {
+                return new Proxy(new Function(), {
+                    apply(_target, _thisArgument, argumentsList) {
+                        return QueryResult.mixin[property.toString()].apply(
+                            queryResult,
+                            argumentsList
+                        );
+                    },
+                })();
             }
 
             if (typeof property === 'symbol') return;
@@ -163,6 +150,10 @@ export const bind = (key, property = key) => {
             this[property] = value;
         },
     });
+};
+
+export const mixin = (key, function_) => {
+    QueryResult.mixin[key] = function_;
 };
 
 export const core = (selector) => proxy(selector);

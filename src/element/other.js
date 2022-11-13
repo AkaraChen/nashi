@@ -27,3 +27,9 @@ extend('draggable', {
         return this.setAttribute('draggable', convertBoolean(value));
     },
 });
+
+extend('replace', {
+    set(html) {
+        this.outerHTML = html;
+    },
+});
