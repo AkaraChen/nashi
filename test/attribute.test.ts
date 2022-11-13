@@ -1,6 +1,7 @@
 import nashi from '../dist/index';
 
 const bindList = {
+    accesskey: 'accesskey',
     class: 'className',
     html: 'innerHTML',
     id: 'id',

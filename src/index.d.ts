@@ -147,6 +147,8 @@ export type QueryResult = {
     toggle(): QueryResult;
     draggable(): null | true | false;
     draggable(value: boolean): QueryResult;
+    accesskey(): string;
+    accesskey(key: string): QueryResult;
 };
 
 declare const core: Core;

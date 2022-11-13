@@ -5,3 +5,4 @@ bind('class', 'className');
 bind('html', 'innerHTML');
 bind('id');
 bind('value');
+bind('accesskey');
