@@ -17,3 +17,9 @@ extend('prop', {
         this[key] = value;
     },
 });
+
+extend('removeAttr', {
+    set(attribute) {
+        this.removeAttribute(attribute);
+    },
+});

@@ -40,6 +40,7 @@ export type QueryResult = {
     prop(key: string, value: string): QueryResult;
     attr(key: string): string;
     attr(key: string, value: string): QueryResult;
+    removeAttr(key: string): QueryResult
     html(): string;
     html(html: string): QueryResult;
     width(): number;

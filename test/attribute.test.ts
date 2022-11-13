@@ -48,3 +48,11 @@ test('prop', () => {
     expect(ndiv.prop('id')).toBe(div.id);
     expect(ndiv.prop('id')).toBe('foo');
 });
+
+test('removeAttribute', () => {
+    const ndiv = nashi.create('dibs');
+    ndiv.id('test');
+    expect(ndiv.id()).toBe('test');
+    ndiv.removeAttr('id');
+    expect(ndiv.id()).toBe('');
+});
