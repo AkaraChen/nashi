@@ -10,8 +10,8 @@ export default [
             dir: 'dist',
         },
         plugins: [
-            esbuild({ minify: true }),
-            copy({ targets: [{ src: './src/index.d.ts', dest: './dist' }] }),
+            esbuild({minify: true}),
+            copy({targets: [{src: './src/index.d.ts', dest: './dist'}]}),
             filesize(),
         ],
     },
@@ -22,7 +22,7 @@ export default [
             file: 'dist/common.js',
         },
         plugins: [
-            esbuild({ minify: true }),
+            esbuild({minify: true}),
             copy({
                 targets: [
                     {
@@ -43,9 +43,9 @@ export default [
             name: 'nashi',
         },
         plugins: [
-            esbuild({ minify: true }),
+            esbuild({minify: true}),
             filesize(),
-            babel({ babelHelpers: 'bundled' }),
+            babel({babelHelpers: 'bundled'}),
         ],
     },
 ];

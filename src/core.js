@@ -68,7 +68,6 @@ export const proxy = (argument) => {
                 return proxy(queryResult.node[property]);
             }
 
-
             if (QueryResult.info[property]) {
                 const info = QueryResult.info[property];
                 return new Proxy(new Function(), {

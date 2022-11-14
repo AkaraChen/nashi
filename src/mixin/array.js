@@ -25,43 +25,48 @@ mixin('length', function () {
 });
 
 mixin('first', function () {
-    return proxy(this.node[0]);
+    return () => proxy(this.node[0]);
 });
 
 mixin('last', function () {
-    return proxy(this.node.at(-1));
+    return () => proxy(this.node.at(-1));
 });
 
-mixin('at', function (index) {
-    return proxy(this.node.at(index));
+mixin('at', function () {
+    return (index) => proxy(this.node.at(index));
 });
 
-mixin('filter', function (filterFunction) {
-    return proxy(
-        this.node.filter((element, index) =>
-            filterFunction(element, index, this)
-        )
-    );
+mixin('filter', function () {
+    return (filterFunction) =>
+        proxy(
+            this.node.filter((element, index) =>
+                filterFunction(proxy(element), index, proxy(this.node))
+            )
+        );
 });
 
-mixin('find', function (findFunction) {
-    return proxy(
-        this.node.find((element, index) => findFunction(element, index, this))
-    );
+mixin('find', function () {
+    return (findFunction) =>
+        proxy(
+            this.node.find((element, index) =>
+                findFunction(proxy(element), index, proxy(this.node))
+            )
+        );
 });
 
 mixin('pop', function () {
-    return proxy(this.node.pop());
+    return () => proxy(this.node.pop());
 });
 
 mixin('shift', function () {
-    return this.node.shift();
+    return () => proxy(this.node.shift());
 });
 
-mixin('slice', function (start, end) {
-    return proxy(this.node.slice(start, end));
+mixin('slice', function () {
+    return (start, end) => proxy(this.node.slice(start, end));
 });
 
-mixin('splice', function (start, end, ...value) {
-    return proxy(this.node.splice(start, end, ...value));
+mixin('splice', function () {
+    return (start, end, ...value) =>
+        proxy(this.node.splice(start, end, ...value));
 });

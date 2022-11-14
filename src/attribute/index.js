@@ -1,3 +1,3 @@
 import './bind';
-import './class';
 import './core';
+import './class';

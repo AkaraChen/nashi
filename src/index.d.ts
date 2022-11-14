@@ -47,9 +47,9 @@ export type QueryResult = {
         ) => any
     ): QueryResult;
     pop(): QueryResult;
-    shift(): number;
+    shift(): QueryResult;
     slice(start: number, end: number): QueryResult;
-    splice(start: number, end: number, ...value: Input[]): QueryResult;
+    splice(start: number, deleteCount: number, ...value: Input[]): QueryResult;
 
     // Attribute
     text(): string;
