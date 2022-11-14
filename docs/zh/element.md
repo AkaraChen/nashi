@@ -484,28 +484,28 @@ replace(html: string): QueryResult;
 
 将元素替换为 HTML。
 
-<!-- ## wrap()
+## wrap()
 
 ```ts
 // Setter
 wrap(html: string): QueryResult;
 ```
 
-将元素用传入的 HTML 字符串包裹。
+将元素用指定的标签包裹。
 
 #### example
 
 ```ts
 nashi.createElement('p')
   .text('nashi is great!')
-  .wrap('<div class="container"></div>')
+  .wrap('div')
 ```
 
 ```html
-<div class="container">
+<div>
   <p>nashi is great!</p>
 </div>
-``` -->
+```
 
 ## unwrap()
 

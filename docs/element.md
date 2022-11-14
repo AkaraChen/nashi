@@ -483,7 +483,7 @@ replace(html: string): QueryResult;
 
 Replace element's with html.
 
-<!-- ## wrap()
+## wrap()
 
 ```ts
 // Setter
@@ -497,14 +497,14 @@ Wrap element with a container.
 ```ts
 nashi.createElement('p')
   .text('nashi is great!')
-  .wrap('<div class="container"></div>')
+  .wrap('div')
 ```
 
 ```html
-<div class="container">
+<div>
   <p>nashi is great!</p>
 </div>
-``` -->
+```
 
 ## unwrap()
 

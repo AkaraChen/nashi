@@ -2,8 +2,8 @@ import {alias, extend, proxy} from '../core';
 
 extend('parent', {
     get() {
-        if (this.parentNode === null) return;
-        return proxy(this.parentNode);
+        if (this.parentElement === null) return;
+        return proxy(this.parentElement);
     },
 });
 
