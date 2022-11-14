@@ -100,9 +100,17 @@ nashi('p').forEach((item, index) => {
 nashi('p').length; // 2
 ```
 
+`QueryResult` 上还有一些方法可以调用：
+
+| at    | filter | find   | pop |
+| ----- | ------ | ------ | --- |
+| shift | slice  | splice |  forEach   |
+
+他们的行为与 Array 上的同名方法一致。
+
 ## 工具
 
-有些 API 既不是 Getter 也不是 Setter，他们被称为 Util，你可以这样调用他们： `nashi.{name}`。
+有些你可以这样调用的 API： `nashi.{name}`，他们被称为 Util。
 
 比如：
 

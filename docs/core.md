@@ -100,9 +100,17 @@ nashi('p').forEach((item, index) => {
 nashi('p').length; // 2
 ```
 
+And there are some method can be used on `QueryResult`:
+
+| at    | filter | find   | pop |
+| ----- | ------ | ------ | --- |
+| shift | slice  | splice |  forEach   |
+
+They behave the same way as the same name method on Array.
+
 ## Utils
 
-There are some API not a part of a Getter or Setter, they are called util. You can call it by using `nashi.{name}`.
+There are some API you can call it by using `nashi.{name}`, they were called Util.
 
 Such as:
 

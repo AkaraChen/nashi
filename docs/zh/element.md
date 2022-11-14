@@ -475,3 +475,60 @@ p.draggable(true)
   <span draggable="true">nashi is perfect!</span>
 </div>
 ```
+
+## replace()
+
+```ts
+replace(html: string): QueryResult;
+```
+
+将元素替换为 HTML。
+
+<!-- ## wrap()
+
+```ts
+// Setter
+wrap(html: string): QueryResult;
+```
+
+将元素用传入的 HTML 字符串包裹。
+
+#### example
+
+```ts
+nashi.createElement('p')
+  .text('nashi is great!')
+  .wrap('<div class="container"></div>')
+```
+
+```html
+<div class="container">
+  <p>nashi is great!</p>
+</div>
+``` -->
+
+## unwrap()
+
+```ts
+// Setter
+unwrap(): QueryResult;
+```
+
+将元素移除出文档，并且将子元素放置到元素原来的位置。
+
+#### example
+
+```ts
+nashi('.container').unwrap()
+```
+
+```html
+<!-- Before -->
+<div class="container">
+  <p>Test</p>
+</div>
+
+<!-- After -->
+<p>Test</p>
+```
+

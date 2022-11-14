@@ -442,7 +442,7 @@ h1.toggle()
 
 ```ts
 // Getter
-draggable(): null | 'true' | 'false';
+draggable(): null | true | false;
 // Setter
 draggable(value: boolean): QueryResult;
 ```
@@ -472,4 +472,61 @@ p.draggable(true)
   <p draggable="true">nashi is perfect!</p>
   <span draggable="true">nashi is perfect!</span>
 </div>
+```
+
+## replace()
+
+```ts
+// Setter
+replace(html: string): QueryResult;
+```
+
+Replace element's with html.
+
+<!-- ## wrap()
+
+```ts
+// Setter
+wrap(html: string): QueryResult;
+```
+
+Wrap element with a container.
+
+#### example
+
+```ts
+nashi.createElement('p')
+  .text('nashi is great!')
+  .wrap('<div class="container"></div>')
+```
+
+```html
+<div class="container">
+  <p>nashi is great!</p>
+</div>
+``` -->
+
+## unwrap()
+
+```ts
+// Setter
+unwrap(): QueryResult;
+```
+
+Unwrap an element.
+
+#### example
+
+```ts
+nashi('.container').unwrap()
+```
+
+```html
+<!-- Before -->
+<div class="container">
+  <p>Test</p>
+</div>
+
+<!-- After -->
+<p>Test</p>
 ```

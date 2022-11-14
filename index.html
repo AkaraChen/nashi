@@ -9,10 +9,13 @@
 </head>
 
 <body>
-    <div>1</div>
-    <div>2</div>
+    <div>
+        <p>114514</p>
+    </div>
     <script type="module">
         import nashi from './src/index.js'
+        const p = nashi.create('p');
+        p.wrap('<div class="container"></div>');
     </script>
 </body>
 

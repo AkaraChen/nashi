@@ -85,3 +85,12 @@ test('draggable', () => {
     label.draggable(false);
     expect(label.draggable()).toBe(false);
 });
+
+test('unwrap', () => {
+    const div = nashi.create('div');
+    nashi('body').append(div);
+    const p = nashi.create('p');
+    div.append(p);
+    div.unwrap();
+    expect(div.hasChild()).toBe(false);
+});

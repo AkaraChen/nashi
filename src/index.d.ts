@@ -185,7 +185,7 @@ export type QueryResult = {
     accesskey(): string;
     accesskey(key: string): QueryResult;
     replace(html: string): QueryResult;
-    wrap(html: string): QueryResult;
+    // wrap(html: string): QueryResult;
     unwrap(): QueryResult;
 };
 
