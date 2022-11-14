@@ -531,7 +531,6 @@ nashi('.container').unwrap()
 <p>Test</p>
 ```
 
-
 ## Tag
 
 ```ts
@@ -540,3 +539,13 @@ tag(): string
 ```
 
 Return element's `tagName` in lowerCase.
+
+#### example
+
+```html
+<div class="container"></div>
+```
+
+```ts
+console.log(nashi(".container").tag()) // div
+```
