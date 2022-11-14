@@ -541,3 +541,12 @@ tag(): string
 
 返回元素的 `tagName` 的小写形式。
 
+#### example
+
+```html
+<div class="container"></div>
+```
+
+```ts
+console.log(nashi(".container").tag()) // div
+```
