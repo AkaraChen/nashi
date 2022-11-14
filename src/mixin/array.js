@@ -6,16 +6,18 @@ function forEach(handler) {
     }
 }
 
+function* iterator() {
+    for (let key of this.node) {
+        yield proxy(key);
+    }
+}
+
 mixin('forEach', forEach);
 
 mixin('each', forEach);
 
 mixin('Symbol(Symbol.iterator)', function () {
-    return function* () {
-        for (let key of this.node) {
-            yield proxy(key);
-        }
-    };
+    return iterator;
 });
 
 mixin('length', function () {
@@ -53,7 +55,7 @@ mixin('pop', function () {
 });
 
 mixin('shift', function () {
-    return proxy(this.node.shift());
+    return this.node.shift();
 });
 
 mixin('slice', function (start, end) {

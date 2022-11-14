@@ -17,6 +17,9 @@ export type Core = {
 
 export type QueryResult = {
     node: HTMLElement[];
+
+    // Mixins
+
     [Symbol.iterator](): IterableIterator<QueryResult>;
     [index: number]: QueryResult;
     length: number;
@@ -26,6 +29,29 @@ export type QueryResult = {
     each(
         handler: (item: QueryResult, index: number, array: QueryResult) => any
     ): QueryResult;
+    first(): QueryResult;
+    last(): QueryResult;
+    at(index: number): QueryResult;
+    filter(
+        handler: (
+            element: QueryResult,
+            index: number,
+            array: QueryResult
+        ) => any
+    ): QueryResult;
+    find(
+        handler: (
+            element: QueryResult,
+            index: number,
+            array: QueryResult
+        ) => any
+    ): QueryResult;
+    pop(): QueryResult;
+    shift(): number;
+    slice(start: number, end: number): QueryResult;
+    splice(start: number, end: number, ...value: Input[]): QueryResult;
+
+    // Attribute
     text(): string;
     text(string: string): QueryResult;
     class(): string;
@@ -40,17 +66,23 @@ export type QueryResult = {
     prop(key: string, value: string): QueryResult;
     attr(key: string): string;
     attr(key: string, value: string): QueryResult;
-    removeAttr(key: string): QueryResult
+    removeAttr(key: string): QueryResult;
     html(): string;
     html(html: string): QueryResult;
+
+    // Style
     width(): number;
     height(): number;
     innerWidth(): number;
     innerHeight(): number;
+    outerWidth(): number;
+    outerHeight(): number;
     css(key: string): string;
     css(key: string, value: string): QueryResult;
     style(key: string): string;
     style(key: string, value: string): QueryResult;
+
+    // Event
     event(event: string, handler: (event: CustomEvent) => any): QueryResult;
     on(event: string, handler: (event: CustomEvent) => any): QueryResult;
     trigger(event: string | CustomEvent): QueryResult;
@@ -124,6 +156,8 @@ export type QueryResult = {
     dragover(): void;
     dragstart(): void;
 
+    // Element
+
     parent(): QueryResult;
     child(): QueryResult;
     children(): QueryResult;
@@ -150,6 +184,9 @@ export type QueryResult = {
     draggable(value: boolean): QueryResult;
     accesskey(): string;
     accesskey(key: string): QueryResult;
+    replace(html: string): QueryResult;
+    wrap(html: string): QueryResult;
+    unwrap(): QueryResult;
 };
 
 declare const core: Core;

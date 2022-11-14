@@ -68,7 +68,6 @@ export const proxy = (argument) => {
                 return proxy(queryResult.node[property]);
             }
 
-            // 重写函数
 
             if (QueryResult.info[property]) {
                 const info = QueryResult.info[property];
