@@ -18,16 +18,18 @@ nashi('p').click(); // Nashi is great!
 
 这是支持的所有事件：
 
-| blur      | focus     | focusin    | focusout    |
-| --------- | --------- | ---------- | ----------- |
-| hover     | change    | click      | contextmenu |
-| dblclick  | error     | keydown    | keypress    |
-| keyup     | mousedown | mouseenter | mouseleave  |
-| mousemove | mouseout  | mouseover  | mouseup     |
-| resize    | scroll    | select     | submit      |
-| input     | invalid   | reset      | wheel       |
-| drag      | dragend   | dragenter  | dragleave   |
-| dragover  | dragstart |
+| blur         | focus         | focusin           | focusout           |
+| ------------ | ------------- | ----------------- | ------------------ |
+| hover        | change        | click             | contextmenu        |
+| dblclick     | error         | keydown           | keypress           |
+| keyup        | mousedown     | mouseenter        | mouseleave         |
+| mousemove    | mouseout      | mouseover         | mouseup            |
+| resize       | scroll        | select            | submit             |
+| input        | invalid       | reset             | wheel              |
+| drag         | dragend       | dragenter         | dragleave          |
+| dragover     | dragstart     | pointerdown       | pointerup          |
+| pointermove  | pointerover   | pointerout        | pointerenter       |
+| pointerleave | pointercancel | gotpointercapture | lostpointercapture |
 
 或者你可以调用 `event()` 或者 `on()` (on 是 event 的别名)来触发任意事件（一般用于触发你定义的自定义事件）:
 

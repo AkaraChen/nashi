@@ -121,6 +121,16 @@ export type QueryResult = {
     dragleave(handler: (event: DragEvent) => any): QueryResult;
     dragover(handler: (event: DragEvent) => any): QueryResult;
     dragstart(handler: (event: DragEvent) => any): QueryResult;
+    pointerdown(handler: (event: PointerEvent) => any): QueryResult;
+    pointerup(handler: (event: PointerEvent) => any): QueryResult;
+    pointermove(handler: (event: PointerEvent) => any): QueryResult;
+    pointerover(handler: (event: PointerEvent) => any): QueryResult;
+    pointerout(handler: (event: PointerEvent) => any): QueryResult;
+    pointerenter(handler: (event: PointerEvent) => any): QueryResult;
+    pointerleave(handler: (event: PointerEvent) => any): QueryResult;
+    pointercancel(handler: (event: PointerEvent) => any): QueryResult;
+    gotpointercapture(handler: (event: PointerEvent) => any): QueryResult;
+    lostpointercapture(handler: (event: PointerEvent) => any): QueryResult;
 
     focus(): void;
     focusin(): void;
@@ -155,6 +165,16 @@ export type QueryResult = {
     dragleave(): void;
     dragover(): void;
     dragstart(): void;
+    pointerdown(): void;
+    pointerup(): void;
+    pointermove(): void;
+    pointerover(): void;
+    pointerout(): void;
+    pointerenter(): void;
+    pointerleave(): void;
+    pointercancel(): void;
+    gotpointercapture(): void;
+    lostpointercapture(): void;
 
     // Element
 

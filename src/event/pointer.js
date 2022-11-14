@@ -11,3 +11,14 @@ event('mouseout');
 event('mouseover');
 event('mouseup');
 event('wheel');
+
+event('pointerdown');
+event('pointerup');
+event('pointermove');
+event('pointerover');
+event('pointerout');
+event('pointerenter');
+event('pointerleave');
+event('pointercancel');
+event('gotpointercapture');
+event('lostpointercapture');
