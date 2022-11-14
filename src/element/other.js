@@ -33,3 +33,9 @@ extend('replace', {
         this.outerHTML = html;
     },
 });
+
+extend('tag', {
+    get() {
+        return this.tagName.toLowerCase();
+    },
+});

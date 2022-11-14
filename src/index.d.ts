@@ -187,6 +187,7 @@ export type QueryResult = {
     replace(html: string): QueryResult;
     wrap(tag: string): QueryResult;
     unwrap(): QueryResult;
+    tag(): string;
 };
 
 declare const core: Core;

@@ -530,3 +530,13 @@ nashi('.container').unwrap()
 <!-- After -->
 <p>Test</p>
 ```
+
+
+## Tag
+
+```ts
+// Getter
+tag(): string
+```
+
+Return element's `tagName` in lowerCase.

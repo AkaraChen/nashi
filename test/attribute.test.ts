@@ -12,8 +12,11 @@ for (const key of Object.keys(bindList)) {
     test(`attr ${key}`, () => {
         const np = nashi.create('p');
         const p = np.node[0];
+        // @ts-ignore
         np[key]('test');
+        // @ts-ignore
         expect(np[key]()).toBe('test');
+        // @ts-ignore
         expect(p[bindList[key]]).toBe('test');
     });
 }

@@ -101,3 +101,7 @@ test('unwrap', () => {
     div.unwrap();
     expect(div.hasChild()).toBe(false);
 });
+
+test('tag', () => {
+    expect(nashi.create('p').tag()).toBe('p');
+});
