@@ -69,14 +69,6 @@ test('empty', () => {
     expect(div.child().length).toBe(0);
 });
 
-test('toggle', () => {
-    const div = nashi.create('div');
-    div.toggle();
-    expect(div.style('display')).toBe('none');
-    div.toggle();
-    expect(div.style('display')).toBe('');
-});
-
 test('draggable', () => {
     const label = nashi.create('label');
     expect(label.draggable()).toBeNull();
