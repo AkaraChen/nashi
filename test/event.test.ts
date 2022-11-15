@@ -34,6 +34,17 @@ const eventList = [
     'dragleave',
     'dragover',
     'dragstart',
+    'pointerdown',
+    'pointerup',
+    'pointermove',
+    'pointerover',
+    'pointerout',
+    'pointerenter',
+    'pointerleave',
+    'pointercancel',
+    'gotpointercapture',
+    'lostpointercapture',
+    'wheel',
 ];
 
 for (const event of eventList) {
@@ -41,7 +52,9 @@ for (const event of eventList) {
     test(`event ${event}`, () => {
         let count = 0;
         const n = nashi.create('div');
+        // @ts-ignore
         n[event](() => count++);
+        // @ts-ignore
         n[event]();
         expect(count).toBe(1);
     });
