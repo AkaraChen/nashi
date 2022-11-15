@@ -13,4 +13,10 @@ test('init', () => {
     expect(nashi(p).length).toBe(5);
     const array = Array.from(p);
     expect(nashi(array).length).toBe(5);
+    let count = 0;
+    for (const item of nashi('p')) {
+        expect(item.text()).toBe('');
+        count++;
+    }
+    expect(count).toBe(5);
 });
