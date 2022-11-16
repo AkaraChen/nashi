@@ -131,6 +131,7 @@ export type QueryResult = {
     pointercancel(handler: (event: PointerEvent) => any): QueryResult;
     gotpointercapture(handler: (event: PointerEvent) => any): QueryResult;
     lostpointercapture(handler: (event: PointerEvent) => any): QueryResult;
+    pointerhover(handler: (event: PointerEvent) => any): QueryResult;
 
     focus(): void;
     focusin(): void;

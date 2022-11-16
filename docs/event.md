@@ -57,3 +57,21 @@ np.click(); // count = 1
 np.removeEvent('click', handler);
 np.click(); // count = 1
 ```
+
+## Event alias
+
+### hover()
+
+```ts
+QueryResult.hover(handler);
+/* Equals to */
+QueryResult.mouseenter(handler).mouseleave(handler);
+```
+
+### pointerhover()
+
+```ts
+QueryResult.pointerhover(handler);
+/* Equals to */
+QueryResult.pointerenter(handler).pointerleave(handler);
+```

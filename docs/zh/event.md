@@ -57,3 +57,21 @@ np.click(); // count = 1
 np.removeEvent('click', handler);
 np.click(); // count = 1
 ```
+
+## 事件别名
+
+### hover()
+
+```ts
+QueryResult.hover(handler);
+/* 相当于 */
+QueryResult.mouseenter(handler).mouseleave(handler);
+```
+
+### pointerhover()
+
+```ts
+QueryResult.pointerhover(handler);
+/* 相当于 */
+QueryResult.pointerenter(handler).pointerleave(handler);
+```
