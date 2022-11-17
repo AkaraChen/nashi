@@ -33,14 +33,14 @@ test('array at', () => {
 });
 
 test('filter', () => {
-    const filtered = content.filter((element) => {
+    const filtered = content.filter(element => {
         return element.text() === '1';
     });
     expect(filtered.length).toBe(1);
 });
 
 test('find', () => {
-    const found = content.find((element) => {
+    const found = content.find(element => {
         return element.text() === '1';
     });
     expect(found.length).toBe(1);

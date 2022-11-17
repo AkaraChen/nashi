@@ -3,7 +3,7 @@ import {alias, extend} from '../core';
 extend('event', {
     set(event, handler) {
         this.addEventListener(event, handler);
-    },
+    }
 });
 
 alias('on', 'event');
@@ -15,11 +15,11 @@ extend('trigger', {
         }
 
         this.dispatchEvent(event);
-    },
+    }
 });
 
 extend('removeEvent', {
     set(event, handler) {
         this.removeEventListener(event, handler);
-    },
+    }
 });

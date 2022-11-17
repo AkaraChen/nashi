@@ -33,24 +33,22 @@ mixin('last', function () {
 });
 
 mixin('at', function () {
-    return (index) => proxy(this.node.at(index));
+    return index => proxy(this.node.at(index));
 });
 
 mixin('filter', function () {
-    return (filterFunction) =>
+    return filterFunction =>
         proxy(
             this.node.filter((element, index) =>
-                filterFunction(proxy(element), index, proxy(this.node))
-            )
+                filterFunction(proxy(element), index, proxy(this.node)))
         );
 });
 
 mixin('find', function () {
-    return (findFunction) =>
+    return findFunction =>
         proxy(
             this.node.find((element, index) =>
-                findFunction(proxy(element), index, proxy(this.node))
-            )
+                findFunction(proxy(element), index, proxy(this.node)))
         );
 });
 

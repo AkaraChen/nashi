@@ -7,7 +7,7 @@ extend('css', {
     },
     set(key, value) {
         this.style[formatCSSKey(key)] = value;
-    },
+    }
 });
 
 extend('style', {
@@ -16,5 +16,5 @@ extend('style', {
     },
     set(key, value) {
         this.style[key] = value;
-    },
+    }
 });

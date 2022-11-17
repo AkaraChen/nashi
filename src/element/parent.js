@@ -4,14 +4,14 @@ extend('parent', {
     get() {
         if (this.parentElement === null) return;
         return proxy(this.parentElement);
-    },
+    }
 });
 
 extend('child', {
     get() {
         const array = Array.from(this.childNodes);
         return proxy(array);
-    },
+    }
 });
 
 alias('children', 'child');
@@ -24,7 +24,7 @@ extend('firstChild', {
     set(queryResult) {
         // eslint-disable-next-line unicorn/no-null
         this.insertBefore(queryResult.node[0], this.childNodes[0] || null);
-    },
+    }
 });
 
 extend('lastChild', {
@@ -34,17 +34,17 @@ extend('lastChild', {
     },
     set(queryResult) {
         this.append(queryResult.node[0]);
-    },
+    }
 });
 
 extend('hasChild', {
     get() {
         return this.hasChildNodes();
-    },
+    }
 });
 
 extend('empty', {
     set() {
         this.replaceChildren();
-    },
+    }
 });

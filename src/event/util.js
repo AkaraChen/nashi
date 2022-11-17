@@ -7,6 +7,6 @@ export function event(name) {
         },
         set(handler) {
             this.addEventListener(name, handler);
-        },
+        }
     });
 }

@@ -44,7 +44,7 @@ const eventList = [
     'pointercancel',
     'gotpointercapture',
     'lostpointercapture',
-    'wheel',
+    'wheel'
 ];
 
 for (const event of eventList) {
@@ -81,7 +81,7 @@ test('event', () => {
 test('custom event', () => {
     let count = 0;
     const n = nashi.create('div');
-    n.event('test', (event) => {
+    n.event('test', event => {
         count = event.detail.value;
     });
     n.trigger(new CustomEvent('test', {detail: {value: count + 1}}));

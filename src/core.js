@@ -11,14 +11,14 @@ class QueryResult {
 
     constructor(arguments_) {
         switch (typeof arguments_) {
-            case 'undefined': {
-                console.warn('Undefined args');
-                return;
-            }
-            case 'string': {
-                this.node = Array.from(document.querySelectorAll(arguments_));
-                return;
-            }
+        case 'undefined': {
+            console.warn('Undefined args');
+            return;
+        }
+        case 'string': {
+            this.node = Array.from(document.querySelectorAll(arguments_));
+            return;
+        }
         }
 
         if (arguments_[Symbol.iterator]) {
@@ -40,7 +40,7 @@ class QueryResult {
     }
 }
 
-export const proxy = (argument) => {
+export const proxy = argument => {
     const queryResult = new QueryResult(argument);
     return new Proxy(queryResult, {
         get: (target, property, receiver) => {
@@ -53,7 +53,7 @@ export const proxy = (argument) => {
                             queryResult,
                             argumentsList
                         );
-                    },
+                    }
                 })();
             }
 
@@ -74,11 +74,12 @@ export const proxy = (argument) => {
                     apply(_target, _thisArgument, argumentsList) {
                         const {length} = argumentsList;
                         if (length === info.get) {
-                            if (queryResult.node[0])
+                            if (queryResult.node[0]) {
                                 return QueryResult.get[property].apply(
                                     queryResult.node[0],
                                     argumentsList
                                 );
+                            }
                         } else if (length === info.set) {
                             for (const item of queryResult.node) {
                                 QueryResult.set[property].apply(
@@ -90,7 +91,7 @@ export const proxy = (argument) => {
                         } else {
                             console.warn('Unexpected args length');
                         }
-                    },
+                    }
                 });
             }
 
@@ -99,7 +100,7 @@ export const proxy = (argument) => {
             }
 
             console.warn('Unknown props');
-        },
+        }
     });
 };
 
@@ -135,7 +136,7 @@ export const get = (key, property) => {
     extend(key, {
         get() {
             return this[property];
-        },
+        }
     });
 };
 
@@ -146,7 +147,7 @@ export const bind = (key, property = key) => {
         },
         set(value) {
             this[property] = value;
-        },
+        }
     });
 };
 
@@ -154,7 +155,7 @@ export const mixin = (key, function_) => {
     QueryResult.mixin[key] = function_;
 };
 
-export const core = (selector) => proxy(selector);
+export const core = selector => proxy(selector);
 
 export const util = (key, function_) => {
     core[key] = function_;

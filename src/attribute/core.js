@@ -6,7 +6,7 @@ extend('attr', {
     },
     set(key, value) {
         this.setAttribute(key, value);
-    },
+    }
 });
 
 extend('prop', {
@@ -15,11 +15,11 @@ extend('prop', {
     },
     set(key, value) {
         this[key] = value;
-    },
+    }
 });
 
 extend('removeAttr', {
     set(attribute) {
         this.removeAttribute(attribute);
-    },
+    }
 });

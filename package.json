@@ -61,5 +61,8 @@
                 "@algolia/client-search"
             ]
         }
+    },
+    "dependencies": {
+        "eslint-config-akrc": "^0.0.0"
     }
 }

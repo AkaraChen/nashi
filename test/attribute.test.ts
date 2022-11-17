@@ -5,7 +5,7 @@ const bindList = {
     class: 'className',
     html: 'innerHTML',
     id: 'id',
-    text: 'innerText',
+    text: 'innerText'
 };
 
 for (const key of Object.keys(bindList)) {
