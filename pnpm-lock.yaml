@@ -10,7 +10,7 @@ specifiers:
   esbuild: ^0.15.13
   eslint: ^8.27.0
   eslint-config-airbnb-base: ^15.0.0
-  eslint-config-akrc: ^0.0.4
+  eslint-config-akrc: ^0.0.5
   eslint-config-prettier: 8.5.0
   eslint-import-resolver-typescript: ^3.5.2
   eslint-plugin-import: ^2.26.0
@@ -39,7 +39,7 @@ devDependencies:
   esbuild: 0.15.13
   eslint: 8.27.0
   eslint-config-airbnb-base: 15.0.0_dcpv4nbdr5ks2h5677xdltrk6e
-  eslint-config-akrc: 0.0.4_3bqlytr2xdyomlreq3rugaiox4
+  eslint-config-akrc: 0.0.5_ph65zdsrgsdkrzjngiplchzkqi
   eslint-config-prettier: 8.5.0_eslint@8.27.0
   eslint-import-resolver-typescript: 3.5.2_dcpv4nbdr5ks2h5677xdltrk6e
   eslint-plugin-import: 2.26.0_bbzxof3vtngyannf3l4jlcflvy
@@ -3200,13 +3200,15 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-config-akrc/0.0.4_3bqlytr2xdyomlreq3rugaiox4:
-    resolution: {integrity: sha512-o1md9yiYPHO+o8GUk55HIBcmrFo7DopO4XNV6khd60XzXx9nkbQZoSz4+DivUUR5N+zJ2JwmvXAntWyNo/FX6g==}
+  /eslint-config-akrc/0.0.5_ph65zdsrgsdkrzjngiplchzkqi:
+    resolution: {integrity: sha512-FaCNPSuQVgYMRPBGD53btUQhWlKOD19jeSODTkfdZcn/zNCLPgyrWVY7LNdrs4P4iwa1wwJCdc6we4Ytma/vOw==}
+    requiresBuild: true
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.43.0_wze2rj5tow7zwqpgbdx2buoy3m
       '@typescript-eslint/parser': 5.43.0_e3uo4sehh4zr4i6m57mkkxxv7y
       eslint: 8.27.0
       eslint-config-airbnb-base: 15.0.0_dcpv4nbdr5ks2h5677xdltrk6e
+      eslint-config-prettier: 8.5.0_eslint@8.27.0
       eslint-plugin-import: 2.26.0_bbzxof3vtngyannf3l4jlcflvy
       eslint-plugin-node: 11.1.0_eslint@8.27.0
       eslint-plugin-prettier: 4.2.1_v7o5sx5x3wbs57ifz6wc4f76we
@@ -3217,7 +3219,6 @@ packages:
       typescript: 4.9.3
       vue-eslint-parser: 9.1.0_eslint@8.27.0
     transitivePeerDependencies:
-      - eslint-config-prettier
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color

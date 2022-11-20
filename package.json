@@ -27,7 +27,7 @@
         "esbuild": "^0.15.13",
         "eslint": "^8.27.0",
         "eslint-config-airbnb-base": "^15.0.0",
-        "eslint-config-akrc": "^0.0.4",
+        "eslint-config-akrc": "^0.0.5",
         "eslint-config-prettier": "8.5.0",
         "eslint-import-resolver-typescript": "^3.5.2",
         "eslint-plugin-import": "^2.26.0",
