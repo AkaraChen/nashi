@@ -8,7 +8,7 @@ title: Introduction
 
 ## Feature
 
-🪶 Lightweight: No dependency
+🦄 Lightweight: No dependency
 
 💪 Type definition included: Type is the best document
 
