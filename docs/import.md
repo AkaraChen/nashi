@@ -42,7 +42,7 @@ Then you can import nashi in following code:
 import nashi from '@akrc/nashi';
 ```
 
-If you don't have a bundler, you can import it via CDN like [jsDelivr](https://esm.run/@akrc/nashi) or [esm.sh](https://esm.sh/@akrc/nashi@0.1.2):
+If you don't have a bundler, you can import it via CDN like [jsDelivr](https://esm.run/@akrc/nashi) or [esm.sh](https://esm.sh/@akrc/nashi):
 
 ```html
 <script type="module">
@@ -55,7 +55,7 @@ If you don't have a bundler, you can import it via CDN like [jsDelivr](https://e
 Just add a script in your HTML files:
 
 ```html
-<script src="https://unpkg.com/@akrc/nashi@0.1.2/dist/legacy.js"></script>
+<script src="https://unpkg.com/@akrc/nashi@latest/dist/legacy.js"></script>
 ```
 
 The IIFE version of nashi supports ES5, so the bundle size is 3 times larger than others, so if you can import with ESM, it's best to use ESM.

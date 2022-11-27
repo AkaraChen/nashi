@@ -41,7 +41,7 @@ npm install @akrc/nashi
 import nashi from '@akrc/nashi';
 ```
 
-如果你没有使用打包器，你可以考虑从 [jsDelivr](https://esm.run/@akrc/nashi) 或 [esm.sh](https://esm.sh/@akrc/nashi@0.1.2) 这样的 CDN 来导入:
+如果你没有使用打包器，你可以考虑从 [jsDelivr](https://esm.run/@akrc/nashi) 或 [esm.sh](https://esm.sh/@akrc/nashi) 这样的 CDN 来导入:
 
 ```html
 <script type="module">
@@ -54,7 +54,7 @@ import nashi from '@akrc/nashi';
 只需要在 HTML 里添加如下标签。
 
 ```html
-<script src="https://unpkg.com/@akrc/nashi@0.1.2/dist/legacy.js"></script>
+<script src="https://unpkg.com/@akrc/nashi@latest/dist/legacy.js"></script>
 ```
 
 IIFE 版本的 Nashi 支持 ES5，所以打包大小是其他版本的三倍，因此如果有条件，应尽量使用 ESM。
