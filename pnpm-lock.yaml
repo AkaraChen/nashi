@@ -10,7 +10,7 @@ specifiers:
   esbuild: ^0.15.13
   eslint: ^8.27.0
   eslint-config-airbnb-base: ^15.0.0
-  eslint-config-akrc: ^0.0.7
+  eslint-config-akrc: ^0.0.8
   eslint-config-prettier: 8.5.0
   eslint-import-resolver-typescript: ^3.5.2
   eslint-plugin-import: ^2.26.0
@@ -39,7 +39,7 @@ devDependencies:
   esbuild: 0.15.13
   eslint: 8.27.0
   eslint-config-airbnb-base: 15.0.0_dcpv4nbdr5ks2h5677xdltrk6e
-  eslint-config-akrc: 0.0.7_ph65zdsrgsdkrzjngiplchzkqi
+  eslint-config-akrc: 0.0.8_ph65zdsrgsdkrzjngiplchzkqi
   eslint-config-prettier: 8.5.0_eslint@8.27.0
   eslint-import-resolver-typescript: 3.5.2_dcpv4nbdr5ks2h5677xdltrk6e
   eslint-plugin-import: 2.26.0_y56l4pnry7jttwyb6ddxwucvse
@@ -1222,6 +1222,16 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@eslint-community/eslint-utils/4.1.2_eslint@8.28.0:
+    resolution: {integrity: sha512-7qELuQWWjVDdVsFQ5+beUl+KPczrEDA7S3zM4QUd/bJl7oXgsmpXaEVqrRTnOBqenOV4rWf2kVZk2Ot085zPWA==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+    dependencies:
+      eslint: 8.28.0
+      eslint-visitor-keys: 3.3.0
+    dev: true
 
   /@eslint/eslintrc/1.3.3:
     resolution: {integrity: sha512-uj3pT6Mg+3t39fvLrj8iuCIJ38zKO9FpGtJ4BBJebJhEwjoT+KLVNCcHT5QC9NGRIEi7fZ0ZR8YRb884auB4Lg==}
@@ -3313,8 +3323,8 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-config-akrc/0.0.7_ph65zdsrgsdkrzjngiplchzkqi:
-    resolution: {integrity: sha512-Fkd00Gf2pZkvO4Tn8EvEP3W2DKzfCFcpoT61dYQEe/3n0iQcWbuAlwXVw75oTsrGZx3XR3LLGAXNeg3VzDcEyw==}
+  /eslint-config-akrc/0.0.8_ph65zdsrgsdkrzjngiplchzkqi:
+    resolution: {integrity: sha512-RChYdPEyloK+naoOZFIMS+ihY2tsIw1rsWoiUPp03wlYtEnWXhM4DM9SAdvUiJe97uJSbvieZOpM0IAJTBxyDg==}
     requiresBuild: true
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.45.0_czs5uoqkd3podpy6vgtsxfc7au
@@ -3324,8 +3334,8 @@ packages:
       eslint-plugin-import: 2.26.0_xmouedd5rhgbah4737x2hltudq
       eslint-plugin-node: 11.1.0_eslint@8.28.0
       eslint-plugin-react: 7.31.11_eslint@8.28.0
-      eslint-plugin-unicorn: 44.0.2_eslint@8.28.0
-      eslint-plugin-vue: 9.7.0_eslint@8.28.0
+      eslint-plugin-unicorn: 45.0.1_eslint@8.28.0
+      eslint-plugin-vue: 9.8.0_eslint@8.28.0
       typescript: 4.9.3
       vue-eslint-parser: 9.1.0_eslint@8.28.0
     transitivePeerDependencies:
@@ -3561,29 +3571,6 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-unicorn/44.0.2_eslint@8.28.0:
-    resolution: {integrity: sha512-GLIDX1wmeEqpGaKcnMcqRvMVsoabeF0Ton0EX4Th5u6Kmf7RM9WBl705AXFEsns56ESkEs0uyelLuUTvz9Tr0w==}
-    engines: {node: '>=14.18'}
-    peerDependencies:
-      eslint: '>=8.23.1'
-    dependencies:
-      '@babel/helper-validator-identifier': 7.19.1
-      ci-info: 3.6.1
-      clean-regexp: 1.0.0
-      eslint: 8.28.0
-      eslint-utils: 3.0.0_eslint@8.28.0
-      esquery: 1.4.0
-      indent-string: 4.0.0
-      is-builtin-module: 3.2.0
-      lodash: 4.17.21
-      pluralize: 8.0.0
-      read-pkg-up: 7.0.1
-      regexp-tree: 0.1.24
-      safe-regex: 2.1.1
-      semver: 7.3.8
-      strip-indent: 3.0.0
-    dev: true
-
   /eslint-plugin-unicorn/45.0.0_eslint@8.27.0:
     resolution: {integrity: sha512-iP8cMRxXKHonKioOhnCoCcqVhoqhAp6rB+nsoLjXFDxTHz3btWMAp8xwzjHA0B1K6YV/U/Yvqn1bUXZt8sJPuQ==}
     engines: {node: '>=14.18'}
@@ -3609,8 +3596,33 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
-  /eslint-plugin-vue/9.7.0_eslint@8.28.0:
-    resolution: {integrity: sha512-DrOO3WZCZEwcLsnd3ohFwqCoipGRSTKTBTnLwdhqAbYZtzWl0o7D+D8ZhlmiZvABKTEl8AFsqH1GHGdybyoQmw==}
+  /eslint-plugin-unicorn/45.0.1_eslint@8.28.0:
+    resolution: {integrity: sha512-tLnIw5oDJJc3ILYtlKtqOxPP64FZLTkZkgeuoN6e7x6zw+rhBjOxyvq2c7577LGxXuIhBYrwisZuKNqOOHp3BA==}
+    engines: {node: '>=14.18'}
+    peerDependencies:
+      eslint: '>=8.28.0'
+    dependencies:
+      '@babel/helper-validator-identifier': 7.19.1
+      '@eslint-community/eslint-utils': 4.1.2_eslint@8.28.0
+      ci-info: 3.6.1
+      clean-regexp: 1.0.0
+      eslint: 8.28.0
+      esquery: 1.4.0
+      indent-string: 4.0.0
+      is-builtin-module: 3.2.0
+      jsesc: 3.0.2
+      lodash: 4.17.21
+      pluralize: 8.0.0
+      read-pkg-up: 7.0.1
+      regexp-tree: 0.1.24
+      regjsparser: 0.9.1
+      safe-regex: 2.1.1
+      semver: 7.3.8
+      strip-indent: 3.0.0
+    dev: true
+
+  /eslint-plugin-vue/9.8.0_eslint@8.28.0:
+    resolution: {integrity: sha512-E/AXwcTzunyzM83C2QqDHxepMzvI2y6x+mmeYHbVDQlKFqmKYvRrhaVixEeeG27uI44p9oKDFiyCRw4XxgtfHA==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
