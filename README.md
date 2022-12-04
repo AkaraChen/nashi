@@ -47,3 +47,7 @@ body.firstChild(p);
 ```
 
 And see [documention](https://nashi.akr.moe)
+
+## Community
+
+See [Nashi awesome](https://github.com/akarachen/awesome-nashi)
