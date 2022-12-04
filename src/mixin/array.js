@@ -12,9 +12,9 @@ function* iterator() {
     }
 }
 
-mixin('forEach', forEach);
+mixin('forEach', () => forEach);
 
-mixin('each', forEach);
+mixin('each', () => forEach);
 
 mixin('Symbol(Symbol.iterator)', function () {
     return iterator;

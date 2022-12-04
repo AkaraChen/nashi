@@ -20,3 +20,14 @@ test('init', () => {
     }
     expect(count).toBe(5);
 });
+
+test('array', () => {
+    const p = nashi('p');
+    p.text('0');
+    p.each((item, index) => {
+        item.text(String(index));
+    });
+    p.each((item, index) => {
+        expect(item.text()).toBe(String(index));
+    });
+});
