@@ -24,7 +24,7 @@
         "@typescript-eslint/eslint-plugin": "5.45.1",
         "@typescript-eslint/parser": "5.45.1",
         "@vuepress/client": "2.0.0-beta.53",
-        "esbuild": "^0.15.13",
+        "esbuild": "^0.16.0",
         "eslint": "^8.27.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-akrc": "^0.0.8",
