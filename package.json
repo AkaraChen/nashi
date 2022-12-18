@@ -27,7 +27,7 @@
         "@vuepress/client": "2.0.0-beta.50-pre.1",
         "esbuild": "^0.16.7",
         "eslint": "^8.29.0",
-        "eslint-config-akrc": "^0.0.9",
+        "eslint-config-akrc": "^0.0.10",
         "happy-dom": "^8.1.0",
         "husky": "8.0.2",
         "rollup": "^3.7.4",
