@@ -9,7 +9,7 @@ specifiers:
   '@vuepress/client': 2.0.0-beta.50-pre.1
   esbuild: ^0.16.7
   eslint: ^8.29.0
-  eslint-config-akrc: ^0.0.10
+  eslint-config-akrc: ^0.0.11
   happy-dom: ^8.1.0
   husky: 8.0.2
   rollup: ^3.7.4
@@ -32,7 +32,7 @@ devDependencies:
   '@vuepress/client': 2.0.0-beta.50-pre.1
   esbuild: 0.16.7
   eslint: 8.29.0
-  eslint-config-akrc: 0.0.10
+  eslint-config-akrc: 0.0.11
   happy-dom: 8.1.0
   husky: 8.0.2
   rollup: 3.7.4
@@ -3497,8 +3497,8 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-config-akrc/0.0.10:
-    resolution: {integrity: sha512-G/Gc+YchTG+IGCWRny6aabH9+5xTijTDNLYj460rPGPRDA0bGvoRc9x6IZPjAgLZojrQCiIwkHCp4rQ0binBWg==}
+  /eslint-config-akrc/0.0.11:
+    resolution: {integrity: sha512-Yt3D9nG8A3EFiAufCEsPUet/fGvWEko777C0Ra6WyShXGf/DdP3icjXj2Btr3UCvn8Gnfeyw3OYo1sLR9K0SUw==}
     requiresBuild: true
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.47.0_ncmi6noazr3nzas7jxykisekym
