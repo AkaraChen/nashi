@@ -9,6 +9,10 @@ class QueryResult {
 
     node = [];
 
+    get instance() {
+        return this.node[0];
+    }
+
     constructor(arguments_) {
         switch (typeof arguments_) {
         case 'undefined': {
