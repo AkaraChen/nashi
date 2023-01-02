@@ -18,6 +18,7 @@ export type Core = {
 export type QueryResult = {
     node: HTMLElement[];
 
+   instance: HTMLElement;
     // Mixins
 
     [Symbol.iterator](): IterableIterator<QueryResult>;
@@ -209,12 +210,13 @@ export type QueryResult = {
     wrap(tag: string): QueryResult;
     unwrap(): QueryResult;
     tag(): string;
+    setStyles(value:CSSStyleDeclaration): QueryResult;
+    openExtendStyle(value: boolean): QueryResult;
+    extendStyles(instance: HTMLElement | QueryResultExtendStyle): QueryResult;
+} & QueryResultExtendStyle<true>;
 
-    // Style Alias
-    display(): string;
-    display(value: string): QueryResult;
-    bgColor(): string;
-    bgColor(value: string): QueryResult;
+type QueryResultExtendStyle<T extends Parameters<QueryResult['openExtendStyle']>['0']> = {
+    [key in keyof CSSStyleDeclaration]: T extends true ? (value: CSSStyleDeclaration[key]) => QueryResult : never;
 };
 
 declare const core: Core;
