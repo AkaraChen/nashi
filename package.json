@@ -24,7 +24,7 @@
         "@rollup/plugin-babel": "^6.0.3",
         "@typescript-eslint/eslint-plugin": "5.47.1",
         "@typescript-eslint/parser": "5.47.1",
-        "@vuepress/client": "2.0.0-beta.59",
+        "@vuepress/client": "2.0.0-beta.50-pre.1",
         "esbuild": "^0.16.12",
         "eslint": "^8.31.0",
         "eslint-config-akrc": "^1.0.0",

@@ -6,7 +6,7 @@ specifiers:
   '@rollup/plugin-babel': ^6.0.3
   '@typescript-eslint/eslint-plugin': 5.47.1
   '@typescript-eslint/parser': 5.47.1
-  '@vuepress/client': 2.0.0-beta.59
+  '@vuepress/client': 2.0.0-beta.50-pre.1
   esbuild: ^0.16.12
   eslint: ^8.31.0
   eslint-config-akrc: ^1.0.0
@@ -29,7 +29,7 @@ devDependencies:
   '@rollup/plugin-babel': 6.0.3_reuzow2s3jnfjeviq3lgj55fky
   '@typescript-eslint/eslint-plugin': 5.47.1_axni7f4fgvh6tlufnh6hwgsifq
   '@typescript-eslint/parser': 5.47.1_iukboom6ndih5an6iafl45j2fe
-  '@vuepress/client': 2.0.0-beta.59
+  '@vuepress/client': 2.0.0-beta.50-pre.1
   esbuild: 0.16.12
   eslint: 8.31.0
   eslint-config-akrc: 1.0.0
@@ -44,7 +44,7 @@ devDependencies:
   vite: 4.0.3
   vitest: 0.26.3_happy-dom@8.1.1
   vue: 3.2.45
-  vuepress: 2.0.0-beta.59_zuhh5cekyzsqox63zj3ccba2ny
+  vuepress: 2.0.0-beta.59_ooqkta366kjalpndtbuxjqwzba
 
 packages:
 
@@ -2139,6 +2139,15 @@ packages:
       - supports-color
     dev: true
 
+  /@vuepress/client/2.0.0-beta.50-pre.1:
+    resolution: {integrity: sha512-uhN/LTwCcVLnQjDnrEDMaiPT2bi4mQrvwdtwURnrSZ7dCIgXQ+DMKP1v6+f2vgAlrw3FLnPd97yd3V7lrQs8Ow==}
+    dependencies:
+      '@vue/devtools-api': 6.4.5
+      '@vuepress/shared': 2.0.0-beta.50-pre.1
+      vue: 3.2.45
+      vue-router: 4.1.6_vue@3.2.45
+    dev: true
+
   /@vuepress/client/2.0.0-beta.59:
     resolution: {integrity: sha512-Bnq3vMsinQi8reerqcJkOLs7kPL61qnb1sBkPhvKMJhHWb7xxMA4DXd08AbA3MGjXNWUyXgq7iEuhxC28GQSSA==}
     dependencies:
@@ -2299,6 +2308,12 @@ packages:
       vue: 3.2.45
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@vuepress/shared/2.0.0-beta.50-pre.1:
+    resolution: {integrity: sha512-Gk6ikIV2V8LMokc+H/juH+kBOigo38Woup42Q2pmmWqmlwdLqbUcCYZSt/z+opeOUAqC9s3CZnKR8xCw+qo8BQ==}
+    dependencies:
+      '@vue/shared': 3.2.45
     dev: true
 
   /@vuepress/shared/2.0.0-beta.59:
@@ -6749,7 +6764,7 @@ packages:
       '@vue/shared': 3.2.45
     dev: true
 
-  /vuepress-vite/2.0.0-beta.59_zuhh5cekyzsqox63zj3ccba2ny:
+  /vuepress-vite/2.0.0-beta.59_ooqkta366kjalpndtbuxjqwzba:
     resolution: {integrity: sha512-DyUsTkixrvUQjfxUdRv/uNotrQeOxVQisk6Szo0ukvZQGpet9/aMqAmYFwJy8Xd1od30f+h4M9KNhBM8N9sm1g==}
     hasBin: true
     peerDependencies:
@@ -6758,7 +6773,7 @@ packages:
     dependencies:
       '@vuepress/bundler-vite': 2.0.0-beta.59
       '@vuepress/cli': 2.0.0-beta.59
-      '@vuepress/client': 2.0.0-beta.59
+      '@vuepress/client': 2.0.0-beta.50-pre.1
       '@vuepress/core': 2.0.0-beta.59
       '@vuepress/theme-default': 2.0.0-beta.59
       vue: 3.2.45
@@ -6775,11 +6790,11 @@ packages:
       - ts-node
     dev: true
 
-  /vuepress/2.0.0-beta.59_zuhh5cekyzsqox63zj3ccba2ny:
+  /vuepress/2.0.0-beta.59_ooqkta366kjalpndtbuxjqwzba:
     resolution: {integrity: sha512-ggFuq1jKVwF1f0PK5SR3mAi34PHDLvNDiNbC1Qw5XZR7qs9ryutsbFUkfpa9R4rnGnw0uoohiyE4itANWVcvtw==}
     hasBin: true
     dependencies:
-      vuepress-vite: 2.0.0-beta.59_zuhh5cekyzsqox63zj3ccba2ny
+      vuepress-vite: 2.0.0-beta.59_ooqkta366kjalpndtbuxjqwzba
     transitivePeerDependencies:
       - '@types/node'
       - '@vue/composition-api'
