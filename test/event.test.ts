@@ -84,6 +84,6 @@ test('custom event', () => {
     n.event('test', event => {
         count = event.detail.value;
     });
-    n.trigger(new CustomEvent('test', {detail: {value: count + 1}}));
+    n.trigger(new CustomEvent('test', { detail: { value: count + 1 } }));
     expect(count).toBe(1);
 });

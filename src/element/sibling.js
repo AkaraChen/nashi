@@ -1,4 +1,4 @@
-import {extend, proxy} from '../core';
+import { extend, proxy } from '../core';
 
 extend('next', {
     get() {

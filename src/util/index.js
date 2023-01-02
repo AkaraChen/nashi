@@ -1,4 +1,4 @@
-import {proxy, util} from '../core';
+import { proxy, util } from '../core';
 
 util('create', tag => proxy(document.createElement(tag)));
 

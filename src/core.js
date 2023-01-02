@@ -72,7 +72,7 @@ export const proxy = argument => {
                 const info = QueryResult.info[property];
                 return new Proxy(new Function(), {
                     apply(_target, _thisArgument, argumentsList) {
-                        const {length} = argumentsList;
+                        const { length } = argumentsList;
                         if (length === info.get) {
                             if (queryResult.node[0]) {
                                 return QueryResult.get[property].apply(
@@ -104,8 +104,8 @@ export const proxy = argument => {
     });
 };
 
-export const extend = (key, {get, set}) => {
-    const info = {get: -1, set: -1};
+export const extend = (key, { get, set }) => {
+    const info = { get: -1, set: -1 };
 
     if (set) {
         QueryResult.set[key] = set;

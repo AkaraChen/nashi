@@ -5,4 +5,4 @@ import './mixin';
 import './util';
 import './element';
 
-export {core as default} from './core';
+export { core as default } from './core';

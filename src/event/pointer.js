@@ -1,4 +1,4 @@
-import {event} from './util';
+import { event } from './util';
 
 event('click');
 event('contextmenu');

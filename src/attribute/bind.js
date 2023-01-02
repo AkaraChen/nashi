@@ -1,4 +1,4 @@
-import {bind} from '../core';
+import { bind } from '../core';
 
 bind('text', 'textContent');
 bind('class', 'className');

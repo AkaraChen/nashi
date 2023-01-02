@@ -1,4 +1,4 @@
-import {mixin, proxy} from '../core';
+import { mixin, proxy } from '../core';
 
 function forEach(handler) {
     for (const [index, item] of this.node.entries()) {

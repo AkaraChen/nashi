@@ -1,5 +1,5 @@
-import {convertBoolean} from './util';
-import {extend} from '../core';
+import { convertBoolean } from './util';
+import { extend } from '../core';
 
 extend('show', {
     set() {
