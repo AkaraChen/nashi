@@ -1,3 +1,5 @@
+import { extend } from '../core';
+
 export function formatCSSKey(key) {
     const indexs = [];
     let position = key.indexOf('-');
@@ -12,4 +14,15 @@ export function formatCSSKey(key) {
         array[index + 1] = array[index + 1].toUpperCase();
     }
     return array.join('').replaceAll(' ', '');
+}
+
+export function styleAlias(name, property = name) {
+    extend(name, {
+        get() {
+            return getComputedStyle(this)[property];
+        },
+        set(value) {
+            this.style[property] = value;
+        }
+    });
 }

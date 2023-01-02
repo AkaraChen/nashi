@@ -209,6 +209,12 @@ export type QueryResult = {
     wrap(tag: string): QueryResult;
     unwrap(): QueryResult;
     tag(): string;
+
+    // Style Alias
+    display(): string;
+    display(value: string): QueryResult;
+    bgColor(): string;
+    bgColor(value: string): QueryResult
 };
 
 declare const core: Core;
