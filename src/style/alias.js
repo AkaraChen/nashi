@@ -2,21 +2,26 @@ import { extend } from '../core';
 import { styleAlias } from './util';
 extend('openExtendStyle', {
     get() {
-        return this.openExtendStyle || false;
+        console.error('You can\'t get the value of openExtendStyle, Please set a boolean value');
     },
-    set(flog) {
-        if (flog) {
+    set(flog, next) {
+        if (flog && this.isOpenExtendStyle) {
+            this.isOpenExtendStyle = true;
+            return next();
+        } if (flog && !this.isOpenExtendStyle) {
+            this.isOpenExtendStyle = true;
             for (const key in this.style) {
                 if (Object.prototype.hasOwnProperty.call(this.style, key)) {
                     styleAlias(key);
                 }
             }
+        } else if (this.isOpenExtendStyle && !flog) {
+            this.isOpenExtendStyle = false;
+            return next();
         } else {
-            for (const key in this.style) {
-                if (Object.prototype.hasOwnProperty.call(this.style, key)) {
-                    delete this[key];
-                }
-            }
+            console.warn('Not Opening Extend Style');
+            this.isOpenExtendStyle = false;
+            return next();
         }
     }
 });
