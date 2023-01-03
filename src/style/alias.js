@@ -5,22 +5,23 @@ extend('openExtendStyle', {
         console.error('You can\'t get the value of openExtendStyle, Please set a boolean value');
     },
     set(flog, next = null) {
+        const nashiInstance = next();
         if (flog && this.isOpenExtendStyle) {
-            this.isOpenExtendStyle = true;
+            nashiInstance.isOpenExtendStyle = true;
             return next();
         } if (flog && !this.isOpenExtendStyle) {
-            this.isOpenExtendStyle = true;
+            nashiInstance.isOpenExtendStyle = true;
             for (const key in this.style) {
                 if (Object.prototype.hasOwnProperty.call(this.style, key)) {
                     styleAlias(key);
                 }
             }
         } else if (this.isOpenExtendStyle && !flog) {
-            this.isOpenExtendStyle = false;
+            nashiInstance.isOpenExtendStyle = false;
             return next();
         } else {
             console.warn('Not Opening Extend Style');
-            this.isOpenExtendStyle = false;
+            nashiInstance.isOpenExtendStyle = false;
             return next();
         }
     }

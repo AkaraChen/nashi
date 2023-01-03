@@ -21,8 +21,9 @@ export function styleAlias(name, property = name) {
         get() {
             return getComputedStyle(this)[property];
         },
-        set(value) {
-            if (this.isOpenExtendStyle) {
+        set(value, next = null) {
+            const nashiInstance = next();
+            if (nashiInstance.isOpenExtendStyle) {
                 this.style[property] = value;
             } else {
                 console.error('Extend Style is not open');
