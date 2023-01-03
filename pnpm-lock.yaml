@@ -11,7 +11,7 @@ specifiers:
   eslint: ^8.31.0
   eslint-config-akrc: ^1.0.0
   happy-dom: ^8.1.1
-  husky: 8.0.2
+  husky: 8.0.3
   rollup: ^3.9.0
   rollup-plugin-copy: ^3.4.0
   rollup-plugin-esbuild: ^5.0.0
@@ -34,7 +34,7 @@ devDependencies:
   eslint: 8.31.0
   eslint-config-akrc: 1.0.0
   happy-dom: 8.1.1
-  husky: 8.0.2
+  husky: 8.0.3
   rollup: 3.9.0
   rollup-plugin-copy: 3.4.0
   rollup-plugin-esbuild: 5.0.0_y373bxzhxrh563zoydfean2qqi
@@ -4174,8 +4174,8 @@ packages:
       ms: 2.1.3
     dev: true
 
-  /husky/8.0.2:
-    resolution: {integrity: sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==}
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
