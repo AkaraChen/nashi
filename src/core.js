@@ -44,9 +44,15 @@ class QueryResult {
     }
 }
 
+function initQueryResult(payloads, queryResult) {
+    for (const { key, args } of payloads) {
+        queryResult[key].apply(queryResult, args);
+    }
+}
+
 export const proxy = argument => {
     const queryResult = new QueryResult(argument);
-    return new Proxy(queryResult, {
+    const newProxy = new Proxy(queryResult, {
         get: (target, property, receiver) => {
             const globalReceiver = receiver;
 
@@ -76,7 +82,10 @@ export const proxy = argument => {
                 const info = QueryResult.info[property];
                 return new Proxy(new Function(), {
                     apply(_target, _thisArgument, argumentsList) {
-                        const { length } = argumentsList;
+                        let { length } = argumentsList;
+                        argumentsList.push(() => {
+                            return globalReceiver;
+                        });
                         if (length === info.get) {
                             if (queryResult.node[0]) {
                                 return QueryResult.get[property].apply(
@@ -86,10 +95,7 @@ export const proxy = argument => {
                             }
                         } else if (length === info.set) {
                             for (const item of queryResult.node) {
-                                QueryResult.set[property].apply(
-                                    item,
-                                    argumentsList
-                                );
+                                QueryResult.set[property].apply(item, argumentsList);
                             }
                             return globalReceiver;
                         } else {
@@ -98,7 +104,6 @@ export const proxy = argument => {
                     }
                 });
             }
-
             if (Reflect.has(queryResult, property)) {
                 return Reflect.get(queryResult, property);
             }
@@ -106,6 +111,13 @@ export const proxy = argument => {
             console.warn('Unknown props');
         }
     });
+    initQueryResult(
+        [
+            { key: 'openExtendStyle', args: [true] }
+        ],
+        newProxy
+    );
+    return newProxy;
 };
 
 export const extend = (key, { get, set }) => {
