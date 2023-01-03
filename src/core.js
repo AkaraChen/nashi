@@ -83,30 +83,19 @@ export const proxy = argument => {
                 return new Proxy(new Function(), {
                     apply(_target, _thisArgument, argumentsList) {
                         let { length } = argumentsList;
-                        if (QueryResult.set[property]) {
-                            const parameters = QueryResult.set[property].toString().match(/\(([^)]*)\)/)[1].split(',');
-                            const hasNext = parameters?.at(-1).trim() === 'next';
-                            if (hasNext) {
-                                length += 1;
-                            }
-                        }
+                        argumentsList.push(() => {
+                            return globalReceiver;
+                        });
                         if (length === info.get) {
                             if (queryResult.node[0]) {
                                 return QueryResult.get[property].apply(
                                     queryResult.node[0],
-                                    [...argumentsList, () => {
-                                        return globalReceiver;
-                                    }]
+                                    argumentsList
                                 );
                             }
                         } else if (length === info.set) {
                             for (const item of queryResult.node) {
-                                QueryResult.set[property].apply(
-                                    item,
-                                    [...argumentsList, () => {
-                                        return globalReceiver;
-                                    }]
-                                );
+                                QueryResult.set[property].apply(item, argumentsList);
                             }
                             return globalReceiver;
                         } else {
@@ -115,7 +104,6 @@ export const proxy = argument => {
                     }
                 });
             }
-
             if (Reflect.has(queryResult, property)) {
                 return Reflect.get(queryResult, property);
             }
@@ -129,9 +117,6 @@ export const proxy = argument => {
         ],
         newProxy
     );
-    queryResult.node[0].next = () => {
-        return Object.freeze(newProxy);
-    };
     return newProxy;
 };
 
@@ -140,12 +125,6 @@ export const extend = (key, { get, set }) => {
 
     if (set) {
         QueryResult.set[key] = set;
-        // 正则 匹配函数的参数
-        // const parameters = info.set.toString().match(/\(([^)]*)\)/)[1].split(',');
-        // const hasNext = parameters.at(-1) === 'next';
-        // if (hasNext) {
-        // length -= 1;
-        // }
         info.set = set.length;
     }
 

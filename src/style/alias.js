@@ -4,7 +4,7 @@ extend('openExtendStyle', {
     get() {
         console.error('You can\'t get the value of openExtendStyle, Please set a boolean value');
     },
-    set(flog, next) {
+    set(flog, next = null) {
         if (flog && this.isOpenExtendStyle) {
             this.isOpenExtendStyle = true;
             return next();
