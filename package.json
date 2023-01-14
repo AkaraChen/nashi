@@ -25,7 +25,7 @@
         "@typescript-eslint/eslint-plugin": "5.48.1",
         "@typescript-eslint/parser": "5.48.1",
         "@vuepress/client": "2.0.0-beta.59",
-        "esbuild": "^0.16.12",
+        "esbuild": "^0.17.0",
         "eslint": "^8.31.0",
         "eslint-config-akrc": "^1.0.0",
         "happy-dom": "^8.1.1",
