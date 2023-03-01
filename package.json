@@ -34,7 +34,7 @@
         "rollup-plugin-copy": "^3.4.0",
         "rollup-plugin-esbuild": "^5.0.0",
         "rollup-plugin-filesize": "^9.1.2",
-        "taze": "^0.8.5",
+        "taze": "^0.9.0",
         "typescript": "4.9.5",
         "vite": "^4.0.3",
         "vitest": "0.29.1",
