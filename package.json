@@ -35,7 +35,7 @@
         "rollup-plugin-esbuild": "^5.0.0",
         "rollup-plugin-filesize": "^10.0.0",
         "taze": "^0.9.0",
-        "typescript": "5.0.2",
+        "typescript": "5.1.6",
         "vite": "^4.0.3",
         "vitest": "0.29.3",
         "vue": "^3.2.45",
