@@ -28,7 +28,7 @@
         "esbuild": "^0.17.0",
         "eslint": "^8.31.0",
         "eslint-config-akrc": "^1.0.0",
-        "happy-dom": "^8.1.1",
+        "happy-dom": "^10.0.0",
         "husky": "8.0.3",
         "rollup": "^3.9.0",
         "rollup-plugin-copy": "^3.4.0",
