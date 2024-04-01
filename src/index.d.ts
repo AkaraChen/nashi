@@ -18,7 +18,6 @@ export type Core = {
 export type QueryResult = {
     node: HTMLElement[];
 
-   instance: HTMLElement;
     // Mixins
 
     [Symbol.iterator](): IterableIterator<QueryResult>;
