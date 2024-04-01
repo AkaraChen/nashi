@@ -22,11 +22,7 @@ export function styleAlias(name, property = name) {
             return getComputedStyle(this)[property];
         },
         set(value) {
-            if (this.isOpenExtendStyle) {
-                this.style[property] = value;
-            } else {
-                console.error('Extend Style is not open');
-            }
+            this.style[property] = value;
         }
     });
 }
